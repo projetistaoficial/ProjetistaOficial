@@ -100,7 +100,7 @@
                 estoque, cálculo de frete e painel administrativo.
             </p>
 
-            <div class="flex flex-col sm:flex-row gap-4 mb-2 lg:mb-0 relative z-20">
+            <div class="flex flex-col sm:flex-row gap-4 mb-6">
                 <a href="#formulario"
                     class="bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-sm uppercase px-8 py-4 rounded-lg transition text-center shadow-[0_0_15px_rgba(234,179,8,0.3)]">
                     Criar meu catálogo
@@ -112,74 +112,76 @@
                 </a>
             </div>
 
-            <div class="w-full flex justify-center md:justify-start md:-ml-6 lg:-ml-10 md:-mt-4 lg:-mt-8 relative z-10 pointer-events-none">
+            <!-- ESPAÇO PARA A IMAGEM -->
+            <div class="w-full flex justify-center md:justify-start">
                 <img src="imgs/Bloco1/tudoCentral.png" alt="Catálogos Projetista em todos os dispositivos"
-                    class="w-full md:w-[115%] lg:w-[110%] max-w-2xl drop-shadow-2xl hover:scale-105 transition-transform duration-500 origin-left pointer-events-auto">
+                    class="w-full md:w-[115%] lg:w-[110%] max-w-2xl drop-shadow-2xl hover:scale-105 transition-transform duration-500 origin-left">
             </div>
         </div>
 
         <!-- Lado Direito: Formulário com Borda Degradê -->
-        <div id="formulario" class="relative p-1 rounded-2xl bg-gradient-to-br from-brand-pink via-brand-blue to-brand-green shadow-2xl">
-    <div class="bg-brand-formbg p-8 rounded-xl h-full">
-        <form id="lead-form" class="space-y-4 text-sm">
-            <div>
-                <label class="text-brand-pink font-bold mb-1 block">Seu Nome:</label>
-                <input type="text" id="lead-nome" required placeholder="Ex: João da Silva"
-                    class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-blue outline-none transition placeholder-gray-600">
-            </div>
-            <div>
-                <label class="text-brand-blue font-bold mb-1 block">Empresa / Loja:</label>
-                <input type="text" id="lead-loja" required placeholder="Ex: Veste Manto"
-                    class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-pink outline-none transition placeholder-gray-600">
-            </div>
-            <div>
-                <label class="text-brand-darkpink font-bold mb-1 block">Email:</label>
-                <input type="email" id="lead-email" required placeholder="contato@sualoja.com.br"
-                    class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-blue outline-none transition placeholder-gray-600">
-            </div>
-            <div>
-                <label class="text-brand-darkblue font-bold mb-1 block">WhatsApp:</label>
-                <input type="tel" id="lead-wpp" required placeholder="(11) 99999-9999"
-                    class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-pink outline-none transition placeholder-gray-600">
-            </div>
+        <div id="formulario"
+            class="relative p-1 rounded-2xl bg-gradient-to-br from-brand-pink via-brand-blue to-brand-green shadow-2xl">
+            <div class="bg-brand-formbg p-8 rounded-xl h-full">
+                <form id="lead-form" class="space-y-4 text-sm">
+                    <div>
+                        <label class="text-brand-pink font-bold mb-1 block">Seu Nome:</label>
+                        <input type="text" id="lead-nome" required
+                            class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-blue outline-none transition">
+                    </div>
+                    <div>
+                        <label class="text-brand-blue font-bold mb-1 block">Empresa / Loja:</label>
+                        <input type="text" id="lead-loja" required
+                            class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-pink outline-none transition">
+                    </div>
+                    <div>
+                        <label class="text-brand-darkpink font-bold mb-1 block">Email:</label>
+                        <input type="email" id="lead-email" required
+                            class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-blue outline-none transition">
+                    </div>
+                    <div>
+                        <label class="text-brand-darkblue font-bold mb-1 block">WhatsApp:</label>
+                        <input type="tel" id="lead-wpp" required
+                            class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-pink outline-none transition">
+                    </div>
 
-            <!-- CAMPOS: FATURAMENTO E SEGMENTO -->
-            <div>
-                <label class="text-brand-green font-bold mb-1 block">Faturamento Mensal:</label>
-                <select id="lead-faturamento" required
-                    class="w-full bg-brand-dark border border-gray-600 text-white p-2.5 rounded focus:border-brand-green outline-none transition appearance-none">
-                    <option value="" disabled selected>Selecione...</option>
-                    <option value="Não sei">Não sei</option>
-                    <option value="Não tem faturamento">Não tem faturamento</option>
-                    <option value="Menos de 1000">Menos de R$ 1.000</option>
-                    <option value="1001 a 3000">De R$ 1.001 a R$ 3.000</option>
-                    <option value="3001 a 7000">De R$ 3.001 a R$ 7.000</option>
-                    <option value="7001 a 12000">De R$ 7.001 a R$ 12.000</option>
-                    <option value="12001 a 20000">De R$ 12.001 a R$ 20.000</option>
-                    <option value="Acima de 20000">Acima de R$ 20.000</option>
-                </select>
-            </div>
-            <div>
-                <label class="text-brand-blue font-bold mb-1 block">Qual seu Segmento de venda?</label>
-                <select id="lead-segmento" required
-                    class="w-full bg-brand-dark border border-gray-600 text-white p-2.5 rounded focus:border-brand-blue outline-none transition appearance-none">
-                    <option value="" disabled selected>Selecione...</option>
-                    <option value="Roupas">Roupas</option>
-                    <option value="Uso e consumo">Uso e consumo</option>
-                    <option value="Cosmeticos">Cosméticos</option>
-                    <option value="Confeitaria">Confeitaria</option>
-                    <option value="Brinquedos">Brinquedos</option>
-                    <option value="Outro">Outro</option>
-                </select>
-            </div>
+                    <!-- NOVOS CAMPOS: FATURAMENTO E SEGMENTO -->
+                    <div>
+                        <label class="text-brand-green font-bold mb-1 block">Faturamento Mensal:</label>
+                        <select id="lead-faturamento" required
+                            class="w-full bg-brand-dark border border-gray-600 text-white p-2.5 rounded focus:border-brand-green outline-none transition appearance-none">
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="Não sei">Não sei</option>
+                            <option value="Não tem faturamento">Não tem faturamento</option>
+                            <option value="Menos de 1000">Menos de 1000</option>
+                            <option value="1001 a 3000">Entre 1001 a 3000</option>
+                            <option value="3001 a 7000">Entre 3001 a 7000</option>
+                            <option value="7001 a 12000">Entre 7001 a 12000</option>
+                            <option value="12001 a 20000">Entre 12001 a 20000</option>
+                            <option value="Acima de 20000">Acima de 20000</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-brand-blue font-bold mb-1 block">Qual seu Segmento de venda?</label>
+                        <select id="lead-segmento" required
+                            class="w-full bg-brand-dark border border-gray-600 text-white p-2.5 rounded focus:border-brand-blue outline-none transition appearance-none">
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="Roupas">Roupas</option>
+                            <option value="Uso e consumo">Uso e consumo</option>
+                            <option value="Cosmeticos">Cosméticos</option>
+                            <option value="Confeitaria">Confeitaria</option>
+                            <option value="Brinquedos">Brinquedos</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
 
-            <button type="submit" id="btn-submit-lead"
-                class="w-full mt-4 bg-gradient-to-r from-brand-pink to-brand-blue text-white font-extrabold text-lg py-4 rounded-xl shadow-lg hover:opacity-90 transition transform hover:-translate-y-1">
-                Testar Catálogo
-            </button>
-        </form>
-    </div>
-</div>
+                    <button type="submit" id="btn-submit-lead"
+                        class="w-full mt-4 bg-gradient-to-r from-brand-pink to-brand-blue text-white font-extrabold text-lg py-4 rounded-xl shadow-lg hover:opacity-90 transition transform hover:-translate-y-1">
+                        Testar Catálogo
+                    </button>
+                </form>
+            </div>
+        </div>
     </section>
 
     <!-- BLOCO 2: CARROSSEL DE FUNCIONALIDADES (Fundo Branco) -->
@@ -261,8 +263,6 @@
         <p>&copy; 2026 Projetista Oficial. Todos os direitos reservados.</p>
     </footer>
 
-    <script type="module" src="app-lp.js"></script>
-    
     <!-- LÓGICA DO CARROSSEL E FORMULÁRIO -->
     <script>
         // ==========================================

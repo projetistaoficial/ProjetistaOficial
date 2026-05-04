@@ -4,12 +4,12 @@ import { getFirestore, collection, addDoc } from "https://www.gstatic.com/fireba
 
 // COLOQUE SUAS CHAVES DO FIREBASE AQUI
 const firebaseConfig = {
-  apiKey: "AIzaSyD_pZ7lWPQA1OniOJrjTinG2HN5UhjMzbI",
-  authDomain: "vestemanto-app.firebaseapp.com",
-  projectId: "vestemanto-app",
-  storageBucket: "vestemanto-app.appspot.com",
-  messagingSenderId: "340174016008",
-  appId: "1:340174016008:web:301a01750404af8b5a8bbd"
+    apiKey: "SUA_API_KEY",
+    authDomain: "SEU_DOMINIO.firebaseapp.com",
+    projectId: "SEU_PROJECT_ID",
+    storageBucket: "SEU_BUCKET.appspot.com",
+    messagingSenderId: "SEU_SENDER",
+    appId: "SEU_APP_ID"
 };
 
 const app = initializeApp(firebaseConfig);
