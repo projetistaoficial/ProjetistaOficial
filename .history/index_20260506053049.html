@@ -97,6 +97,9 @@
 
     <!-- HEADER / MENU -->
     <nav class="w-full bg-transparent py-4 relative z-50">
+
+        <!-- 🌊 ONDA DE FUNDO SVG (Cobre 100% da largura, com camadas e contraste premium) -->
+        <!-- Colocamos a altura em 150% para a onda "vazar" um pouco para fora do cabeçalho, dando um efeito 3D -->
         <div class="absolute top-0 left-0 w-full h-[150%] z-[-1] overflow-hidden pointer-events-none">
             <svg viewBox="0 0 1440 220" preserveAspectRatio="none" class="w-full h-full drop-shadow-2xl">
                 <!-- Camada 1: Onda secundária (um tom levemente mais claro para dar profundidade) -->
@@ -112,9 +115,8 @@
 
             <div class="flex items-center gap-3">
                 <!-- Logo grande com um leve brilho por trás devido à onda escura -->
-                <a href="#"><img src="imgs/logoProjetista.png" alt="Projetista Oficial"
-                        class="h-16 object-contain transform scale-[2.0] origin-left drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]">
-                </a>
+                <img src="imgs/logoProjetista.png" alt="Projetista Oficial"
+                    class="h-16 object-contain transform scale-[2.0] origin-left drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]">
             </div>
 
             <!-- Tópicos de Desktop -->
@@ -179,6 +181,7 @@
         </div>
     </nav>
 
+    <!-- BLOCO 1: HERO SECTION & FORMULÁRIO (Fundo Escuro) -->
     <!-- Seção Principal -->
     <section class="py-16 px-6 md:px-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
 
@@ -466,6 +469,7 @@
 
             let i = 0;
             let phraseIndex = 0;
+            let isDeleting = false;
 
             const el = document.getElementById('typewriter-text');
             const wrapper = document.getElementById('typewriter-wrapper');
@@ -473,55 +477,49 @@
             function type() {
                 const currentPhrase = phrases[phraseIndex];
 
-                // Quando a frase começa, garante que a fonte está visível e com tamanho original
-                if (i === 0) {
+                if (i === 0 && !isDeleting) {
                     el.style.fontSize = '';
-                    el.style.opacity = '1';
-                    el.style.transition = 'none'; // Evita piscar na primeira letra
                 }
 
-                // Pula as tags HTML inteiras (<br>, <span>, etc.) na hora de digitar
-                if (currentPhrase.charAt(i) === '<') {
-                    while (i < currentPhrase.length && currentPhrase.charAt(i) !== '>') i++;
-                    i++;
+                if (isDeleting) {
+                    if (currentPhrase.charAt(i - 1) === '>') {
+                        while (i > 0 && currentPhrase.charAt(i - 1) !== '<') i--;
+                        i--;
+                    } else {
+                        i--;
+                    }
                 } else {
-                    i++;
+                    if (currentPhrase.charAt(i) === '<') {
+                        while (i < currentPhrase.length && currentPhrase.charAt(i) !== '>') i++;
+                        i++;
+                    } else {
+                        i++;
+                    }
                 }
 
-                // Atualiza o texto na tela com o cursor piscando
                 el.innerHTML = currentPhrase.substring(0, i) + '<span class="cursor-blink text-gray-500 font-light">|</span>';
 
-                // Redução automática se o texto ficar muito grande
+                // O texto agora encolhe muito mais devagar e só se encostar no limite aumentado
                 if (el.scrollHeight > wrapper.clientHeight) {
                     let currentSize = parseFloat(window.getComputedStyle(el).fontSize);
                     el.style.fontSize = (currentSize - 1) + 'px';
                 }
 
-                // 🛑 SE TERMINOU DE DIGITAR A FRASE TODA:
-                if (i >= currentPhrase.length) {
-                    // 1. Espera 3 segundos para o cliente ler
-                    setTimeout(() => {
-                        // 2. Faz o texto sumir suavemente (efeito fade out)
-                        el.style.transition = 'opacity 0.4s ease';
-                        el.style.opacity = '0';
+                let speed = isDeleting ? 25 : 60;
 
-                        // 3. Espera 0.4s (tempo de sumir) e começa a próxima frase do zero
-                        setTimeout(() => {
-                            i = 0;
-                            phraseIndex = (phraseIndex + 1) % phrases.length;
-                            type();
-                        }, 400);
-
-                    }, 3000);
-
-                    return; // Pausa a função aqui, pois os setTimeouts acima já agendaram a volta
+                if (!isDeleting && i >= currentPhrase.length) {
+                    speed = 3000;
+                    isDeleting = true;
+                }
+                else if (isDeleting && i <= 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    speed = 500;
                 }
 
-                // Continua digitando a próxima letra a cada 60 milissegundos
-                setTimeout(type, 60);
+                setTimeout(type, speed);
             }
 
-            // Inicia após meio segundo de o site carregar
             setTimeout(type, 500);
         })();
     </script>

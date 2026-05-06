@@ -28,7 +28,17 @@
         }
     </script>
     <style>
-        /* 🎈 Animações Orgânicas de Flutuação (Ícones de fundo) */
+        /* Esconde a barra de rolagem mas permite o scroll no carrossel se necessário */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* 🎈 Animações Orgânicas de Flutuação */
         @keyframes float-slow {
 
             0%,
@@ -77,15 +87,62 @@
             animation: float-fast 4s ease-in-out infinite;
         }
 
-        /* ⌨️ Cursor piscando para a animação de digitação */
-        .cursor-blink {
-            animation: blink 1s step-end infinite;
+        /* 🔄 Animação Suave de Transição de Textos */
+        @keyframes fade-text-1 {
+
+            0%,
+            42% {
+                opacity: 1;
+                transform: translateY(0px) scale(1);
+                filter: blur(0px);
+            }
+
+            48%,
+            94% {
+                opacity: 0;
+                transform: translateY(-10px) scale(0.98);
+                filter: blur(2px);
+                pointer-events: none;
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0px) scale(1);
+                filter: blur(0px);
+            }
         }
 
-        @keyframes blink {
-            50% {
+        @keyframes fade-text-2 {
+
+            0%,
+            42% {
                 opacity: 0;
+                transform: translateY(10px) scale(0.98);
+                filter: blur(2px);
+                pointer-events: none;
             }
+
+            48%,
+            94% {
+                opacity: 1;
+                transform: translateY(0px) scale(1);
+                filter: blur(0px);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(10px) scale(0.98);
+                filter: blur(2px);
+                pointer-events: none;
+            }
+        }
+
+        .animate-text-1 {
+            animation: fade-text-1 8s infinite;
+        }
+
+        .animate-text-2 {
+            animation: fade-text-2 8s infinite;
         }
     </style>
     <style>
@@ -97,6 +154,9 @@
 
     <!-- HEADER / MENU -->
     <nav class="w-full bg-transparent py-4 relative z-50">
+
+        <!-- 🌊 ONDA DE FUNDO SVG (Cobre 100% da largura, com camadas e contraste premium) -->
+        <!-- Colocamos a altura em 150% para a onda "vazar" um pouco para fora do cabeçalho, dando um efeito 3D -->
         <div class="absolute top-0 left-0 w-full h-[150%] z-[-1] overflow-hidden pointer-events-none">
             <svg viewBox="0 0 1440 220" preserveAspectRatio="none" class="w-full h-full drop-shadow-2xl">
                 <!-- Camada 1: Onda secundária (um tom levemente mais claro para dar profundidade) -->
@@ -112,9 +172,8 @@
 
             <div class="flex items-center gap-3">
                 <!-- Logo grande com um leve brilho por trás devido à onda escura -->
-                <a href="#"><img src="imgs/logoProjetista.png" alt="Projetista Oficial"
-                        class="h-16 object-contain transform scale-[2.0] origin-left drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]">
-                </a>
+                <img src="imgs/logoProjetista.png" alt="Projetista Oficial"
+                    class="h-16 object-contain transform scale-[2.0] origin-left drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]">
             </div>
 
             <!-- Tópicos de Desktop -->
@@ -179,6 +238,7 @@
         </div>
     </nav>
 
+    <!-- BLOCO 1: HERO SECTION & FORMULÁRIO (Fundo Escuro) -->
     <!-- Seção Principal -->
     <section class="py-16 px-6 md:px-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
 
@@ -204,16 +264,14 @@
                 A Revolução das Vendas
             </span>
 
-            <!-- 🔒 CAIXA COM ALTURA AUMENTADA E SEM CORTAR O TEXTO -->
-            <!-- Usamos h-[180px] e md:h-[200px] para empurrar os blocos pra baixo desde o início -->
-            <div id="typewriter-wrapper" class="w-full h-[180px] md:h-[200px] flex items-start mb-2">
-                <h1 id="typewriter-text"
-                    class="text-5xl md:text-6xl font-extrabold leading-tight w-full transition-all duration-75">
-                    <!-- O JavaScript vai injetar as letras aqui automaticamente -->
-                </h1>
-            </div>
+            <!-- ⌨️ TEXTO MÁQUINA DE ESCREVER (Fluxo normal, sem absolute, sem sobreposição) -->
+            <!-- O min-h-[140px] evita que a tela fique "pulando" enquanto apaga e digita -->
+            <h1 id="typewriter-text"
+                class="text-5xl md:text-6xl font-extrabold leading-tight mb-6 min-h-[130px] md:min-h-[150px]">
+                <!-- O JavaScript vai injetar as letras aqui automaticamente -->
+            </h1>
 
-            <p class="text-gray-400 text-sm md:text-base mb-8 max-w-md mt-4">
+            <p class="text-gray-400 text-sm md:text-base mb-8 max-w-md">
                 Esqueça os PDFs pesados e fotos perdidas no WhatsApp. Tenha sua loja virtual completa com gestão de
                 estoque, cálculo de frete e painel administrativo.
             </p>
@@ -223,6 +281,7 @@
                     class="bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-sm uppercase px-8 py-4 rounded-lg transition text-center shadow-[0_0_15px_rgba(234,179,8,0.3)]">
                     Criar meu catálogo
                 </a>
+                <!-- BOTÃO DEMONSTRAÇÃO -->
                 <a href="https://app.projetistaoficial.com/vestemanto" target="_blank"
                     class="bg-transparent border border-gray-600 hover:border-white text-white font-bold text-sm uppercase px-8 py-4 rounded-lg transition text-center">
                     Ver Demonstração
@@ -262,6 +321,7 @@
                             class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-pink outline-none transition placeholder-gray-600">
                     </div>
 
+                    <!-- CAMPOS: FATURAMENTO E SEGMENTO -->
                     <div>
                         <label class="text-brand-green font-bold mb-1 block">Faturamento Mensal:</label>
                         <select id="lead-faturamento" required
@@ -459,69 +519,59 @@
     <!-- LÓGICA DO EFEITO MÁQUINA DE ESCREVER -->
     <script>
         (function () {
+            // Textos que vão se alternar
             const phrases = [
                 'Venda mais com <br>um <span class="text-yellow-500">Catálogo Premium</span>',
                 'Seu site profissional <br><span class="text-brand-pink">pronto em 5 minutos</span>'
             ];
 
-            let i = 0;
-            let phraseIndex = 0;
-
+            let i = 0; // Posição do caractere
+            let phraseIndex = 0; // Qual frase está sendo exibida
+            let isDeleting = false; // Controle de estado (digitando ou apagando)
             const el = document.getElementById('typewriter-text');
-            const wrapper = document.getElementById('typewriter-wrapper');
 
             function type() {
                 const currentPhrase = phrases[phraseIndex];
 
-                // Quando a frase começa, garante que a fonte está visível e com tamanho original
-                if (i === 0) {
-                    el.style.fontSize = '';
-                    el.style.opacity = '1';
-                    el.style.transition = 'none'; // Evita piscar na primeira letra
-                }
-
-                // Pula as tags HTML inteiras (<br>, <span>, etc.) na hora de digitar
-                if (currentPhrase.charAt(i) === '<') {
-                    while (i < currentPhrase.length && currentPhrase.charAt(i) !== '>') i++;
-                    i++;
+                // Lógica inteligente para pular marcações HTML (<br>, <span>, etc) de uma vez só!
+                if (isDeleting) {
+                    if (currentPhrase.charAt(i - 1) === '>') {
+                        while (i > 0 && currentPhrase.charAt(i - 1) !== '<') i--;
+                        i--; // Remove a tag completa
+                    } else {
+                        i--;
+                    }
                 } else {
-                    i++;
+                    if (currentPhrase.charAt(i) === '<') {
+                        while (i < currentPhrase.length && currentPhrase.charAt(i) !== '>') i++;
+                        i++; // Adiciona a tag completa
+                    } else {
+                        i++;
+                    }
                 }
 
-                // Atualiza o texto na tela com o cursor piscando
+                // Injeta o texto e adiciona a "barrinha piscante"
                 el.innerHTML = currentPhrase.substring(0, i) + '<span class="cursor-blink text-gray-500 font-light">|</span>';
 
-                // Redução automática se o texto ficar muito grande
-                if (el.scrollHeight > wrapper.clientHeight) {
-                    let currentSize = parseFloat(window.getComputedStyle(el).fontSize);
-                    el.style.fontSize = (currentSize - 1) + 'px';
+                // Velocidade da digitação (Apagando é mais rápido)
+                let speed = isDeleting ? 25 : 60;
+
+                // Se terminou de digitar, espera 3 segundos e começa a apagar
+                if (!isDeleting && i >= currentPhrase.length) {
+                    speed = 3000;
+                    isDeleting = true;
+                }
+                // Se terminou de apagar, troca a frase e volta a digitar
+                else if (isDeleting && i <= 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    speed = 500;
                 }
 
-                // 🛑 SE TERMINOU DE DIGITAR A FRASE TODA:
-                if (i >= currentPhrase.length) {
-                    // 1. Espera 3 segundos para o cliente ler
-                    setTimeout(() => {
-                        // 2. Faz o texto sumir suavemente (efeito fade out)
-                        el.style.transition = 'opacity 0.4s ease';
-                        el.style.opacity = '0';
-
-                        // 3. Espera 0.4s (tempo de sumir) e começa a próxima frase do zero
-                        setTimeout(() => {
-                            i = 0;
-                            phraseIndex = (phraseIndex + 1) % phrases.length;
-                            type();
-                        }, 400);
-
-                    }, 3000);
-
-                    return; // Pausa a função aqui, pois os setTimeouts acima já agendaram a volta
-                }
-
-                // Continua digitando a próxima letra a cada 60 milissegundos
-                setTimeout(type, 60);
+                setTimeout(type, speed);
             }
 
-            // Inicia após meio segundo de o site carregar
+            // Inicia a animação assim que a página carregar
             setTimeout(type, 500);
         })();
     </script>

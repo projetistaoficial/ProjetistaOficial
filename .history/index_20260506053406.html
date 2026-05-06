@@ -112,9 +112,8 @@
 
             <div class="flex items-center gap-3">
                 <!-- Logo grande com um leve brilho por trás devido à onda escura -->
-                <a href="#"><img src="imgs/logoProjetista.png" alt="Projetista Oficial"
-                        class="h-16 object-contain transform scale-[2.0] origin-left drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]">
-                </a>
+               <a href="#"><img src="imgs/logoProjetista.png" alt="Projetista Oficial"
+                    class="h-16 object-contain transform scale-[2.0] origin-left drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]">
             </div>
 
             <!-- Tópicos de Desktop -->
@@ -458,73 +457,73 @@
 
     <!-- LÓGICA DO EFEITO MÁQUINA DE ESCREVER -->
     <script>
-        (function () {
-            const phrases = [
-                'Venda mais com <br>um <span class="text-yellow-500">Catálogo Premium</span>',
-                'Seu site profissional <br><span class="text-brand-pink">pronto em 5 minutos</span>'
-            ];
-
-            let i = 0;
-            let phraseIndex = 0;
-
-            const el = document.getElementById('typewriter-text');
-            const wrapper = document.getElementById('typewriter-wrapper');
-
-            function type() {
-                const currentPhrase = phrases[phraseIndex];
-
-                // Quando a frase começa, garante que a fonte está visível e com tamanho original
-                if (i === 0) {
-                    el.style.fontSize = '';
-                    el.style.opacity = '1';
-                    el.style.transition = 'none'; // Evita piscar na primeira letra
-                }
-
-                // Pula as tags HTML inteiras (<br>, <span>, etc.) na hora de digitar
-                if (currentPhrase.charAt(i) === '<') {
-                    while (i < currentPhrase.length && currentPhrase.charAt(i) !== '>') i++;
-                    i++;
-                } else {
-                    i++;
-                }
-
-                // Atualiza o texto na tela com o cursor piscando
-                el.innerHTML = currentPhrase.substring(0, i) + '<span class="cursor-blink text-gray-500 font-light">|</span>';
-
-                // Redução automática se o texto ficar muito grande
-                if (el.scrollHeight > wrapper.clientHeight) {
-                    let currentSize = parseFloat(window.getComputedStyle(el).fontSize);
-                    el.style.fontSize = (currentSize - 1) + 'px';
-                }
-
-                // 🛑 SE TERMINOU DE DIGITAR A FRASE TODA:
-                if (i >= currentPhrase.length) {
-                    // 1. Espera 3 segundos para o cliente ler
-                    setTimeout(() => {
-                        // 2. Faz o texto sumir suavemente (efeito fade out)
-                        el.style.transition = 'opacity 0.4s ease';
-                        el.style.opacity = '0';
-
-                        // 3. Espera 0.4s (tempo de sumir) e começa a próxima frase do zero
-                        setTimeout(() => {
-                            i = 0;
-                            phraseIndex = (phraseIndex + 1) % phrases.length;
-                            type();
-                        }, 400);
-
-                    }, 3000);
-
-                    return; // Pausa a função aqui, pois os setTimeouts acima já agendaram a volta
-                }
-
-                // Continua digitando a próxima letra a cada 60 milissegundos
-                setTimeout(type, 60);
+    (function() {
+        const phrases = [
+            'Venda mais com <br>um <span class="text-yellow-500">Catálogo Premium</span>',
+            'Seu site profissional <br><span class="text-brand-pink">pronto em 5 minutos</span>'
+        ];
+        
+        let i = 0; 
+        let phraseIndex = 0; 
+        
+        const el = document.getElementById('typewriter-text');
+        const wrapper = document.getElementById('typewriter-wrapper');
+        
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            // Quando a frase começa, garante que a fonte está visível e com tamanho original
+            if (i === 0) {
+                el.style.fontSize = ''; 
+                el.style.opacity = '1';
+                el.style.transition = 'none'; // Evita piscar na primeira letra
             }
 
-            // Inicia após meio segundo de o site carregar
-            setTimeout(type, 500);
-        })();
-    </script>
+            // Pula as tags HTML inteiras (<br>, <span>, etc.) na hora de digitar
+            if(currentPhrase.charAt(i) === '<') {
+                while(i < currentPhrase.length && currentPhrase.charAt(i) !== '>') i++;
+                i++; 
+            } else {
+                i++;
+            }
+            
+            // Atualiza o texto na tela com o cursor piscando
+            el.innerHTML = currentPhrase.substring(0, i) + '<span class="cursor-blink text-gray-500 font-light">|</span>';
+            
+            // Redução automática se o texto ficar muito grande
+            if (el.scrollHeight > wrapper.clientHeight) {
+                let currentSize = parseFloat(window.getComputedStyle(el).fontSize);
+                el.style.fontSize = (currentSize - 1) + 'px';
+            }
+            
+            // 🛑 SE TERMINOU DE DIGITAR A FRASE TODA:
+            if (i >= currentPhrase.length) {
+                // 1. Espera 3 segundos para o cliente ler
+                setTimeout(() => {
+                    // 2. Faz o texto sumir suavemente (efeito fade out)
+                    el.style.transition = 'opacity 0.4s ease';
+                    el.style.opacity = '0';
+                    
+                    // 3. Espera 0.4s (tempo de sumir) e começa a próxima frase do zero
+                    setTimeout(() => {
+                        i = 0;
+                        phraseIndex = (phraseIndex + 1) % phrases.length;
+                        type();
+                    }, 400);
+                    
+                }, 3000); 
+                
+                return; // Pausa a função aqui, pois os setTimeouts acima já agendaram a volta
+            }
+            
+            // Continua digitando a próxima letra a cada 60 milissegundos
+            setTimeout(type, 60);
+        }
+        
+        // Inicia após meio segundo de o site carregar
+        setTimeout(type, 500);
+    })();
+</script>
 </body>
 
 </html>

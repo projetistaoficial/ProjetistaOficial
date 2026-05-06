@@ -97,6 +97,9 @@
 
     <!-- HEADER / MENU -->
     <nav class="w-full bg-transparent py-4 relative z-50">
+
+        <!-- 🌊 ONDA DE FUNDO SVG (Cobre 100% da largura, com camadas e contraste premium) -->
+        <!-- Colocamos a altura em 150% para a onda "vazar" um pouco para fora do cabeçalho, dando um efeito 3D -->
         <div class="absolute top-0 left-0 w-full h-[150%] z-[-1] overflow-hidden pointer-events-none">
             <svg viewBox="0 0 1440 220" preserveAspectRatio="none" class="w-full h-full drop-shadow-2xl">
                 <!-- Camada 1: Onda secundária (um tom levemente mais claro para dar profundidade) -->
@@ -112,9 +115,8 @@
 
             <div class="flex items-center gap-3">
                 <!-- Logo grande com um leve brilho por trás devido à onda escura -->
-                <a href="#"><img src="imgs/logoProjetista.png" alt="Projetista Oficial"
-                        class="h-16 object-contain transform scale-[2.0] origin-left drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]">
-                </a>
+                <img src="imgs/logoProjetista.png" alt="Projetista Oficial"
+                    class="h-16 object-contain transform scale-[2.0] origin-left drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]">
             </div>
 
             <!-- Tópicos de Desktop -->
@@ -179,126 +181,114 @@
         </div>
     </nav>
 
+    <!-- BLOCO 1: HERO SECTION & FORMULÁRIO (Fundo Escuro) -->
     <!-- Seção Principal -->
     <section class="py-16 px-6 md:px-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
 
-        <!-- 🌌 ÍCONES FLUTUANTES DE FUNDO -->
-        <div class="absolute top-[5%] left-[0%] text-brand-pink opacity-20 float-1 text-6xl pointer-events-none z-0"><i
-                class="fas fa-store"></i></div>
-        <div
-            class="absolute bottom-[20%] left-[40%] text-yellow-500 opacity-20 float-2 text-7xl pointer-events-none z-0 hidden md:block">
-            <i class="fas fa-shopping-bag"></i>
-        </div>
-        <div class="absolute top-[10%] right-[5%] text-brand-blue opacity-20 float-3 text-5xl pointer-events-none z-0">
-            <i class="fas fa-rocket"></i>
-        </div>
-        <div
-            class="absolute bottom-[5%] right-[45%] text-brand-green opacity-20 float-1 text-6xl pointer-events-none z-0 hidden lg:block">
-            <i class="fas fa-box-open"></i>
-        </div>
+    <!-- 🌌 ÍCONES FLUTUANTES DE FUNDO -->
+    <div class="absolute top-[5%] left-[0%] text-brand-pink opacity-20 float-1 text-6xl pointer-events-none z-0"><i class="fas fa-store"></i></div>
+    <div class="absolute bottom-[20%] left-[40%] text-yellow-500 opacity-20 float-2 text-7xl pointer-events-none z-0 hidden md:block"><i class="fas fa-shopping-bag"></i></div>
+    <div class="absolute top-[10%] right-[5%] text-brand-blue opacity-20 float-3 text-5xl pointer-events-none z-0"><i class="fas fa-rocket"></i></div>
+    <div class="absolute bottom-[5%] right-[45%] text-brand-green opacity-20 float-1 text-6xl pointer-events-none z-0 hidden lg:block"><i class="fas fa-box-open"></i></div>
 
-        <!-- Lado Esquerdo: Textos e Mockups -->
-        <div class="relative z-10">
-            <span
-                class="bg-yellow-500/10 text-yellow-500 border border-yellow-500/20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-6 inline-block">
-                A Revolução das Vendas
-            </span>
-
-            <!-- 🔒 CAIXA COM ALTURA AUMENTADA E SEM CORTAR O TEXTO -->
-            <!-- Usamos h-[180px] e md:h-[200px] para empurrar os blocos pra baixo desde o início -->
-            <div id="typewriter-wrapper" class="w-full h-[180px] md:h-[200px] flex items-start mb-2">
-                <h1 id="typewriter-text"
-                    class="text-5xl md:text-6xl font-extrabold leading-tight w-full transition-all duration-75">
-                    <!-- O JavaScript vai injetar as letras aqui automaticamente -->
-                </h1>
-            </div>
-
-            <p class="text-gray-400 text-sm md:text-base mb-8 max-w-md mt-4">
-                Esqueça os PDFs pesados e fotos perdidas no WhatsApp. Tenha sua loja virtual completa com gestão de
-                estoque, cálculo de frete e painel administrativo.
-            </p>
-
-            <div class="flex flex-col sm:flex-row gap-4 mb-2 lg:mb-0 relative z-20">
-                <a href="#formulario"
-                    class="bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-sm uppercase px-8 py-4 rounded-lg transition text-center shadow-[0_0_15px_rgba(234,179,8,0.3)]">
-                    Criar meu catálogo
-                </a>
-                <a href="https://app.projetistaoficial.com/vestemanto" target="_blank"
-                    class="bg-transparent border border-gray-600 hover:border-white text-white font-bold text-sm uppercase px-8 py-4 rounded-lg transition text-center">
-                    Ver Demonstração
-                </a>
-            </div>
-
-            <div
-                class="w-full flex justify-center md:justify-start md:-ml-6 lg:-ml-10 md:-mt-4 lg:-mt-8 relative z-10 pointer-events-none">
-                <img src="imgs/Bloco1/tudoCentral.png" alt="Catálogos Projetista em todos os dispositivos"
-                    class="w-full md:w-[115%] lg:w-[110%] max-w-2xl drop-shadow-2xl hover:scale-105 transition-transform duration-500 origin-left pointer-events-auto">
-            </div>
+    <!-- Lado Esquerdo: Textos e Mockups -->
+    <div class="relative z-10">
+        <span class="bg-yellow-500/10 text-yellow-500 border border-yellow-500/20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-6 inline-block">
+            A Revolução das Vendas
+        </span>
+        
+        <!-- 🔒 CAIXA COM ALTURA TOTALMENTE TRAVADA (Garante que os botões não se movam) -->
+        <div id="typewriter-wrapper" class="w-full h-[120px] md:h-[150px] flex items-start mb-6 overflow-hidden">
+            <h1 id="typewriter-text" class="text-5xl md:text-6xl font-extrabold leading-tight w-full transition-all duration-75">
+                <!-- O JavaScript vai injetar as letras aqui automaticamente -->
+            </h1>
         </div>
 
-        <!-- Lado Direito: Formulário com Borda Degradê -->
-        <div id="formulario"
-            class="relative p-1 rounded-2xl bg-gradient-to-br from-brand-pink via-brand-blue to-brand-green shadow-2xl z-10">
-            <div class="bg-brand-formbg p-8 rounded-xl h-full">
-                <form id="lead-form" class="space-y-4 text-sm">
-                    <div>
-                        <label class="text-brand-pink font-bold mb-1 block">Seu Nome:</label>
-                        <input type="text" id="lead-nome" required placeholder="Ex: João da Silva"
-                            class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-blue outline-none transition placeholder-gray-600">
-                    </div>
-                    <div>
-                        <label class="text-brand-blue font-bold mb-1 block">Empresa / Loja:</label>
-                        <input type="text" id="lead-loja" required placeholder="Ex: Veste Manto"
-                            class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-pink outline-none transition placeholder-gray-600">
-                    </div>
-                    <div>
-                        <label class="text-brand-darkpink font-bold mb-1 block">Email:</label>
-                        <input type="email" id="lead-email" required placeholder="contato@sualoja.com.br"
-                            class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-blue outline-none transition placeholder-gray-600">
-                    </div>
-                    <div>
-                        <label class="text-brand-darkblue font-bold mb-1 block">WhatsApp:</label>
-                        <input type="tel" id="lead-wpp" required placeholder="(11) 99999-9999"
-                            class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-pink outline-none transition placeholder-gray-600">
-                    </div>
+        <p class="text-gray-400 text-sm md:text-base mb-8 max-w-md">
+            Esqueça os PDFs pesados e fotos perdidas no WhatsApp. Tenha sua loja virtual completa com gestão de
+            estoque, cálculo de frete e painel administrativo.
+        </p>
 
-                    <div>
-                        <label class="text-brand-green font-bold mb-1 block">Faturamento Mensal:</label>
-                        <select id="lead-faturamento" required
-                            class="w-full bg-brand-dark border border-gray-600 text-white p-2.5 rounded focus:border-brand-green outline-none transition appearance-none">
-                            <option value="" disabled selected>Selecione...</option>
-                            <option value="Não sei">Não sei</option>
-                            <option value="Não tem faturamento">Não tem faturamento</option>
-                            <option value="Menos de 1000">Menos de R$ 1.000</option>
-                            <option value="1001 a 3000">De R$ 1.001 a R$ 3.000</option>
-                            <option value="3001 a 7000">De R$ 3.001 a R$ 7.000</option>
-                            <option value="7001 a 12000">De R$ 7.001 a R$ 12.000</option>
-                            <option value="12001 a 20000">De R$ 12.001 a R$ 20.000</option>
-                            <option value="Acima de 20000">Acima de R$ 20.000</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="text-brand-blue font-bold mb-1 block">Qual seu Segmento de venda?</label>
-                        <select id="lead-segmento" required
-                            class="w-full bg-brand-dark border border-gray-600 text-white p-2.5 rounded focus:border-brand-blue outline-none transition appearance-none">
-                            <option value="" disabled selected>Selecione...</option>
-                            <option value="Roupas">Roupas</option>
-                            <option value="Uso e consumo">Uso e consumo</option>
-                            <option value="Cosmeticos">Cosméticos</option>
-                            <option value="Confeitaria">Confeitaria</option>
-                            <option value="Brinquedos">Brinquedos</option>
-                            <option value="Outro">Outro</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" id="btn-submit-lead"
-                        class="w-full mt-4 bg-gradient-to-r from-brand-pink to-brand-blue text-white font-extrabold text-lg py-4 rounded-xl shadow-lg hover:opacity-90 transition transform hover:-translate-y-1">
-                        Testar Catálogo
-                    </button>
-                </form>
-            </div>
+        <div class="flex flex-col sm:flex-row gap-4 mb-2 lg:mb-0 relative z-20">
+            <a href="#formulario"
+                class="bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-sm uppercase px-8 py-4 rounded-lg transition text-center shadow-[0_0_15px_rgba(234,179,8,0.3)]">
+                Criar meu catálogo
+            </a>
+            <a href="https://app.projetistaoficial.com/vestemanto" target="_blank"
+                class="bg-transparent border border-gray-600 hover:border-white text-white font-bold text-sm uppercase px-8 py-4 rounded-lg transition text-center">
+                Ver Demonstração
+            </a>
         </div>
-    </section>
+
+        <div class="w-full flex justify-center md:justify-start md:-ml-6 lg:-ml-10 md:-mt-4 lg:-mt-8 relative z-10 pointer-events-none">
+            <img src="imgs/Bloco1/tudoCentral.png" alt="Catálogos Projetista em todos os dispositivos"
+                class="w-full md:w-[115%] lg:w-[110%] max-w-2xl drop-shadow-2xl hover:scale-105 transition-transform duration-500 origin-left pointer-events-auto">
+        </div>
+    </div>
+
+    <!-- Lado Direito: Formulário com Borda Degradê -->
+    <div id="formulario"
+        class="relative p-1 rounded-2xl bg-gradient-to-br from-brand-pink via-brand-blue to-brand-green shadow-2xl z-10">
+        <div class="bg-brand-formbg p-8 rounded-xl h-full">
+            <form id="lead-form" class="space-y-4 text-sm">
+                <div>
+                    <label class="text-brand-pink font-bold mb-1 block">Seu Nome:</label>
+                    <input type="text" id="lead-nome" required placeholder="Ex: João da Silva"
+                        class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-blue outline-none transition placeholder-gray-600">
+                </div>
+                <div>
+                    <label class="text-brand-blue font-bold mb-1 block">Empresa / Loja:</label>
+                    <input type="text" id="lead-loja" required placeholder="Ex: Veste Manto"
+                        class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-pink outline-none transition placeholder-gray-600">
+                </div>
+                <div>
+                    <label class="text-brand-darkpink font-bold mb-1 block">Email:</label>
+                    <input type="email" id="lead-email" required placeholder="contato@sualoja.com.br"
+                        class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-blue outline-none transition placeholder-gray-600">
+                </div>
+                <div>
+                    <label class="text-brand-darkblue font-bold mb-1 block">WhatsApp:</label>
+                    <input type="tel" id="lead-wpp" required placeholder="(11) 99999-9999"
+                        class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-pink outline-none transition placeholder-gray-600">
+                </div>
+
+                <div>
+                    <label class="text-brand-green font-bold mb-1 block">Faturamento Mensal:</label>
+                    <select id="lead-faturamento" required
+                        class="w-full bg-brand-dark border border-gray-600 text-white p-2.5 rounded focus:border-brand-green outline-none transition appearance-none">
+                        <option value="" disabled selected>Selecione...</option>
+                        <option value="Não sei">Não sei</option>
+                        <option value="Não tem faturamento">Não tem faturamento</option>
+                        <option value="Menos de 1000">Menos de R$ 1.000</option>
+                        <option value="1001 a 3000">De R$ 1.001 a R$ 3.000</option>
+                        <option value="3001 a 7000">De R$ 3.001 a R$ 7.000</option>
+                        <option value="7001 a 12000">De R$ 7.001 a R$ 12.000</option>
+                        <option value="12001 a 20000">De R$ 12.001 a R$ 20.000</option>
+                        <option value="Acima de 20000">Acima de R$ 20.000</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-brand-blue font-bold mb-1 block">Qual seu Segmento de venda?</label>
+                    <select id="lead-segmento" required
+                        class="w-full bg-brand-dark border border-gray-600 text-white p-2.5 rounded focus:border-brand-blue outline-none transition appearance-none">
+                        <option value="" disabled selected>Selecione...</option>
+                        <option value="Roupas">Roupas</option>
+                        <option value="Uso e consumo">Uso e consumo</option>
+                        <option value="Cosmeticos">Cosméticos</option>
+                        <option value="Confeitaria">Confeitaria</option>
+                        <option value="Brinquedos">Brinquedos</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="btn-submit-lead"
+                    class="w-full mt-4 bg-gradient-to-r from-brand-pink to-brand-blue text-white font-extrabold text-lg py-4 rounded-xl shadow-lg hover:opacity-90 transition transform hover:-translate-y-1">
+                    Testar Catálogo
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
 
     <!-- BLOCO 2: CARROSSEL DE FUNCIONALIDADES (Fundo Branco) -->
     <section id="funcionalidades" class="bg-white py-20 px-6 overflow-hidden">
@@ -459,69 +449,59 @@
     <!-- LÓGICA DO EFEITO MÁQUINA DE ESCREVER -->
     <script>
         (function () {
+            // Textos que vão se alternar
             const phrases = [
                 'Venda mais com <br>um <span class="text-yellow-500">Catálogo Premium</span>',
                 'Seu site profissional <br><span class="text-brand-pink">pronto em 5 minutos</span>'
             ];
 
-            let i = 0;
-            let phraseIndex = 0;
-
+            let i = 0; // Posição do caractere
+            let phraseIndex = 0; // Qual frase está sendo exibida
+            let isDeleting = false; // Controle de estado (digitando ou apagando)
             const el = document.getElementById('typewriter-text');
-            const wrapper = document.getElementById('typewriter-wrapper');
 
             function type() {
                 const currentPhrase = phrases[phraseIndex];
 
-                // Quando a frase começa, garante que a fonte está visível e com tamanho original
-                if (i === 0) {
-                    el.style.fontSize = '';
-                    el.style.opacity = '1';
-                    el.style.transition = 'none'; // Evita piscar na primeira letra
-                }
-
-                // Pula as tags HTML inteiras (<br>, <span>, etc.) na hora de digitar
-                if (currentPhrase.charAt(i) === '<') {
-                    while (i < currentPhrase.length && currentPhrase.charAt(i) !== '>') i++;
-                    i++;
+                // Lógica inteligente para pular marcações HTML (<br>, <span>, etc) de uma vez só!
+                if (isDeleting) {
+                    if (currentPhrase.charAt(i - 1) === '>') {
+                        while (i > 0 && currentPhrase.charAt(i - 1) !== '<') i--;
+                        i--; // Remove a tag completa
+                    } else {
+                        i--;
+                    }
                 } else {
-                    i++;
+                    if (currentPhrase.charAt(i) === '<') {
+                        while (i < currentPhrase.length && currentPhrase.charAt(i) !== '>') i++;
+                        i++; // Adiciona a tag completa
+                    } else {
+                        i++;
+                    }
                 }
 
-                // Atualiza o texto na tela com o cursor piscando
+                // Injeta o texto e adiciona a "barrinha piscante"
                 el.innerHTML = currentPhrase.substring(0, i) + '<span class="cursor-blink text-gray-500 font-light">|</span>';
 
-                // Redução automática se o texto ficar muito grande
-                if (el.scrollHeight > wrapper.clientHeight) {
-                    let currentSize = parseFloat(window.getComputedStyle(el).fontSize);
-                    el.style.fontSize = (currentSize - 1) + 'px';
+                // Velocidade da digitação (Apagando é mais rápido)
+                let speed = isDeleting ? 25 : 60;
+
+                // Se terminou de digitar, espera 3 segundos e começa a apagar
+                if (!isDeleting && i >= currentPhrase.length) {
+                    speed = 3000;
+                    isDeleting = true;
+                }
+                // Se terminou de apagar, troca a frase e volta a digitar
+                else if (isDeleting && i <= 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    speed = 500;
                 }
 
-                // 🛑 SE TERMINOU DE DIGITAR A FRASE TODA:
-                if (i >= currentPhrase.length) {
-                    // 1. Espera 3 segundos para o cliente ler
-                    setTimeout(() => {
-                        // 2. Faz o texto sumir suavemente (efeito fade out)
-                        el.style.transition = 'opacity 0.4s ease';
-                        el.style.opacity = '0';
-
-                        // 3. Espera 0.4s (tempo de sumir) e começa a próxima frase do zero
-                        setTimeout(() => {
-                            i = 0;
-                            phraseIndex = (phraseIndex + 1) % phrases.length;
-                            type();
-                        }, 400);
-
-                    }, 3000);
-
-                    return; // Pausa a função aqui, pois os setTimeouts acima já agendaram a volta
-                }
-
-                // Continua digitando a próxima letra a cada 60 milissegundos
-                setTimeout(type, 60);
+                setTimeout(type, speed);
             }
 
-            // Inicia após meio segundo de o site carregar
+            // Inicia a animação assim que a página carregar
             setTimeout(type, 500);
         })();
     </script>
