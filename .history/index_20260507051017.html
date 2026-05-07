@@ -107,7 +107,7 @@
 <body class="bg-brand-dark text-white font-sans antialiased overflow-x-hidden">
 
     <!-- HEADER / MENU -->
-    <nav class="w-full bg-transparent py-4 relative z-50 sticky top-0">
+    <nav class="w-full bg-transparent py-4 relative z-50">
         <div class="absolute top-0 left-0 w-full h-[150%] z-[-1] overflow-hidden pointer-events-none">
             <svg viewBox="0 0 1440 220" preserveAspectRatio="none" class="w-full h-full drop-shadow-2xl">
                 <!-- Camada 1: Onda secundária (um tom levemente mais claro para dar profundidade) -->
@@ -146,7 +146,7 @@
                     Sobre Nós
                 </a>
 
-                <a href="https://instagram.com/projetista_oficial"
+                <a href="#"
                     class="bg-clip-text text-[#fff500] hover:opacity-70 transition transform hover:-translate-y-0.5">
                     Instagram
                 </a>
@@ -180,7 +180,7 @@
                 Sobre Nós
             </a>
 
-            <a href="https://instagram.com/projetista_oficial"
+            <a href="#"
                 class="px-6 py-4 mt-4 mx-6 bg-gray-900 rounded-xl hover:bg-gray-800 border border-gray-800 transition flex items-center justify-center gap-3 shadow-lg">
                 <i class="fab fa-instagram text-brand-pink text-xl"></i>
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-pink to-brand-blue">Siga no
@@ -312,54 +312,12 @@
     </section>
 
     <!-- BLOCO 2: CARROSSEL DE FUNCIONALIDADES (Fundo Branco) -->
-    <section id="funcionalidades" class="relative bg-white pt-10 pb-24 px-6 overflow-hidden">
-
-        <i class="fas fa-money-bill-wave icone-subindo text-green-500 text-5xl drop-shadow-lg opacity-80"
-            style="left: 10%; animation-duration: 9s; animation-delay: 1s;"></i>
-        <i class="fas fa-coins icone-subindo text-yellow-500 text-5xl drop-shadow-lg opacity-80"
-            style="left: 50%; animation-duration: 12s; animation-delay: 6s;"></i>
-
-        <i class="fas fa-cart-plus icone-subindo text-brand-pink text-5xl drop-shadow-lg opacity-80"
-            style="left: 25%; animation-duration: 8s; animation-delay: 2s;"></i>
-        <i class="fas fa-chart-line icone-subindo text-green-400 text-5xl drop-shadow-lg opacity-80"
-            style="left: 70%; animation-duration: 11s; animation-delay: 5s;"></i>
-
-        <i class="fas fa-eye icone-subindo text-brand-blue text-5xl drop-shadow-lg opacity-80"
-            style="left: 40%; animation-duration: 10s; animation-delay: 0s;"></i>
-        <i class="fas fa-eye icone-subindo text-brand-darkblue text-5xl drop-shadow-lg opacity-80"
-            style="left: 85%; animation-duration: 13s; animation-delay: 4s;"></i>
-
-        <i class="fas fa-box-open icone-subindo text-brand-darkpink text-5xl drop-shadow-lg opacity-80"
-            style="left: 15%; animation-duration: 9s; animation-delay: 3s;"></i>
-        <i class="fas fa-clipboard-list icone-subindo text-yellow-600 text-5xl drop-shadow-lg opacity-80"
-            style="left: 60%; animation-duration: 10s; animation-delay: 7s;"></i>
-        <i class="fas fa-receipt icone-subindo text-brand-pink text-5xl drop-shadow-lg opacity-80"
-            style="left: 92%; animation-duration: 8s; animation-delay: 1s;"></i>
-
-        <div class="absolute inset-0 z-0 opacity-20 pointer-events-none"
-            style="background-image: radial-gradient(#1e3a8a 1.5px, transparent 1.5px); background-size: 32px 32px;">
-        </div>
-
-        <div
-            class="absolute top-0 left-0 w-[500px] h-[500px] bg-brand-pink/20 rounded-full blur-[120px] z-0 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-        </div>
-
-        <div
-            class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-brand-blue/15 rounded-full blur-[150px] z-0 translate-x-1/3 translate-y-1/3 pointer-events-none">
-        </div>
-
-        <div class="max-w-[90rem] mx-auto w-full relative z-10">
+    <section id="funcionalidades" class="bg-white py-24 px-6 overflow-hidden">
+        <div class="max-w-[90rem] mx-auto w-full">
 
             <h2
-                class="font-['Nunito'] text-4xl md:text-5xl lg:text-6xl font-black text-brand-darkblue mb-16 text-left tracking-tight">
-                Por que usar o
-                <span class="relative inline-block px-2 mx-1">
-                    <span class="absolute inset-0 bg-brand-pink/20 rounded-lg transform -skew-x-12 -z-10"></span>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-pink to-brand-darkpink">
-                        E-COMMERCE
-                    </span>
-                </span>
-                da Projetista?
+                class="font-['Nunito'] text-4xl md:text-5xl lg:text-6xl font-black text-brand-darkpink mb-16 text-center tracking-tight drop-shadow-sm">
+                Porque usar o E-COMMERCE da Projetista?
             </h2>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 w-full">
@@ -369,6 +327,15 @@
                     <div id="card-vendas"
                         class="relative w-full overflow-hidden rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] bg-gradient-to-br from-brand-pink to-brand-blue h-[700px] lg:h-[750px] flex flex-col group">
 
+                        <div
+                            class="absolute bottom-0 right-0 w-full h-full flex justify-end items-end pointer-events-none z-0">
+                            <img id="img-vendas-0" src="imgs/Bloco2/CelularMao.png" alt="App no Celular"
+                                class="absolute bottom-0 h-[550px] lg:h-[800px] max-w-none w-auto -mr-24 lg:-mr-[350px] object-cover drop-shadow-2xl transition-all duration-700 opacity-100 scale-100">
+
+                            <img id="img-vendas-1" src="imgs/Bloco2/mocaAnuncio.png" alt="App no Celular 2"
+                                class="absolute bottom-0 h-[550px] lg:h-[650px] max-w-none w-auto object-cover drop-shadow-2xl transition-all duration-700 opacity-0 scale-95 translate-x-[100px] lg:translate-x-[355px]">
+                        </div>
+
                         <div id="slider-vendas"
                             class="flex-1 flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory no-scrollbar scroll-smooth cursor-grab relative z-10">
 
@@ -376,114 +343,78 @@
                                 <h3
                                     class="font-['Nunito'] text-5xl md:text-6xl font-black text-white mb-6 relative z-20">
                                     Vendas</h3>
-
                                 <ul
-                                    class="space-y-4 font-['Nunito'] font-bold text-lg md:text-xl text-white relative z-20 pb-32">
+                                    class="space-y-4 font-['Nunito'] font-bold text-lg md:text-xl text-white relative z-20">
                                     <li
-                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/20 shadow-sm">
                                         <span
                                             class="bg-white text-brand-pink rounded-full w-8 h-8 flex items-center justify-center shrink-0 text-base font-black shadow-inner">1</span>
-                                        Aumente vendas e diminua mão de obra
-                                    </li>
+                                        Tenha seu site profissional</li>
                                     <li
-                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/20 shadow-sm">
                                         <span
                                             class="bg-white text-brand-pink rounded-full w-8 h-8 flex items-center justify-center shrink-0 text-base font-black shadow-inner">2</span>
-                                        Exiba todos os seus produtos de uma vez
-                                    </li>
+                                        Exiba todos os seus produtos de uma vez</li>
                                     <li
-                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/20 shadow-sm">
                                         <span
                                             class="bg-white text-brand-pink rounded-full w-8 h-8 flex items-center justify-center shrink-0 text-base font-black shadow-inner">3</span>
-                                        Aumente sua visibilidade
-                                    </li>
+                                        Aumente sua visibilidade</li>
                                     <li
-                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/20 shadow-sm">
                                         <span
                                             class="bg-white text-brand-pink rounded-full w-8 h-8 flex items-center justify-center shrink-0 text-base font-black shadow-inner">4</span>
-                                        Tenha seu site profissional
-                                    </li>
+                                        Aumente vendas e diminua mão de obra</li>
                                     <li
-                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/20 shadow-sm">
                                         <span
                                             class="bg-white text-brand-pink rounded-full w-8 h-8 flex items-center justify-center shrink-0 text-base font-black shadow-inner">5</span>
-                                        Pedidos chegam na hora
-                                    </li>
-                                    <li
-                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
-                                        <span
-                                            class="bg-white text-brand-pink rounded-full w-8 h-8 flex items-center justify-center shrink-0 text-base font-black shadow-inner">6</span>
-                                        Tenha o Qrcode da sua loja
-                                    </li>
+                                        Pedidos chegam na hora</li>
                                 </ul>
-
-                                <div
-                                    class="absolute -bottom-2 right-0 w-full flex justify-end items-end transition-transform duration-500 group-hover:-translate-y-2 z-0">
-
-                                    <img src="imgs/Bloco2/CelularMao.png" alt="App no Celular"
-                                        class="h-[550px] lg:h-[800px] max-w-none w-auto -mr-24 lg:-mr-[350px] object-cover drop-shadow-2xl opacity-90 group-hover:opacity-100 transition-opacity pointer-events-none">
-
-                                </div>
                             </div>
 
                             <div class="min-w-full snap-center p-8 md:p-12 flex flex-col h-full relative">
                                 <h3
                                     class="font-['Nunito'] text-5xl md:text-6xl font-black text-white mb-6 relative z-20">
                                     Conversão</h3>
-
                                 <ul
-                                    class="space-y-2 sm:space-y-3 md:space-y-4 font-['Nunito'] font-bold text-sm sm:text-base md:text-lg text-white relative z-20">
+                                    class="space-y-4 font-['Nunito'] font-bold text-lg md:text-xl text-white relative z-20">
                                     <li
-                                        class="flex items-center gap-3 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-2 md:px-5 md:py-3.5 rounded-xl md:rounded-2xl border border-white/20 shadow-sm">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/20 shadow-sm">
                                         <span
-                                            class="bg-white text-brand-pink rounded-full w-6 h-6 md:w-8 md:h-8 flex items-center justify-center shrink-0 text-xs md:text-base font-black shadow-inner">1</span>
-                                        Site Online 24 horas
-                                    </li>
+                                            class="bg-white text-brand-pink rounded-full w-8 h-8 flex items-center justify-center shrink-0 text-base font-black shadow-inner">1</span>
+                                        Site Online 24 horas</li>
                                     <li
-                                        class="flex items-center gap-3 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-2 md:px-5 md:py-3.5 rounded-xl md:rounded-2xl border border-white/20 shadow-sm">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/20 shadow-sm">
                                         <span
-                                            class="bg-white text-brand-pink rounded-full w-6 h-6 md:w-8 md:h-8 flex items-center justify-center shrink-0 text-xs md:text-base font-black shadow-inner">2</span>
-                                        Receba pedidos direto no WhatsApp
-                                    </li>
+                                            class="bg-white text-brand-pink rounded-full w-8 h-8 flex items-center justify-center shrink-0 text-base font-black shadow-inner">2</span>
+                                        Receba pedidos direto no WhatsApp</li>
                                     <li
-                                        class="flex items-center gap-3 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-2 md:px-5 md:py-3.5 rounded-xl md:rounded-2xl border border-white/20 shadow-sm">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/20 shadow-sm">
                                         <span
-                                            class="bg-white text-brand-pink rounded-full w-6 h-6 md:w-8 md:h-8 flex items-center justify-center shrink-0 text-xs md:text-base font-black shadow-inner">3</span>
-                                        Facilidade e confiança para o cliente
-                                    </li>
+                                            class="bg-white text-brand-pink rounded-full w-8 h-8 flex items-center justify-center shrink-0 text-base font-black shadow-inner">3</span>
+                                        Facilidade e confiança para o cliente</li>
                                     <li
-                                        class="flex items-center gap-3 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-2 md:px-5 md:py-3.5 rounded-xl md:rounded-2xl border border-white/20 shadow-sm">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/20 shadow-sm">
                                         <span
-                                            class="bg-white text-brand-pink rounded-full w-6 h-6 md:w-8 md:h-8 flex items-center justify-center shrink-0 text-xs md:text-base font-black shadow-inner">4</span>
-                                        Receba ilimitados pedidos de uma vez
-                                    </li>
+                                            class="bg-white text-brand-pink rounded-full w-8 h-8 flex items-center justify-center shrink-0 text-base font-black shadow-inner">4</span>
+                                        Receba ilimitados pedidos de uma vez</li>
                                     <li
-                                        class="flex items-center gap-3 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-2 md:px-5 md:py-3.5 rounded-xl md:rounded-2xl border border-white/20 shadow-sm">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/20 shadow-sm">
                                         <span
-                                            class="bg-white text-brand-pink rounded-full w-6 h-6 md:w-8 md:h-8 flex items-center justify-center shrink-0 text-xs md:text-base font-black shadow-inner">5</span>
-                                        Diversos Métodos e formas de pagamento
-                                    </li>
+                                            class="bg-white text-brand-pink rounded-full w-8 h-8 flex items-center justify-center shrink-0 text-base font-black shadow-inner">5</span>
+                                        Diversos Métodos e formas de pagamento</li>
                                     <li
-                                        class="flex items-center gap-3 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-2 md:px-5 md:py-3.5 rounded-xl md:rounded-2xl border border-white/20 shadow-sm">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/20 shadow-sm">
                                         <span
-                                            class="bg-white text-brand-pink rounded-full w-6 h-6 md:w-8 md:h-8 flex items-center justify-center shrink-0 text-xs md:text-base font-black shadow-inner">6</span>
-                                        Aumente em mais de 40% suas vendas
-                                    </li>
+                                            class="bg-white text-brand-pink rounded-full w-8 h-8 flex items-center justify-center shrink-0 text-base font-black shadow-inner">6</span>
+                                        Aumente em mais de 40% suas vendas</li>
                                     <li
-                                        class="flex items-center gap-3 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-2 md:px-5 md:py-3.5 rounded-xl md:rounded-2xl border border-white/20 shadow-sm">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/20 shadow-sm">
                                         <span
-                                            class="bg-white text-brand-pink rounded-full w-6 h-6 md:w-8 md:h-8 flex items-center justify-center shrink-0 text-xs md:text-base font-black shadow-inner">7</span>
-                                        Compartilhamento em massa da sua Loja
-                                    </li>
+                                            class="bg-white text-brand-pink rounded-full w-8 h-8 flex items-center justify-center shrink-0 text-base font-black shadow-inner">7</span>
+                                        Compartilhamento em massa da sua Loja</li>
                                 </ul>
-
-                                <div
-                                    class="absolute -bottom-2 right-0 z-0 transition-transform duration-500 group-hover:-translate-y-2">
-
-                                    <img src="imgs/Bloco2/mocaAnuncio.png" alt="App no Celular 2"
-                                        class="h-[400px] lg:h-[650px] max-w-none w-auto object-cover object-right drop-shadow-2xl opacity-90 group-hover:opacity-100 transition-opacity pointer-events-none translate-x-6 lg:translate-x-[355px]">
-
-                                </div>
                             </div>
 
                         </div>
@@ -495,7 +426,6 @@
                         <button
                             class="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300"></button>
                     </div>
-
                 </div>
 
 
@@ -504,6 +434,15 @@
                     <div id="card-gestao"
                         class="relative w-full overflow-hidden rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] bg-gradient-to-br from-brand-darkpink to-brand-darkblue h-[700px] lg:h-[750px] flex flex-col group">
 
+                        <div
+                            class="absolute bottom-0 left-0 w-full h-full flex justify-center items-end pointer-events-none z-0">
+                            <img id="img-gestao-0" src="imgs/Bloco2/CellNote.png" alt="Painel Admin"
+                                class="absolute -bottom-10 lg:-left-10 h-[350px] lg:h-[480px] w-auto object-contain drop-shadow-2xl transition-all duration-700 opacity-100 scale-100">
+
+                            <img id="img-gestao-1" src="imgs/Bloco2/produtosNote.png" alt="Painel Admin 2"
+                                class="absolute -bottom-1 h-[350px] lg:h-[480px] w-auto object-contain object-bottom drop-shadow-2xl transition-all duration-700 opacity-0 scale-95">
+                        </div>
+
                         <div id="slider-gestao"
                             class="flex-1 flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory no-scrollbar scroll-smooth cursor-grab relative z-10">
 
@@ -511,192 +450,67 @@
                                 <h3
                                     class="font-['Nunito'] text-5xl md:text-6xl font-black text-white mb-6 relative z-20">
                                     Gestão</h3>
-
                                 <ul
-                                    class="space-y-3 font-['Nunito'] font-bold text-base md:text-lg text-white relative z-20 pb-40">
+                                    class="space-y-3 font-['Nunito'] font-bold text-base md:text-lg text-white relative z-20">
                                     <li
-                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 shadow-sm">
                                         <span
                                             class="bg-white text-brand-darkblue rounded-full w-7 h-7 flex items-center justify-center shrink-0 text-sm font-black shadow-inner">1</span>
-                                        Gestão de Pedidos em tempo real
-                                    </li>
+                                        Gestão de Pedidos em tempo real</li>
                                     <li
-                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 shadow-sm">
                                         <span
                                             class="bg-white text-brand-darkblue rounded-full w-7 h-7 flex items-center justify-center shrink-0 text-sm font-black shadow-inner">2</span>
-                                        Gestão de status em tempo real de pedidos
-                                    </li>
+                                        Gestão de status em tempo real de pedidos</li>
                                     <li
-                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 shadow-sm">
                                         <span
                                             class="bg-white text-brand-darkblue rounded-full w-7 h-7 flex items-center justify-center shrink-0 text-sm font-black shadow-inner">3</span>
-                                        Gerencie seu site por qualquer dispositivo
-                                    </li>
+                                        Gerencie seu site por qualquer dispositivo</li>
                                     <li
-                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 shadow-sm">
                                         <span
                                             class="bg-white text-brand-darkblue rounded-full w-7 h-7 flex items-center justify-center shrink-0 text-sm font-black shadow-inner">4</span>
-                                        Baixa de estoque automática
-                                    </li>
+                                        Baixa de estoque automática</li>
                                     <li
-                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 shadow-sm">
                                         <span
                                             class="bg-white text-brand-darkblue rounded-full w-7 h-7 flex items-center justify-center shrink-0 text-sm font-black shadow-inner">5</span>
-                                        Imprima suas vendas e relatórios
-                                    </li>
+                                        Imprima suas vendas e relatórios</li>
                                 </ul>
-
-                                <div
-                                    class="absolute -bottom-10 -left-10 w-full flex justify-center items-end transition-transform duration-500 group-hover:-translate-y-2 z-0">
-
-                                    <img src="imgs/Bloco2/CellNote.png" alt="Painel Admin"
-                                        class="h-[350px] lg:h-[480px] w-auto object-contain drop-shadow-2xl opacity-90 group-hover:opacity-100 transition-opacity pointer-events-none">
-
-                                </div>
                             </div>
 
                             <div class="min-w-full snap-center p-8 md:p-12 flex flex-col h-full relative">
                                 <h3
                                     class="font-['Nunito'] text-5xl md:text-6xl font-black text-white mb-6 relative z-20">
                                     Controle</h3>
-
                                 <ul
-                                    class="space-y-3 font-['Nunito'] font-bold text-base md:text-lg text-white relative z-20 pb-40">
+                                    class="space-y-3 font-['Nunito'] font-bold text-base md:text-lg text-white relative z-20">
                                     <li
-                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 shadow-sm">
                                         <span
                                             class="bg-white text-brand-darkblue rounded-full w-7 h-7 flex items-center justify-center shrink-0 text-sm font-black shadow-inner">1</span>
-                                        Gerencie seu Estoque
-                                    </li>
+                                        Gerencie seu Estoque</li>
                                     <li
-                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 shadow-sm">
                                         <span
                                             class="bg-white text-brand-darkblue rounded-full w-7 h-7 flex items-center justify-center shrink-0 text-sm font-black shadow-inner">2</span>
-                                        Crie categorias e cupons de descontos
-                                    </li>
+                                        Crie categorias e cupons de descontos</li>
                                     <li
-                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 shadow-sm">
                                         <span
                                             class="bg-white text-brand-darkblue rounded-full w-7 h-7 flex items-center justify-center shrink-0 text-sm font-black shadow-inner">3</span>
-                                        Defina Preços e promoções
-                                    </li>
+                                        Defina Preços e promoções</li>
                                     <li
-                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 shadow-sm">
                                         <span
                                             class="bg-white text-brand-darkblue rounded-full w-7 h-7 flex items-center justify-center shrink-0 text-sm font-black shadow-inner">4</span>
-                                        Defina parcelamento sem/c juros e taxa de juros
-                                    </li>
+                                        Defina parcelamento sem/c juros e taxa</li>
                                     <li
-                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
+                                        class="flex items-center gap-4 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 shadow-sm">
                                         <span
                                             class="bg-white text-brand-darkblue rounded-full w-7 h-7 flex items-center justify-center shrink-0 text-sm font-black shadow-inner">5</span>
-                                        Defina desconto no PIX - Produto/Venda
-                                    </li>
-                                </ul>
-
-                                <div
-                                    class="absolute -bottom-1 left-0 w-full h-full flex justify-center items-end transition-transform duration-500 group-hover:-translate-y-2 z-0 overflow-hidden">
-
-                                    <img src="imgs/Bloco2/produtosNote.png" alt="Painel Admin 2"
-                                        class="h-[350px] lg:h-[480px] w-auto object-contain object-bottom drop-shadow-2xl opacity-90 group-hover:opacity-100 transition-opacity pointer-events-none">
-
-                                </div>
-                            </div>
-
-                            <div class="min-w-full snap-center p-8 md:p-12 flex flex-col h-full relative">
-                                <h3
-                                    class="font-['Nunito'] text-5xl md:text-6xl font-black text-white mb-6 relative z-20">
-                                    Financeiro
-                                </h3>
-
-                                <ul
-                                    class="space-y-2 sm:space-y-3 md:space-y-4 font-['Nunito'] font-bold text-sm sm:text-base md:text-lg text-white relative z-20 pb-40">
-                                    <li
-                                        class="flex items-center gap-3 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-2 md:px-5 md:py-3 rounded-xl md:rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
-                                        <span
-                                            class="bg-white text-brand-darkblue rounded-full w-5 h-5 md:w-7 md:h-7 flex items-center justify-center shrink-0 text-[10px] md:text-sm font-black shadow-inner">1</span>
-                                        Acompanhamento de Fluxo de Caixa <br>
-                                        - Capital de Giro <br>
-                                        - Pedidos feitos <br>
-                                        - Pedidos Finalizados <br>
-                                        - Custo total <br>
-                                        - Lucro total <br>
-                                    </li>
-                                    <li
-                                        class="flex items-center gap-3 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-2 md:px-5 md:py-3 rounded-xl md:rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
-                                        <span
-                                            class="bg-white text-brand-darkblue rounded-full w-5 h-5 md:w-7 md:h-7 flex items-center justify-center shrink-0 text-[10px] md:text-sm font-black shadow-inner">2</span>
-                                        Acompanhamento de Vendas <br>
-                                        - Taxa de Vendas aprovadas <br>
-                                        - Taxa de Vendas canceladas <br>
-                                        - Taxa de Vendas reembolsadas <br>
-                                    </li>
-                                    <li
-                                        class="flex items-center gap-3 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-2 md:px-5 md:py-3 rounded-xl md:rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
-                                        <span
-                                            class="bg-white text-brand-darkblue rounded-full w-5 h-5 md:w-7 md:h-7 flex items-center justify-center shrink-0 text-[10px] md:text-sm font-black shadow-inner">3</span>
-                                        Relatórios de: <br>
-                                        - Produtos mais vendidos <br>
-                                        - Cupos mais usados <br>
-                                        - Formas de pagamento mais usadas <br>
-                                    </li>
-                                    <li
-                                        class="flex items-center gap-3 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-2 md:px-5 md:py-3 rounded-xl md:rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
-                                        <span
-                                            class="bg-white text-brand-darkblue rounded-full w-5 h-5 md:w-7 md:h-7 flex items-center justify-center shrink-0 text-[10px] md:text-sm font-black shadow-inner">4</span>
-                                        Filtre por Periodos
-                                    </li>
-                                </ul>
-
-                                <div
-                                    class="absolute -bottom-1 left-0 w-full h-full flex justify-center items-end transition-transform duration-500 group-hover:-translate-y-2 z-0 overflow-hidden">
-
-                                    <img src="imgs/Bloco2/FinanceiroNote.png" alt="Painel Admin 2"
-                                        class="h-[350px] lg:h-[480px] w-auto object-contain object-bottom drop-shadow-2xl opacity-90 group-hover:opacity-100 transition-opacity pointer-events-none">
-
-                                </div>
-                            </div>
-
-                            <div class="min-w-full snap-center p-8 md:p-12 flex flex-col h-full relative">
-                                <h3
-                                    class="font-['Nunito'] text-5xl md:text-6xl font-black text-white mb-6 relative z-20">
-                                    Personalização
-                                </h3>
-
-                                <ul
-                                    class="space-y-2 sm:space-y-3 md:space-y-4 font-['Nunito'] font-bold text-sm sm:text-base md:text-lg text-white relative z-20 pb-40">
-                                    <li
-                                        class="flex items-center gap-3 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-2 md:px-5 md:py-3 rounded-xl md:rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
-                                        <span
-                                            class="bg-white text-brand-darkblue rounded-full w-5 h-5 md:w-7 md:h-7 flex items-center justify-center shrink-0 text-[10px] md:text-sm font-black shadow-inner">1</span>
-                                        Estilize seu site com seu banner e logo profissional
-                                    </li>
-                                    <li
-                                        class="flex items-center gap-3 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-2 md:px-5 md:py-3 rounded-xl md:rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
-                                        <span
-                                            class="bg-white text-brand-darkblue rounded-full w-5 h-5 md:w-7 md:h-7 flex items-center justify-center shrink-0 text-[10px] md:text-sm font-black shadow-inner">2</span>
-                                        Mude as cores do site com as cores da sua marca
-                                    </li>
-                                    <li
-                                        class="flex items-center gap-3 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-2 md:px-5 md:py-3 rounded-xl md:rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
-                                        <span
-                                            class="bg-white text-brand-darkblue rounded-full w-5 h-5 md:w-7 md:h-7 flex items-center justify-center shrink-0 text-[10px] md:text-sm font-black shadow-inner">3</span>
-                                        Define entrega propria e KM máximo de entrega! <br>
-                                        - Solicite ou não código de segurança na entrega <br>
-                                        - Defina frete para métodos de pagamento <br>
-                                    </li>
-                                    <li
-                                        class="flex items-center gap-3 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-2 md:px-5 md:py-3 rounded-xl md:rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
-                                        <span
-                                            class="bg-white text-brand-darkblue rounded-full w-5 h-5 md:w-7 md:h-7 flex items-center justify-center shrink-0 text-[10px] md:text-sm font-black shadow-inner">4</span>
-                                        Defina os métodos e formas de pagamenteo que você aceita
-                                    </li>
-                                    <li
-                                        class="flex items-center gap-3 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-2 md:px-5 md:py-3 rounded-xl md:rounded-2xl border border-white/20 shadow-sm transition hover:bg-white/20">
-                                        <span
-                                            class="bg-white text-brand-darkblue rounded-full w-5 h-5 md:w-7 md:h-7 flex items-center justify-center shrink-0 text-[10px] md:text-sm font-black shadow-inner">5</span>
-                                        Domínio próprio e certificado SSL grátis
-                                    </li>
+                                        Defina desconto no PIX - Produto/Venda</li>
                                 </ul>
                             </div>
 
@@ -706,10 +520,6 @@
                     <div id="dots-gestao" class="flex justify-center gap-3">
                         <button
                             class="w-8 h-3 rounded-full bg-brand-darkblue transition-all duration-300 shadow-md"></button>
-                        <button
-                            class="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300"></button>
-                        <button
-                            class="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300"></button>
                         <button
                             class="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300"></button>
                     </div>

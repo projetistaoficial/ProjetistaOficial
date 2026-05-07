@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap');
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+@keyframes chuvaQueda {
+        0% {
+            top: -10%; /* Começa acima do bloco */
+            transform: translateX(0) rotate(0deg);
+            opacity: 0;
+        }
+        10% {
+            opacity: 1; /* Aparece suavemente */
+        }
+        90% {
+            opacity: 1;
+        }
+        100% {
+            top: 110%; /* Termina abaixo do bloco */
+            transform: translateX(20px) rotate(360deg); /* Dá uma giradinha e desvia pro lado */
+            opacity: 0; /* Some no final */
+        }
+    }
+
+    /* Classe base para todos os ícones caindo */
+    .icone-caindo {
+        pointer-events-none; /* Pro mouse ignorar eles e clicar nos cards atrás */
+        position: absolute;
+        z-index: 0; /* Fica atrás dos textos e cards */
+        animation-name: chuvaQueda;
+        animation-iteration-count: infinite; /* Fica caindo pra sempre */
+        animation-timing-function: linear; /* Velocidade constante */
+        opacity: 0; /* Começa invisível até a animação iniciar */
+    }

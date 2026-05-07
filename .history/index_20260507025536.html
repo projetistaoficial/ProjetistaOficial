@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetista - Catálogo Premium. Seu Site Profissional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            pink: '#ea106b',
+                            blue: '#26ade8',
+                            darkpink: '#9f1961',
+                            darkblue: '#325fa3',
+                            green: '#aed541',
+                            dark: '#121212',
+                            formbg: '#1a1a1a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 🎈 Animações Orgânicas de Flutuação (Ícones de fundo) */
+        @keyframes float-slow {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+
+        @keyframes float-medium {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(-10deg);
+            }
+        }
+
+        @keyframes float-fast {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-25px) rotate(15deg);
+            }
+        }
+
+        .float-1 {
+            animation: float-slow 6s ease-in-out infinite;
+        }
+
+        .float-2 {
+            animation: float-medium 5s ease-in-out infinite;
+        }
+
+        .float-3 {
+            animation: float-fast 4s ease-in-out infinite;
+        }
+
+        /* ⌨️ Cursor piscando para a animação de digitação */
+        .cursor-blink {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap');
+    </style>
+</head>
+
+<body class="bg-brand-dark text-white font-sans antialiased overflow-x-hidden">
+
+    <!-- HEADER / MENU -->
+    <nav class="w-full bg-transparent py-4 relative z-50">
+        <div class="absolute top-0 left-0 w-full h-[150%] z-[-1] overflow-hidden pointer-events-none">
+            <svg viewBox="0 0 1440 220" preserveAspectRatio="none" class="w-full h-full drop-shadow-2xl">
+                <!-- Camada 1: Onda secundária (um tom levemente mais claro para dar profundidade) -->
+                <path fill="#9e1e68" fill-opacity="0.8"
+                    d="M0,0 L1440,0 L1440,150 C1100,220 800,80 400,160 C200,200 50,150 0,130 Z"></path>
+                <!-- Camada 2: Onda principal Super Escura (Contraste perfeito para o Gradiente) -->
+                <path fill="#278acd" d="M0,0 L1440,0 L1440,120 C1000,180 600,60 0,140 Z"></path>
+            </svg>
+        </div>
+
+        <!-- Conteúdo do Header -->
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between w-full relative z-10">
+
+            <div class="flex items-center gap-3">
+                <!-- Logo grande com um leve brilho por trás devido à onda escura -->
+                <a href="#"><img src="imgs/logoProjetista.png" alt="Projetista Oficial"
+                        class="h-16 object-contain transform scale-[2.0] origin-left drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                </a>
+            </div>
+
+            <!-- Tópicos de Desktop -->
+            <div class="hidden md:flex items-center gap-8 font-['Nunito'] font-extrabold text-[1.15rem] tracking-wide">
+                <a href="#"
+                    class="bg-clip-text text-[#fff500] hover:opacity-70 transition transform hover:-translate-y-0.5">
+                    Início
+                </a>
+
+                <a href="#funcionalidades"
+                    class="flex items-center gap-1 hover:opacity-70 transition transform hover:-translate-y-0.5">
+                    <span class="bg-clip-text text-[#fff500]">Funcionalidades</span>
+                    <i class="fas fa-chevron-down text-[11px] text-[#fff500] mb-0.5 mt-0.5"></i>
+                </a>
+
+                <a href="#"
+                    class="bg-clip-text text-[#fff500] hover:opacity-70 transition transform hover:-translate-y-0.5">
+                    Sobre Nós
+                </a>
+
+                <a href="#"
+                    class="bg-clip-text text-[#fff500] hover:opacity-70 transition transform hover:-translate-y-0.5">
+                    Instagram
+                </a>
+            </div>
+
+            <!-- 📱 BOTÃO MENU MOBILE (Com onclick para abrir) -->
+            <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+                class="md:hidden transition focus:outline-none p-2 active:scale-95 hover:opacity-70">
+                <i
+                    class="fas fa-bars text-[1.7rem] bg-clip-text text-transparent bg-gradient-to-r from-brand-pink to-brand-blue"></i>
+            </button>
+
+        </div>
+
+        <!-- 📱 MENU DROPDOWN MOBILE (Design Dark Premium com cantos arredondados) -->
+        <div id="mobile-menu"
+            class="hidden absolute top-[100%] left-0 w-full bg-[#0B0E14] border-t border-gray-800 shadow-2xl flex-col font-['Nunito'] font-extrabold text-[1.1rem] md:hidden transition-all pb-6 rounded-b-3xl z-40">
+
+            <a href="#"
+                class="px-6 py-4 border-b border-gray-800/50 text-gray-300 hover:text-white hover:bg-gray-900/50 transition block">
+                Início
+            </a>
+
+            <a href="#funcionalidades"
+                class="px-6 py-4 border-b border-gray-800/50 text-gray-300 hover:text-white hover:bg-gray-900/50 transition flex justify-between items-center">
+                Funcionalidades <i class="fas fa-chevron-down text-[12px] text-gray-500"></i>
+            </a>
+
+            <a href="#"
+                class="px-6 py-4 border-b border-gray-800/50 text-gray-300 hover:text-white hover:bg-gray-900/50 transition block">
+                Sobre Nós
+            </a>
+
+            <a href="#"
+                class="px-6 py-4 mt-4 mx-6 bg-gray-900 rounded-xl hover:bg-gray-800 border border-gray-800 transition flex items-center justify-center gap-3 shadow-lg">
+                <i class="fab fa-instagram text-brand-pink text-xl"></i>
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-pink to-brand-blue">Siga no
+                    Instagram</span>
+            </a>
+
+        </div>
+    </nav>
+
+    <!-- Seção Principal -->
+    <section class="py-16 px-6 md:px-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
+
+        <!-- 🌌 ÍCONES FLUTUANTES DE FUNDO -->
+        <div class="absolute top-[5%] left-[0%] text-brand-pink opacity-20 float-1 text-6xl pointer-events-none z-0"><i
+                class="fas fa-store"></i></div>
+        <div
+            class="absolute bottom-[20%] left-[40%] text-yellow-500 opacity-20 float-2 text-7xl pointer-events-none z-0 hidden md:block">
+            <i class="fas fa-shopping-bag"></i>
+        </div>
+        <div class="absolute top-[10%] right-[5%] text-brand-blue opacity-20 float-3 text-5xl pointer-events-none z-0">
+            <i class="fas fa-rocket"></i>
+        </div>
+        <div
+            class="absolute bottom-[5%] right-[45%] text-brand-green opacity-20 float-1 text-6xl pointer-events-none z-0 hidden lg:block">
+            <i class="fas fa-box-open"></i>
+        </div>
+
+        <!-- Lado Esquerdo: Textos e Mockups -->
+        <div class="relative z-10">
+            <span
+                class="bg-yellow-500/10 text-yellow-500 border border-yellow-500/20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-6 inline-block">
+                A Revolução das Vendas
+            </span>
+
+            <!-- 🔒 CAIXA COM ALTURA AUMENTADA E SEM CORTAR O TEXTO -->
+            <!-- Usamos h-[180px] e md:h-[200px] para empurrar os blocos pra baixo desde o início -->
+            <div id="typewriter-wrapper" class="w-full h-[180px] md:h-[200px] flex items-start mb-2">
+                <h1 id="typewriter-text"
+                    class="text-5xl md:text-6xl font-extrabold leading-tight w-full transition-all duration-75">
+                    <!-- O JavaScript vai injetar as letras aqui automaticamente -->
+                </h1>
+            </div>
+
+            <p class="text-gray-400 text-sm md:text-base mb-8 max-w-md mt-4">
+                Esqueça os PDFs pesados e fotos perdidas no WhatsApp. Tenha sua loja virtual completa com gestão de
+                estoque, cálculo de frete e painel administrativo.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 mb-2 lg:mb-0 relative z-20">
+                <a href="#formulario"
+                    class="bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-sm uppercase px-8 py-4 rounded-lg transition text-center shadow-[0_0_15px_rgba(234,179,8,0.3)]">
+                    Criar meu catálogo
+                </a>
+                <a href="https://app.projetistaoficial.com/vestemanto" target="_blank"
+                    class="bg-transparent border border-gray-600 hover:border-white text-white font-bold text-sm uppercase px-8 py-4 rounded-lg transition text-center">
+                    Ver Demonstração
+                </a>
+            </div>
+
+            <div
+                class="w-full flex justify-center md:justify-start md:-ml-6 lg:-ml-10 md:-mt-4 lg:-mt-8 relative z-10 pointer-events-none">
+                <img src="imgs/Bloco1/tudoCentral.png" alt="Catálogos Projetista em todos os dispositivos"
+                    class="w-full md:w-[115%] lg:w-[110%] max-w-2xl drop-shadow-2xl hover:scale-105 transition-transform duration-500 origin-left pointer-events-auto">
+            </div>
+        </div>
+
+        <!-- Lado Direito: Formulário com Borda Degradê -->
+        <div id="formulario"
+            class="relative p-1 rounded-2xl bg-gradient-to-br from-brand-pink via-brand-blue to-brand-green shadow-2xl z-10">
+            <div class="bg-brand-formbg p-8 rounded-xl h-full">
+                <form id="lead-form" class="space-y-4 text-sm">
+                    <div>
+                        <label class="text-brand-pink font-bold mb-1 block">Seu Nome:</label>
+                        <input type="text" id="lead-nome" required placeholder="Ex: João da Silva"
+                            class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-blue outline-none transition placeholder-gray-600">
+                    </div>
+                    <div>
+                        <label class="text-brand-blue font-bold mb-1 block">Empresa / Loja:</label>
+                        <input type="text" id="lead-loja" required placeholder="Ex: Veste Manto"
+                            class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-pink outline-none transition placeholder-gray-600">
+                    </div>
+                    <div>
+                        <label class="text-brand-darkpink font-bold mb-1 block">Email:</label>
+                        <input type="email" id="lead-email" required placeholder="contato@sualoja.com.br"
+                            class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-blue outline-none transition placeholder-gray-600">
+                    </div>
+                    <div>
+                        <label class="text-brand-darkblue font-bold mb-1 block">WhatsApp:</label>
+                        <input type="tel" id="lead-wpp" required placeholder="(11) 99999-9999"
+                            class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-pink outline-none transition placeholder-gray-600">
+                    </div>
+
+                    <div>
+                        <label class="text-brand-green font-bold mb-1 block">Faturamento Mensal:</label>
+                        <select id="lead-faturamento" required
+                            class="w-full bg-brand-dark border border-gray-600 text-white p-2.5 rounded focus:border-brand-green outline-none transition appearance-none">
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="Não sei">Não sei</option>
+                            <option value="Não tem faturamento">Não tem faturamento</option>
+                            <option value="Menos de 1000">Menos de R$ 1.000</option>
+                            <option value="1001 a 3000">De R$ 1.001 a R$ 3.000</option>
+                            <option value="3001 a 7000">De R$ 3.001 a R$ 7.000</option>
+                            <option value="7001 a 12000">De R$ 7.001 a R$ 12.000</option>
+                            <option value="12001 a 20000">De R$ 12.001 a R$ 20.000</option>
+                            <option value="Acima de 20000">Acima de R$ 20.000</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-brand-blue font-bold mb-1 block">Qual seu Segmento de venda?</label>
+                        <select id="lead-segmento" required
+                            class="w-full bg-brand-dark border border-gray-600 text-white p-2.5 rounded focus:border-brand-blue outline-none transition appearance-none">
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="Roupas">Roupas</option>
+                            <option value="Uso e consumo">Uso e consumo</option>
+                            <option value="Cosmeticos">Cosméticos</option>
+                            <option value="Confeitaria">Confeitaria</option>
+                            <option value="Brinquedos">Brinquedos</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="btn-submit-lead"
+                        class="w-full mt-4 bg-gradient-to-r from-brand-pink to-brand-blue text-white font-extrabold text-lg py-4 rounded-xl shadow-lg hover:opacity-90 transition transform hover:-translate-y-1">
+                        Testar Catálogo
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOCO 2: CARROSSEL DE FUNCIONALIDADES (Fundo Branco) -->
+    <section id="funcionalidades" class="bg-white py-24 px-6 overflow-hidden">
+    <div class="max-w-[90rem] mx-auto w-full">
+        
+        <h2 class="font-['Nunito'] text-4xl md:text-5xl lg:text-6xl font-black text-brand-darkpink mb-16 text-center tracking-tight drop-shadow-sm">
+            Porque usar o E-COMMERCE da Projetista?
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 w-full">
+
+            <div class="relative w-full overflow-hidden rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] bg-gradient-to-br from-brand-pink to-brand-blue h-[650px] lg:h-[750px] flex flex-col group">
+
+                <div id="slider-vendas" class="flex-1 flex overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth cursor-grab active:cursor-grabbing relative z-10">
+
+                    <div class="min-w-full snap-center p-8 md:p-14 flex flex-col h-full">
+                        <h3 class="font-['Nunito'] text-5xl md:text-6xl font-black text-white mb-8">Vendas</h3>
+                        <ul class="space-y-5 font-bold text-xl md:text-2xl text-white">
+                            <li class="flex items-start gap-4"><i class="fas fa-circle text-[10px] mt-2.5 opacity-50"></i> Tenha seu site profissional</li>
+                            <li class="flex items-start gap-4"><i class="fas fa-circle text-[10px] mt-2.5 opacity-50"></i> Exiba todos os seus produtos de uma só vez</li>
+                            <li class="flex items-start gap-4"><i class="fas fa-circle text-[10px] mt-2.5 opacity-50"></i> Aumente sua visibilidade</li>
+                            <li class="flex items-start gap-4"><i class="fas fa-circle text-[10px] mt-2.5 opacity-50"></i> Aumente suas Vendas e diminua a mão de obra</li>
+                        </ul>
+                        <div class="mt-auto flex justify-center translate-y-10 transition-transform duration-500 group-hover:-translate-y-2 pb-6">
+                            <img src="imgs/Bloco2/CelularMao.png" alt="App no Celular" class="max-h-[300px] lg:max-h-[350px] object-contain drop-shadow-2xl">
+                        </div>
+                    </div>
+
+                    <div class="min-w-full snap-center p-8 md:p-14 flex flex-col h-full">
+                        <h3 class="font-['Nunito'] text-5xl md:text-6xl font-black text-white mb-8">Conversão</h3>
+                        <ul class="space-y-5 font-bold text-xl md:text-2xl text-white">
+                            <li class="flex items-start gap-4"><i class="fas fa-circle text-[10px] mt-2.5 opacity-50"></i> Loja aberta 24h por dia</li>
+                            <li class="flex items-start gap-4"><i class="fas fa-circle text-[10px] mt-2.5 opacity-50"></i> Receba pedidos direto no WhatsApp</li>
+                            <li class="flex items-start gap-4"><i class="fas fa-circle text-[10px] mt-2.5 opacity-50"></i> Facilidade e confiança para o cliente</li>
+                        </ul>
+                        <div class="mt-auto flex justify-center translate-y-10 pb-6">
+                            <img src="imgs/Bloco2/mocaAnuncio.png" alt="App no Celular 2" class="max-h-[300px] lg:max-h-[350px] object-contain drop-shadow-2xl">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="dots-vendas" class="absolute bottom-8 left-0 right-0 flex justify-center gap-3 z-20">
+                    <button class="w-8 h-2.5 rounded-full bg-white transition-all duration-300"></button>
+                    <button class="w-2.5 h-2.5 rounded-full bg-white/40 transition-all duration-300"></button>
+                </div>
+            </div>
+
+
+            <div class="relative w-full overflow-hidden rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] bg-gradient-to-br from-brand-darkpink to-brand-darkblue h-[650px] lg:h-[750px] flex flex-col group">
+
+                <div id="slider-gestao" class="flex-1 flex overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth cursor-grab active:cursor-grabbing relative z-10">
+
+                    <div class="min-w-full snap-center p-8 md:p-14 flex flex-col h-full">
+                        <h3 class="font-['Nunito'] text-5xl md:text-6xl font-black text-white mb-8">Gestão</h3>
+                        <ul class="space-y-5 font-bold text-xl md:text-2xl text-white">
+                            <li class="flex items-start gap-4"><i class="fas fa-circle text-[10px] mt-2.5 opacity-50"></i> Acompanhe Pedidos em tempo real</li>
+                            <li class="flex items-start gap-4"><i class="fas fa-circle text-[10px] mt-2.5 opacity-50"></i> Tenha todas as informações de Pedidos e clientes de uma vez</li>
+                            <li class="flex items-start gap-4"><i class="fas fa-circle text-[10px] mt-2.5 opacity-50"></i>Atualize o status do pedido em tempo real para o cliente</li>
+                            <li class="flex items-start gap-4"><i class="fas fa-circle text-[10px] mt-2.5 opacity-50"></i>Acompanhe pelo celular ou notebook</li>
+                            <li class="flex items-start gap-4"><i class="fas fa-circle text-[10px] mt-2.5 opacity-50"></i>Imprima suas vendas</li>
+                        </ul>
+                        <div class="mt-auto flex justify-center translate-y-10 transition-transform duration-500 group-hover:-translate-y-2 pb-6">
+                            <img src="imgs/Bloco2/CellNote.png" alt="Painel Admin" class="max-h-[250px] lg:max-h-[300px] object-contain drop-shadow-2xl">
+                        </div>
+                    </div>
+
+                    <div class="min-w-full snap-center p-8 md:p-14 flex flex-col h-full">
+                        <h3 class="font-['Nunito'] text-5xl md:text-6xl font-black text-white mb-8">Controle</h3>
+                        <ul class="space-y-5 font-bold text-xl md:text-2xl text-white">
+                            <li class="flex items-start gap-4"><i class="fas fa-circle text-[10px] mt-2.5 opacity-50"></i></li>
+                            <li class="flex items-start gap-4"><i class="fas fa-circle text-[10px] mt-2.5 opacity-50"></i> Gestão de estoque e catálogo automatizados</li>
+                        </ul>
+                        <div class="mt-auto flex justify-center translate-y-10 pb-6">
+                            <img src="imgs/Bloco2/proutosNote.png" alt="Painel Admin 2" class="max-h-[250px] lg:max-h-[300px] object-contain drop-shadow-2xl">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="dots-gestao" class="absolute bottom-8 left-0 right-0 flex justify-center gap-3 z-20">
+                    <button class="w-8 h-2.5 rounded-full bg-white transition-all duration-300"></button>
+                    <button class="w-2.5 h-2.5 rounded-full bg-white/40 transition-all duration-300"></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- FOOTER SIMPLES -->
+    <footer class="bg-brand-dark py-8 text-center text-gray-600 text-sm border-t border-gray-800">
+        <p>&copy; 2026 Projetista Oficial. Todos os direitos reservados.</p>
+    </footer>
+
+    <script type="module" src="app-lp.js"></script>
+
+    <!-- LÓGICA DO CARROSSEL E FORMULÁRIO -->
+    <script>
+        // ==========================================
+        // 1. LÓGICA DO CARROSSEL (AUTO E SWIPE)
+        // ==========================================
+        const track = document.getElementById('carousel-track');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let currentSlide = 0;
+        const totalSlides = 2; // Temos 2 slides (Vendas e Gestão)
+        let autoPlayInterval;
+
+        function updateCarousel() {
+            // Move o trilho
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            // Atualiza bolinhas
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('opacity-100', index === currentSlide);
+                dot.classList.toggle('opacity-50', index !== currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide === totalSlides - 1) ? 0 : currentSlide + 1;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+            resetAutoPlay(); // Reseta o tempo se o usuário clicou
+        }
+
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextSlide, 5000); // Muda a cada 5 segundos
+        }
+
+        function resetAutoPlay() {
+            clearInterval(autoPlayInterval);
+            startAutoPlay();
+        }
+
+        // Lógica de Arrasto (Swipe) para Celulares
+        let startX = 0;
+        let endX = 0;
+        const container = document.getElementById('carousel-container');
+
+        container.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            clearInterval(autoPlayInterval); // Pausa ao tocar
+        }, { passive: true });
+
+        container.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            handleSwipe();
+            startAutoPlay(); // Volta a rodar ao soltar
+        }, { passive: true });
+
+        function handleSwipe() {
+            const threshold = 50; // Distância mínima do arrasto
+            if (startX - endX > threshold) {
+                // Arrasto para a esquerda (Avançar)
+                currentSlide = (currentSlide === totalSlides - 1) ? 0 : currentSlide + 1;
+            } else if (endX - startX > threshold) {
+                // Arrasto para a direita (Voltar)
+                currentSlide = (currentSlide === 0) ? totalSlides - 1 : currentSlide - 1;
+            }
+            updateCarousel();
+        }
+
+        // Inicia o carrossel sozinho
+        startAutoPlay();
+
+
+    </script>
+
+    <!-- LÓGICA DO EFEITO MÁQUINA DE ESCREVER -->
+    <script>
+        (function () {
+            const phrases = [
+                'Venda mais com <br>um <span class="text-yellow-500">Catálogo Premium</span>',
+                'Seu site profissional <br><span class="text-brand-pink">pronto em 5 minutos</span>'
+            ];
+
+            let i = 0;
+            let phraseIndex = 0;
+
+            const el = document.getElementById('typewriter-text');
+            const wrapper = document.getElementById('typewriter-wrapper');
+
+            function type() {
+                const currentPhrase = phrases[phraseIndex];
+
+                // Quando a frase começa, garante que a fonte está visível e com tamanho original
+                if (i === 0) {
+                    el.style.fontSize = '';
+                    el.style.opacity = '1';
+                    el.style.transition = 'none'; // Evita piscar na primeira letra
+                }
+
+                // Pula as tags HTML inteiras (<br>, <span>, etc.) na hora de digitar
+                if (currentPhrase.charAt(i) === '<') {
+                    while (i < currentPhrase.length && currentPhrase.charAt(i) !== '>') i++;
+                    i++;
+                } else {
+                    i++;
+                }
+
+                // Atualiza o texto na tela com o cursor piscando
+                el.innerHTML = currentPhrase.substring(0, i) + '<span class="cursor-blink text-gray-500 font-light">|</span>';
+
+                // Redução automática se o texto ficar muito grande
+                if (el.scrollHeight > wrapper.clientHeight) {
+                    let currentSize = parseFloat(window.getComputedStyle(el).fontSize);
+                    el.style.fontSize = (currentSize - 1) + 'px';
+                }
+
+                // 🛑 SE TERMINOU DE DIGITAR A FRASE TODA:
+                if (i >= currentPhrase.length) {
+                    // 1. Espera 3 segundos para o cliente ler
+                    setTimeout(() => {
+                        // 2. Faz o texto sumir suavemente (efeito fade out)
+                        el.style.transition = 'opacity 0.4s ease';
+                        el.style.opacity = '0';
+
+                        // 3. Espera 0.4s (tempo de sumir) e começa a próxima frase do zero
+                        setTimeout(() => {
+                            i = 0;
+                            phraseIndex = (phraseIndex + 1) % phrases.length;
+                            type();
+                        }, 400);
+
+                    }, 3000);
+
+                    return; // Pausa a função aqui, pois os setTimeouts acima já agendaram a volta
+                }
+
+                // Continua digitando a próxima letra a cada 60 milissegundos
+                setTimeout(type, 60);
+            }
+
+            // Inicia após meio segundo de o site carregar
+            setTimeout(type, 500);
+        })();
+
+        function iniciarCarrossel(sliderId, dotsId, intervaloMs) {
+            const slider = document.getElementById(sliderId);
+            const dotsContainer = document.getElementById(dotsId);
+            if (!slider || !dotsContainer) return;
+
+            const dots = dotsContainer.children;
+            const totalSlides = dots.length;
+            let currentIndex = 0;
+            let autoSlideInterval;
+
+            // Função que passa os slides sozinha
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % totalSlides;
+                    slider.scrollTo({ left: currentIndex * slider.clientWidth, behavior: 'smooth' });
+                }, intervaloMs);
+            }
+
+            startAutoSlide(); // Inicia o motor
+
+            // Atualiza a bolinha certinha quando o cliente puxar com o dedo ou o sistema rodar sozinho
+            slider.addEventListener('scroll', () => {
+                const scrollPos = slider.scrollLeft;
+                const activeIndex = Math.round(scrollPos / slider.clientWidth);
+
+                Array.from(dots).forEach((dot, i) => {
+                    if (i === activeIndex) {
+                        // Bolinha ativada (estica e fica opaca)
+                        dot.className = "w-6 h-2 rounded-full bg-white transition-all duration-300 cursor-pointer";
+                    } else {
+                        // Bolinha desativada (encolhe e fica transparente)
+                        dot.className = "w-2 h-2 rounded-full bg-white/40 transition-all duration-300 cursor-pointer hover:bg-white/60";
+                    }
+                });
+                currentIndex = activeIndex;
+            });
+
+            // Se o cliente quiser clicar na bolinha para ir pro slide:
+            Array.from(dots).forEach((dot, i) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(autoSlideInterval); // Para a contagem automática
+                    slider.scrollTo({ left: i * slider.clientWidth, behavior: 'smooth' }); // Vai pro slide
+                    startAutoSlide(); // Volta a contar
+                });
+            });
+        }
+
+        // Aciona os dois blocos (O primeiro a cada 4 seg, o segundo a cada 5 seg para ficar dinâmico)
+        iniciarCarrossel('slider-vendas', 'dots-vendas', 4000);
+        iniciarCarrossel('slider-gestao', 'dots-gestao', 5000);
+    </script>
+</body>
+
+</html>
