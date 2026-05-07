@@ -41,15 +41,12 @@ document.getElementById('lead-form').addEventListener('submit', async (e) => {
         // Envia para a coleção "leads"
         await addDoc(collection(db, "leads"), data);
         
-        // Sucesso! Aqui entra a nossa notificação verde premium no lugar do alert()
-        mostrarToastSucesso();
-        
-        // Limpa os campos do formulário
+        // Sucesso!
+        alert("Solicitação enviada com sucesso! Em breve entraremos em contato.");
         document.getElementById('lead-form').reset();
         
     } catch (error) {
         console.error("Erro ao enviar lead:", error);
-        // Mantivemos o alert de erro por enquanto, pois é uma exceção crítica
         alert("Ocorreu um erro ao enviar. Tente novamente mais tarde.");
     } finally {
         // Volta o botão ao normal
