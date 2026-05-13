@@ -880,59 +880,24 @@
     <section id="vitrine" class="relative pt-32 pb-24 bg-white overflow-hidden">
 
         <!-- ========================================== -->
-        <!-- ✨ ESTILOS DA ANIMAÇÃO DE FLUTUAÇÃO -->
-        <!-- ========================================== -->
-        <style>
-            @keyframes floatSmooth {
-
-                0%,
-                100% {
-                    transform: translateY(0px);
-                }
-
-                50% {
-                    transform: translateY(-15px);
-                }
-            }
-
-            .anim-float-1 {
-                animation: floatSmooth 4s ease-in-out infinite;
-            }
-
-            .anim-float-2 {
-                animation: floatSmooth 5s ease-in-out infinite 1s;
-            }
-
-            .anim-float-3 {
-                animation: floatSmooth 4.5s ease-in-out infinite 0.5s;
-            }
-
-            .anim-float-4 {
-                animation: floatSmooth 5.5s ease-in-out infinite 1.5s;
-            }
-
-            .anim-float-5 {
-                animation: floatSmooth 6s ease-in-out infinite 0.2s;
-            }
-        </style>
-
-        <!-- ========================================== -->
         <!-- 🖼️ IMAGENS DE FUNDO (50% cada lado) -->
         <!-- ========================================== -->
         <div class="absolute inset-0 z-0 flex pointer-events-none">
             <!-- Fundo Esquerda -->
-            <img src="imgs/Bloco3/BannerRitmoFeminino.jpeg" alt="Fundo Loja Moda"
-                class="w-1/2 h-full object-cover opacity-100">
-
+            <img src="bannerRitmoFeminino.jpeg" alt="Fundo Loja Moda" 
+                 class="w-1/2 h-full object-cover opacity-30">
+                 
             <!-- Fundo Direita -->
-            <img src="imgs/Bloco3/bannerMundoPhone.jpeg" alt="Fundo Loja Eletrônicos"
-                class="w-1/2 h-full object-cover opacity-100">
+            <img src="COLOQUE_AQUI_A_IMAGEM_2.jpg" alt="Fundo Loja Eletrônicos" 
+                 class="w-1/2 h-full object-cover opacity-30">
         </div>
-
-        <!-- Overlay claro para mesclar o fundo com a seção branca -->
+        
+        <!-- Overlay claro para mesclar o fundo com a seção branca e não atrapalhar a leitura -->
         <div class="absolute inset-0 bg-gradient-to-b from-white via-white/50 to-white z-0 pointer-events-none"></div>
 
-        <!-- 🌊 ONDA DE TRANSIÇÃO -->
+
+        <!-- 🌊 ONDA DE TRANSIÇÃO (SVG Shape Divider) -->
+        <!-- Z-index alterado para 10 para ficar acima das imagens de fundo -->
         <div class="absolute top-0 left-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
             <svg viewBox="0 0 1440 120" preserveAspectRatio="none" class="w-full h-[60px] md:h-[120px] drop-shadow-md">
                 <defs>
@@ -946,24 +911,19 @@
             </svg>
         </div>
 
-        <!-- Efeitos de luz no fundo -->
-        <div
-            class="absolute top-20 right-0 w-[500px] h-[500px] bg-brand-pink/10 rounded-full blur-[80px] z-0 pointer-events-none">
+        <!-- Efeitos de luz no fundo (Tech Vibe) -->
+        <div class="absolute top-20 right-0 w-[500px] h-[500px] bg-brand-pink/10 rounded-full blur-[80px] z-0 pointer-events-none">
         </div>
-        <div
-            class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-blue/10 rounded-full blur-[80px] z-0 pointer-events-none">
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-blue/10 rounded-full blur-[80px] z-0 pointer-events-none">
         </div>
 
-        <!-- CONTEÚDO PRINCIPAL -->
+        <!-- CONTEÚDO PRINCIPAL (Z-index 20 para garantir que fique acima do fundo duplo) -->
         <div class="max-w-[90rem] mx-auto px-6 relative z-20">
 
             <!-- Título da Seção -->
             <div class="text-center mb-16">
-                <h2
-                    class="font-['Nunito'] text-4xl md:text-5xl lg:text-6xl font-black text-brand-darkblue tracking-tight mb-4">
-                    Design de <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-brand-pink to-brand-blue">alta
-                        conversão</span>
+                <h2 class="font-['Nunito'] text-4xl md:text-5xl lg:text-6xl font-black text-brand-darkblue tracking-tight mb-4">
+                    Design de <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-pink to-brand-blue">alta conversão</span>
                 </h2>
                 <p class="text-gray-500 text-lg md:text-xl font-medium max-w-2xl mx-auto drop-shadow-sm">
                     Sua loja com visual de grande marca. Funciona perfeitamente e se adapta a qualquer tela: celular,
@@ -971,538 +931,37 @@
                 </p>
             </div>
 
-            <!-- Palco dos Dispositivos (Mockups e Balões) -->
-            <div
-                class="relative w-full max-w-5xl mx-auto flex justify-center items-center h-[400px] sm:h-[500px] md:h-[650px] lg:h-[750px] mb-32 mt-8 px-2 sm:px-0">
+            <!-- Palco dos Dispositivos (Mockups) -->
+            <div class="relative w-full max-w-5xl mx-auto flex justify-center items-center h-[400px] sm:h-[500px] md:h-[650px] lg:h-[750px] mb-32 mt-8">
 
-                <!-- ========================================== -->
-                <!-- 🎈 BALÕES FLUTUANTES (Agora blindados contra bordas!) 🎈 -->
-                <!-- ========================================== -->
-
-                <div
-                    class="absolute bg-white/85 backdrop-blur-md border border-white shadow-[0_15px_30px_rgba(0,0,0,0.15)] px-2.5 py-1.5 sm:px-4 sm:py-2.5 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs md:text-sm font-extrabold text-brand-darkblue z-50 pointer-events-none anim-float-1 top-0 left-2 sm:left-4 md:top-8 md:left-8 lg:left-0 xl:-left-12">
-                    <div
-                        class="w-5 h-5 sm:w-8 sm:h-8 rounded-full bg-pink-100 flex items-center justify-center text-brand-pink text-[9px] sm:text-sm">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    Criamos sua Logo
-                </div>
-
-                <div
-                    class="absolute bg-white/85 backdrop-blur-md border border-white shadow-[0_15px_30px_rgba(0,0,0,0.15)] px-2.5 py-1.5 sm:px-4 sm:py-2.5 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs md:text-sm font-extrabold text-brand-darkblue z-50 pointer-events-none anim-float-2 top-12 right-2 sm:right-4 md:top-16 md:right-8 lg:right-0 xl:-right-12">
-                    <div
-                        class="w-5 h-5 sm:w-8 sm:h-8 rounded-full bg-blue-100 flex items-center justify-center text-brand-blue text-[9px] sm:text-sm">
-                        <i class="fas fa-image"></i>
-                    </div>
-                    Criamos seu Banner
-                </div>
-
-                <div
-                    class="absolute bg-white/85 backdrop-blur-md border border-white shadow-[0_15px_30px_rgba(0,0,0,0.15)] px-2.5 py-1.5 sm:px-4 sm:py-2.5 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs md:text-sm font-extrabold text-brand-darkblue z-50 pointer-events-none anim-float-3 top-[32%] left-2 sm:left-4 md:left-4 lg:left-0 xl:-left-16">
-                    <div
-                        class="w-5 h-5 sm:w-8 sm:h-8 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 text-[9px] sm:text-sm">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    Para qualquer Ramo
-                </div>
-
-                <div
-                    class="absolute bg-white/85 backdrop-blur-md border border-white shadow-[0_15px_30px_rgba(0,0,0,0.15)] px-2.5 py-1.5 sm:px-4 sm:py-2.5 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs md:text-sm font-extrabold text-brand-darkblue z-50 pointer-events-none anim-float-4 top-[38%] right-2 sm:right-4 md:right-4 lg:right-0 xl:-right-16">
-                    <div
-                        class="w-5 h-5 sm:w-8 sm:h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 text-[9px] sm:text-sm">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    Catálogo Automático
-                </div>
-
-                <div
-                    class="absolute bg-white/85 backdrop-blur-md border border-white shadow-[0_15px_30px_rgba(0,0,0,0.15)] px-2.5 py-1.5 sm:px-4 sm:py-2.5 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs md:text-sm font-extrabold text-brand-darkblue z-[60] pointer-events-none anim-float-5 bottom-1/4 left-1/2 -translate-x-1/2 md:bottom-[22%]">
-                    <div
-                        class="w-5 h-5 sm:w-8 sm:h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-[9px] sm:text-sm">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    Visual Premium
-                </div>
-
-                <!-- ========================================== -->
-                <!-- 💻 MOCKUPS DOS DISPOSITIVOS -->
-                <!-- ========================================== -->
-
-                <!-- Imagem do Notebook/Computador -->
+                <!-- Imagem do Notebook/Computador (Ao fundo) -->
                 <img src="imgs/Bloco3/MundoPhoneNote.png" alt="Loja no Computador"
-                    class="absolute top-0 left-1/2 -translate-x-1/2 w-[110%] sm:w-[105%] md:w-[100%] lg:w-[115%] max-w-none object-contain drop-shadow-2xl z-10 transition-transform duration-700 hover:scale-105 pointer-events-none">
+                    class="absolute top-0 left-1/2 -translate-x-1/2 w-[95%] md:w-[90%] lg:w-[100%] object-contain drop-shadow-2xl z-10 transition-transform duration-700 hover:scale-105 pointer-events-none">
 
-                <!-- Imagem Celular 1 (Esquerda) -->
+                <!-- Imagem Celular 1 (Esquerda - 50% MAIOR) -->
                 <img src="imgs/Bloco3/RitmoFemininoCell.png" alt="Loja no Celular Moda"
                     class="absolute bottom-12 md:bottom-24 lg:bottom-36 -left-6 md:-left-16 lg:-left-24 w-[90%] md:w-[75%] lg:w-[65%] object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] z-20 transition-transform duration-700 hover:-translate-y-4 pointer-events-none">
 
-                <!-- Imagem Celular 2 (Direita) -->
+                <!-- Imagem Celular 2 (Direita - 50% MAIOR) -->
                 <img src="imgs/Bloco3/MundoPhoneCell.png" alt="Loja no Celular Eletrônicos"
                     class="absolute bottom-4 md:bottom-12 lg:bottom-20 -right-6 md:-right-16 lg:-right-24 w-[95%] md:w-[80%] lg:w-[75%] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)] z-30 transition-transform duration-700 hover:-translate-y-4 pointer-events-none">
 
             </div>
 
-            <!-- Badges Flutuantes (Gatilhos de Nicho do Rodapé) -->
+            <!-- Badges Flutuantes (Gatilhos de Nicho) -->
             <div class="flex flex-wrap justify-center gap-4 mt-8 lg:mt-0 relative z-40">
-                <span
-                    class="px-6 py-2 bg-white text-brand-darkblue font-bold rounded-full border border-gray-100 shadow-md hover:-translate-y-1 transition-transform cursor-default">
+                <span class="px-6 py-2 bg-white text-brand-darkblue font-bold rounded-full border border-gray-100 shadow-md hover:-translate-y-1 transition-transform cursor-default">
                     <i class="fas fa-tshirt text-brand-pink mr-2"></i> Moda
                 </span>
-                <span
-                    class="px-6 py-2 bg-white text-brand-darkblue font-bold rounded-full border border-gray-100 shadow-md hover:-translate-y-1 transition-transform cursor-default">
+                <span class="px-6 py-2 bg-white text-brand-darkblue font-bold rounded-full border border-gray-100 shadow-md hover:-translate-y-1 transition-transform cursor-default">
                     <i class="fas fa-laptop text-brand-blue mr-2"></i> Eletrônicos
                 </span>
-                <span
-                    class="px-6 py-2 bg-white text-brand-darkblue font-bold rounded-full border border-gray-100 shadow-md hover:-translate-y-1 transition-transform cursor-default">
+                <span class="px-6 py-2 bg-white text-brand-darkblue font-bold rounded-full border border-gray-100 shadow-md hover:-translate-y-1 transition-transform cursor-default">
                     <i class="fas fa-hamburger text-yellow-500 mr-2"></i> Delivery
                 </span>
-                <span
-                    class="px-6 py-2 bg-white text-brand-darkblue font-bold rounded-full border border-gray-100 shadow-md hover:-translate-y-1 transition-transform cursor-default">
+                <span class="px-6 py-2 bg-white text-brand-darkblue font-bold rounded-full border border-gray-100 shadow-md hover:-translate-y-1 transition-transform cursor-default">
                     <i class="fas fa-pump-soap text-purple-500 mr-2"></i> Cosméticos
                 </span>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ========================================== -->
-    <!-- 🚀 SEÇÃO DE FUNCIONALIDADES (BENTO GRID) -->
-    <!-- ========================================== -->
-    <section id="funcionalidades" class="relative py-24 bg-[#050505] overflow-hidden">
-
-        <!-- Efeitos de Fundo Escuro -->
-        <div
-            class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent opacity-50">
-        </div>
-        <div
-            class="absolute -top-40 -right-40 w-[500px] h-[500px] bg-brand-blue/10 rounded-full blur-[100px] pointer-events-none">
-        </div>
-        <div
-            class="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-brand-pink/10 rounded-full blur-[100px] pointer-events-none">
-        </div>
-
-        <div class="max-w-[85rem] mx-auto px-6 relative z-10">
-
-            <!-- Título da Seção -->
-            <div class="text-center mb-16 md:mb-20">
-                <span class="text-brand-blue font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 block">Poderoso
-                    e Intuitivo</span>
-                <h2 class="font-['Nunito'] text-3xl md:text-5xl font-black text-white tracking-tight mb-4">
-                    Tudo que você precisa para <br class="hidden md:block">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-pink to-brand-blue">vender no
-                        automático</span>
-                </h2>
-                <p class="text-gray-400 text-base md:text-lg max-w-2xl mx-auto">
-                    Não é só uma vitrine bonita. É um sistema completo de gestão que trabalha por você 24 horas por dia.
-                </p>
-            </div>
-
-            <!-- 🍱 BENTO GRID -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[250px] md:auto-rows-[280px]">
-
-                <!-- CARD 1: WhatsApp (Ocupa 2 colunas no PC) -->
-                <div
-                    class="md:col-span-2 relative bg-[#11131a] rounded-3xl border border-gray-800/60 p-8 overflow-hidden group hover:border-green-500/50 transition-colors">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    </div>
-                    <div class="relative z-10 h-full flex flex-col justify-center w-full md:w-2/3">
-                        <div
-                            class="w-12 h-12 rounded-2xl bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-500 text-xl mb-6 shadow-[0_0_15px_rgba(34,197,94,0.2)]">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-2 font-['Nunito']">Pedidos direto no Zap</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Esqueça os clientes confusos. Receba os pedidos
-                            mastigados no seu WhatsApp, com cálculo de frete, descontos e endereço formatado.</p>
-                    </div>
-                    <!-- Elemento Decorativo (Mockup de msg do Zap vazando na direita) -->
-                    <div
-                        class="hidden md:flex absolute -right-10 top-1/2 -translate-y-1/2 w-64 flex-col gap-3 opacity-60 group-hover:opacity-100 transition-all duration-500 group-hover:-translate-x-4">
-                        <div
-                            class="bg-[#1e2330] p-3 rounded-2xl rounded-tr-none border border-gray-700 text-xs text-gray-300 shadow-xl">
-                            📦 1x Camiseta Preta<br>💰 Total: R$ 89,90</div>
-                        <div
-                            class="bg-[#1e2330] p-3 rounded-2xl rounded-tr-none border border-gray-700 text-xs text-gray-300 shadow-xl">
-                            📍 Endereço: Rua Principal, 123...</div>
-                    </div>
-                </div>
-
-                <!-- CARD 2: Painel Admin -->
-                <div
-                    class="md:col-span-1 relative bg-[#11131a] rounded-3xl border border-gray-800/60 p-8 overflow-hidden group hover:border-brand-blue/50 transition-colors flex flex-col justify-between">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-b from-brand-blue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    </div>
-                    <div class="relative z-10">
-                        <div
-                            class="w-12 h-12 rounded-2xl bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center text-brand-blue text-xl mb-6 shadow-[0_0_15px_rgba(37,99,235,0.2)]">
-                            <i class="fas fa-chart-pie"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2 font-['Nunito']">Painel de Controle</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Gerencie lucros, altere preços e adicione
-                            produtos pelo celular de onde estiver.</p>
-                    </div>
-                </div>
-
-                <!-- CARD 3: Estoque Inteligente -->
-                <div
-                    class="md:col-span-1 relative bg-[#11131a] rounded-3xl border border-gray-800/60 p-8 overflow-hidden group hover:border-yellow-500/50 transition-colors flex flex-col justify-between">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-yellow-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    </div>
-                    <div class="relative z-10">
-                        <div
-                            class="w-12 h-12 rounded-2xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-500 text-xl mb-6 shadow-[0_0_15px_rgba(234,179,8,0.2)]">
-                            <i class="fas fa-boxes"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2 font-['Nunito']">Estoque Blindado</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Baixa automática de produtos vendidos. Nunca
-                            mais passe vergonha vendendo o que não tem.</p>
-                    </div>
-                </div>
-
-                <!-- CARD 4: Pagamentos (Ocupa 2 colunas no PC) -->
-                <div
-                    class="md:col-span-2 relative bg-[#11131a] rounded-3xl border border-gray-800/60 p-8 overflow-hidden group hover:border-brand-pink/50 transition-colors">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-bl from-brand-pink/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    </div>
-                    <div class="relative z-10 h-full flex flex-col justify-center w-full md:w-2/3">
-                        <div
-                            class="w-12 h-12 rounded-2xl bg-brand-pink/10 border border-brand-pink/20 flex items-center justify-center text-brand-pink text-xl mb-6 shadow-[0_0_15px_rgba(219,39,119,0.2)]">
-                            <i class="fas fa-credit-card"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-2 font-['Nunito']">Receba via Pix e Cartão</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Feche a venda na hora! Ofereça parcelamento sem
-                            juros ou desconto no Pix direto no seu checkout. O dinheiro cai direto na sua conta.</p>
-                    </div>
-                    <!-- Elementos Decorativos -->
-                    <div
-                        class="hidden md:flex absolute -bottom-10 right-4 w-56 gap-2 opacity-50 group-hover:opacity-100 transition-all duration-500 group-hover:-translate-y-6">
-                        <div
-                            class="w-full bg-[#1e2330] h-32 rounded-2xl border border-gray-700 shadow-2xl flex flex-col p-4 relative overflow-hidden">
-                            <div class="w-full h-1/2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg mb-2">
-                            </div>
-                            <div class="w-1/2 h-2 bg-gray-600 rounded"></div>
-                            <i class="fab fa-pix absolute bottom-3 right-4 text-green-400 text-2xl"></i>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ========================================== -->
-    <!-- 🌟 SEÇÃO: O QUE MAIS OFERECEMOS (SERVIÇOS) -->
-    <!-- ========================================== -->
-    <section id="outros-servicos" class="relative py-24 bg-[#0a0c13] overflow-hidden border-t border-gray-800/50">
-
-        <div class="absolute top-0 left-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
-            <svg viewBox="0 0 1440 120" preserveAspectRatio="none" class="w-full h-[40px] md:h-[80px]">
-                <path d="M0,0 L1440,0 L1440,40 C960,160 480,-40 0,40 Z" fill="#151720"></path>
-            </svg>
-        </div>
-
-        <!-- Efeitos de Fundo (Grade sutil e luzes) -->
-        <div class="absolute inset-0 z-0 opacity-10"
-            style="background-image: radial-gradient(#3b82f6 1px, transparent 1px); background-size: 32px 32px;"></div>
-        <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-900/10 rounded-full blur-[120px] pointer-events-none z-0">
-        </div>
-
-        <!-- Efeitos de Fundo (Grade sutil e luzes) -->
-        <div class="absolute inset-0 z-0 opacity-10"
-            style="background-image: radial-gradient(#3b82f6 1px, transparent 1px); background-size: 32px 32px;"></div>
-        <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-900/10 rounded-full blur-[120px] pointer-events-none z-0">
-        </div>
-
-        <div class="max-w-[85rem] mx-auto px-6 relative z-10">
-
-            <!-- Título da Seção -->
-            <div class="text-center mb-16">
-                <span class="text-pink-500 font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 block"><i
-                        class="fas fa-plus mr-2"></i>Muito mais que um catálogo</span>
-                <h2 class="font-['Nunito'] text-3xl md:text-5xl font-black text-white tracking-tight mb-4">
-                    O ecossistema completo para a <br class="hidden md:block">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">sua marca
-                        dominar</span>
-                </h2>
-                <p class="text-gray-400 text-base md:text-lg max-w-2xl mx-auto">
-                    Além do seu Catálogo Digital Premium, a Projetista Oficial oferece tudo o que você precisa para
-                    atrair, engajar e vender mais todos os dias.
-                </p>
-            </div>
-
-            <!-- 🃏 GRID DE SERVIÇOS (Glow Cards) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-                <!-- Serviço 1: Sites e Landing Pages -->
-                <div
-                    class="relative bg-[#151720] rounded-2xl p-8 border border-gray-800 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(37,99,235,0.15)] hover:border-blue-500/50 group">
-                    <!-- Luz de fundo no hover -->
-                    <div
-                        class="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl">
-                    </div>
-
-                    <div class="relative z-10">
-                        <div
-                            class="w-14 h-14 rounded-xl bg-blue-900/30 border border-blue-500/30 flex items-center justify-center text-blue-400 text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3 font-['Nunito']">Landing Pages</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                            Páginas de vendas e sites institucionais profissionais, rápidos e focados 100% em conversão.
-                            O vendedor perfeito que não dorme.
-                        </p>
-                        <a href="#lead-form"
-                            class="text-blue-400 text-xs font-bold uppercase tracking-wider hover:text-blue-300 flex items-center gap-1 group-hover:gap-2 transition-all">
-                            Saber mais <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Serviço 2: Rebranding e Logos -->
-                <div
-                    class="relative bg-[#151720] rounded-2xl p-8 border border-gray-800 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(219,39,119,0.15)] hover:border-pink-500/50 group">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-b from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl">
-                    </div>
-
-                    <div class="relative z-10">
-                        <div
-                            class="w-14 h-14 rounded-xl bg-pink-900/30 border border-pink-500/30 flex items-center justify-center text-pink-400 text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-pen-nib"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3 font-['Nunito']">Identidade Visual</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                            Criamos sua logo do zero ou reformulamos sua marca atual. Transmita confiança,
-                            profissionalismo e valor percebido imediato.
-                        </p>
-                        <a href="#lead-form"
-                            class="text-pink-400 text-xs font-bold uppercase tracking-wider hover:text-pink-300 flex items-center gap-1 group-hover:gap-2 transition-all">
-                            Saber mais <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Serviço 3: Criativos e Anúncios -->
-                <div
-                    class="relative bg-[#151720] rounded-2xl p-8 border border-gray-800 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(34,197,94,0.15)] hover:border-green-500/50 group">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-b from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl">
-                    </div>
-
-                    <div class="relative z-10">
-                        <div
-                            class="w-14 h-14 rounded-xl bg-green-900/30 border border-green-500/30 flex items-center justify-center text-green-400 text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3 font-['Nunito']">Criativos P/ Anúncios</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                            Artes estáticas ou vídeos animados de alto impacto para Tráfego Pago (Facebook, Instagram e
-                            Google Ads). Chame a atenção do público certo.
-                        </p>
-                        <a href="#lead-form"
-                            class="text-green-400 text-xs font-bold uppercase tracking-wider hover:text-green-300 flex items-center gap-1 group-hover:gap-2 transition-all">
-                            Saber mais <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Serviço 4: Banners e Materiais -->
-                <div
-                    class="relative bg-[#151720] rounded-2xl p-8 border border-gray-800 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(168,85,247,0.15)] hover:border-purple-500/50 group">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-b from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl">
-                    </div>
-
-                    <div class="relative z-10">
-                        <div
-                            class="w-14 h-14 rounded-xl bg-purple-900/30 border border-purple-500/30 flex items-center justify-center text-purple-400 text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-layer-group"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3 font-['Nunito']">Banners & Gráficos</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                            Artes para redes sociais, banners digitais, capas para o seu catálogo ou até mesmo design
-                            para impressão física na sua loja.
-                        </p>
-                        <a href="#lead-form"
-                            class="text-purple-400 text-xs font-bold uppercase tracking-wider hover:text-purple-300 flex items-center gap-1 group-hover:gap-2 transition-all">
-                            Saber mais <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Botão Call to Action Extra (Opcional, para quem quer o pacote completo) -->
-            <div class="mt-16 text-center">
-                <a href="#lead-form"
-                    class="inline-flex items-center gap-3 bg-white text-black font-bold px-8 py-4 rounded-xl hover:bg-gray-200 transition-transform hover:scale-105 shadow-xl shadow-white/10 uppercase tracking-wide text-sm">
-                    Falar com um Especialista <i class="fab fa-whatsapp text-lg text-green-600"></i>
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ========================================== -->
-    <!-- 🗣️ SEÇÃO: PROVA SOCIAL E DEPOIMENTOS -->
-    <!-- ========================================== -->
-    <section id="depoimentos" class="relative pt-32 pb-24 bg-white overflow-hidden">
-
-        <!-- 🌊 ONDA DE TRANSIÇÃO INVERTIDA (Vindo do fundo escuro anterior) -->
-        <div class="absolute top-0 left-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
-            <svg viewBox="0 0 1440 120" preserveAspectRatio="none" class="w-full h-[40px] md:h-[80px] rotate-180">
-                <path d="M0,0 L1440,0 L1440,40 C960,160 480,-40 0,40 Z" fill="#0a0c13"></path>
-            </svg>
-        </div>
-
-        <!-- Fundo sutil de pontinhos -->
-        <div class="absolute inset-0 z-0 opacity-40"
-            style="background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 24px 24px;"></div>
-
-        <div class="max-w-[85rem] mx-auto px-6 relative z-20">
-
-            <!-- Título da Seção -->
-            <div class="text-center mb-16">
-                <span class="text-blue-600 font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 block">Prova
-                    Social</span>
-                <h2 class="font-['Nunito'] text-3xl md:text-5xl font-black text-gray-900 tracking-tight mb-4">
-                    Quem usa, <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-blue-600">recomenda</span>
-                </h2>
-                <p class="text-gray-500 text-base md:text-lg max-w-2xl mx-auto">
-                    Centenas de lojistas já automatizaram suas vendas e elevaram o nível de suas marcas com a Projetista
-                    Oficial.
-                </p>
-            </div>
-
-            <!-- 💬 GRID DE DEPOIMENTOS -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-
-                <!-- Card 1 -->
-                <div
-                    class="bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_20px_40px_rgba(0,0,0,0.04)] relative group hover:-translate-y-2 transition-transform duration-500 flex flex-col justify-between">
-                    <div>
-                        <i
-                            class="fas fa-quote-right absolute top-6 right-6 text-6xl text-gray-50 opacity-50 group-hover:text-pink-500/10 transition-colors"></i>
-
-                        <div class="flex items-center gap-1 text-yellow-400 text-sm mb-6">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-
-                        <p class="text-gray-600 italic mb-8 relative z-10">
-                            "Antes eu perdia horas no WhatsApp mandando fotos e calculando frete para clientes que não
-                            compravam. Agora mando o link do catálogo e o pedido já chega mastigado pra mim. Mudou minha
-                            vida!"
-                        </p>
-                    </div>
-
-                    <!-- Rodapé do Card com Ícone de Acesso -->
-                    <div class="flex items-center justify-between w-full pt-4 border-t border-gray-50">
-                        <div class="flex items-center gap-3">
-                            <img src="https://placehold.co/100x100?text=A" alt="Cliente 1"
-                                class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border-2 border-pink-500/20">
-                            <div>
-                                <h4 class="text-gray-900 font-bold font-['Nunito'] text-sm md:text-base">Amanda Silva
-                                </h4>
-                                <p class="text-pink-500 text-[10px] md:text-xs font-bold uppercase tracking-wider">Moda
-                                    Feminina</p>
-                            </div>
-                        </div>
-                        <!-- Botão de Visitar Loja -->
-                        <a href="#" target="_blank"
-                            class="w-30 h-10 shrink-0 p-3 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400 hover:bg-pink-500 hover:border-pink-500 hover:text-white transition-all shadow-sm hover:shadow-md hover:-translate-y-1"
-                            title="Visitar Loja da Amanda"> Visitar &nbsp;
-                            <i class="fas fa-external-link-alt text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 2 (Destaque Central) -->
-                <div
-                    class="bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_20px_40px_rgba(0,0,0,0.08)] relative group md:-translate-y-4 hover:-translate-y-6 transition-transform duration-500 flex flex-col justify-between">
-                    <div>
-                        <i
-                            class="fas fa-quote-right absolute top-6 right-6 text-6xl text-gray-50 opacity-50 group-hover:text-blue-600/10 transition-colors"></i>
-
-                        <div class="flex items-center gap-1 text-yellow-400 text-sm mb-6">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-
-                        <p class="text-gray-600 italic mb-8 relative z-10">
-                            "O design é simplesmente absurdo. Meus clientes começaram a elogiar a loja no primeiro dia.
-                            Além do catálogo, a equipe fez uma logo nova e os criativos dos meus anúncios. Vale cada
-                            centavo!"
-                        </p>
-                    </div>
-
-                    <!-- Rodapé do Card com Ícone de Acesso -->
-                    <div class="flex items-center justify-between w-full pt-4 border-t border-gray-50">
-                        <div class="flex items-center gap-3">
-                            <img src="https://placehold.co/100x100?text=R" alt="Cliente 2"
-                                class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border-2 border-blue-600/20">
-                            <div>
-                                <h4 class="text-gray-900 font-bold font-['Nunito'] text-sm md:text-base">Ricardo Mendes
-                                </h4>
-                                <p class="text-blue-600 text-[10px] md:text-xs font-bold uppercase tracking-wider">
-                                    Eletrônicos</p>
-                            </div>
-                        </div>
-                        <!-- Botão de Visitar Loja -->
-                        <a href="#" target="_blank"
-                            class="w-30 h-10 shrink-0 p-3 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all shadow-sm hover:shadow-md hover:-translate-y-1"
-                            title="Visitar Loja do Ricardo"> Visitar &nbsp;
-                            <i class="fas fa-external-link-alt text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div
-                    class="bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_20px_40px_rgba(0,0,0,0.04)] relative group hover:-translate-y-2 transition-transform duration-500 flex flex-col justify-between">
-                    <div>
-                        <i
-                            class="fas fa-quote-right absolute top-6 right-6 text-6xl text-gray-50 opacity-50 group-hover:text-yellow-500/10 transition-colors"></i>
-
-                        <div class="flex items-center gap-1 text-yellow-400 text-sm mb-6">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-
-                        <p class="text-gray-600 italic mb-8 relative z-10">
-                            "O sistema de desconto no Pix e o controle de estoque gradeado salvaram minha operação. Eu
-                            tinha muito furo de estoque, hoje o sistema dá baixa sozinho. Sem contar a velocidade da
-                            plataforma!"
-                        </p>
-                    </div>
-
-                    <!-- Rodapé do Card com Ícone de Acesso -->
-                    <div class="flex items-center justify-between w-full pt-4 border-t border-gray-50">
-                        <div class="flex items-center gap-3">
-                            <img src="https://placehold.co/100x100?text=C" alt="Cliente 3"
-                                class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border-2 border-yellow-500/20">
-                            <div>
-                                <h4 class="text-gray-900 font-bold font-['Nunito'] text-sm md:text-base">Camila Costa
-                                </h4>
-                                <p class="text-yellow-600 text-[10px] md:text-xs font-bold uppercase tracking-wider">
-                                    Cosméticos</p>
-                            </div>
-                        </div>
-                        <!-- Botão de Visitar Loja -->
-                        <a href="#" target="_blank"
-                            class="w-30 h-10 shrink-0 p-3 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400 hover:bg-yellow-500 hover:border-yellow-500 hover:text-white transition-all shadow-sm hover:shadow-md hover:-translate-y-1"
-                            title="Visitar Loja da Camila"> Visitar &nbsp;
-                            <i class="fas fa-external-link-alt text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-
             </div>
 
         </div>
