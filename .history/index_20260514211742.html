@@ -107,25 +107,28 @@
 <body class="bg-brand-dark text-white font-sans antialiased overflow-x-hidden">
 
     <!-- HEADER / MENU -->
-    <nav class="w-full bg-transparent py-4 relative z-50 sticky top-0 transition-colors duration-300" id="main-nav">
-
-        <div id="header-wave"
-            class="absolute top-0 left-0 w-full h-[150%] z-[-1] overflow-hidden pointer-events-none transition-opacity duration-300">
+    <nav class="w-full bg-transparent py-4 relative z-50 sticky top-0">
+        <div class="absolute top-0 left-0 w-full h-[150%] z-[-1] overflow-hidden pointer-events-none">
             <svg viewBox="0 0 1440 220" preserveAspectRatio="none" class="w-full h-full drop-shadow-2xl">
+                <!-- Camada 1: Onda secundária (um tom levemente mais claro para dar profundidade) -->
                 <path fill="#9e1e68" fill-opacity="0.8"
                     d="M0,0 L1440,0 L1440,150 C1100,220 800,80 400,160 C200,200 50,150 0,130 Z"></path>
+                <!-- Camada 2: Onda principal Super Escura (Contraste perfeito para o Gradiente) -->
                 <path fill="#278acd" d="M0,0 L1440,0 L1440,120 C1000,180 600,60 0,140 Z"></path>
             </svg>
         </div>
 
+        <!-- Conteúdo do Header -->
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between w-full relative z-10">
 
             <div class="flex items-center gap-3">
+                <!-- Logo grande com um leve brilho por trás devido à onda escura -->
                 <a href="#"><img src="imgs/logoProjetista.png" alt="Projetista Oficial"
                         class="h-16 object-contain transform scale-[2.0] origin-left drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]">
                 </a>
             </div>
 
+            <!-- Tópicos de Desktop -->
             <div class="hidden md:flex items-center gap-8 font-['Nunito'] font-extrabold text-[1.15rem] tracking-wide">
                 <a href="#"
                     class="bg-clip-text text-[#fff500] hover:opacity-70 transition transform hover:-translate-y-0.5">
@@ -136,11 +139,6 @@
                     class="flex items-center gap-1 hover:opacity-70 transition transform hover:-translate-y-0.5">
                     <span class="bg-clip-text text-[#fff500]">Funcionalidades</span>
                     <i class="fas fa-chevron-down text-[11px] text-[#fff500] mb-0.5 mt-0.5"></i>
-                </a>
-
-                <a href="#outros-servicos"
-                    class="bg-clip-text text-[#fff500] hover:opacity-70 transition transform hover:-translate-y-0.5">
-                    Serviços
                 </a>
 
                 <a href="#"
@@ -154,8 +152,9 @@
                 </a>
             </div>
 
-            <button id="mobile-menu-btn" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
-                class="md:hidden transition focus:outline-none p-2 active:scale-95 hover:opacity-70 z-50 relative">
+            <!-- 📱 BOTÃO MENU MOBILE (Com onclick para abrir) -->
+            <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+                class="md:hidden transition focus:outline-none p-2 active:scale-95 hover:opacity-70">
                 <i
                     class="fas fa-bars text-[1.7rem] bg-clip-text text-transparent bg-gradient-to-r from-brand-pink to-brand-blue"></i>
             </button>
@@ -166,22 +165,17 @@
         <div id="mobile-menu"
             class="hidden absolute top-[100%] left-0 w-full bg-[#0B0E14] border-t border-gray-800 shadow-2xl flex-col font-['Nunito'] font-extrabold text-[1.1rem] md:hidden transition-all pb-6 rounded-b-3xl z-40">
 
-            <a href="#" onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+            <a href="#"
                 class="px-6 py-4 border-b border-gray-800/50 text-gray-300 hover:text-white hover:bg-gray-900/50 transition block">
                 Início
             </a>
 
-            <a href="#funcionalidades" onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+            <a href="#funcionalidades"
                 class="px-6 py-4 border-b border-gray-800/50 text-gray-300 hover:text-white hover:bg-gray-900/50 transition flex justify-between items-center">
                 Funcionalidades <i class="fas fa-chevron-down text-[12px] text-gray-500"></i>
             </a>
 
-            <a href="#outros-servicos" onclick="document.getElementById('mobile-menu').classList.add('hidden')"
-                class="px-6 py-4 border-b border-gray-800/50 text-gray-300 hover:text-white hover:bg-gray-900/50 transition block">
-                Serviços
-            </a>
-
-            <a href="#" onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+            <a href="#"
                 class="px-6 py-4 border-b border-gray-800/50 text-gray-300 hover:text-white hover:bg-gray-900/50 transition block">
                 Sobre Nós
             </a>
@@ -365,23 +359,15 @@
                     </div>
 
                     <div class="flex items-start gap-3 mt-1 mb-2 px-1">
-                        <div class="flex items-center h-5">
-                            <input id="termos-privacidade" type="checkbox" required
-                                class="w-4 h-4 bg-[#1c1f2b] border-gray-700 rounded focus:ring-2 focus:ring-brand-blue/50 text-brand-blue cursor-pointer appearance-none checked:bg-brand-blue checked:border-brand-blue relative after:content-['✔'] after:absolute after:text-white after:text-[10px] after:left-[3px] after:top-[1px] after:hidden checked:after:block transition-all">
-                        </div>
-                        <label for="termos-privacidade"
-                            class="text-[10px] sm:text-[11px] text-gray-400 leading-snug cursor-pointer">
-                            Por favor, marque a caixa para continuar. Declaro que li e aceito a
-                            <a href="imgs/Politica_de_Privacidade_Projetista_Oficial.pdf" target="_blank"
-                                class="text-brand-blue hover:text-brand-pink underline transition-colors font-bold">Política
-                                de Privacidade</a>.
-                        </label>
-                    </div>
-
-                    <button type="submit" id="btn-submit-lead"
-                        class="w-full mt-2 bg-gradient-to-r from-brand-pink to-brand-blue text-white font-extrabold text-sm sm:text-base uppercase tracking-wider py-4 rounded-xl shadow-[0_10px_30px_rgba(219,39,119,0.3)] hover:shadow-[0_15px_40px_rgba(37,99,235,0.4)] transition-all duration-300 transform hover:-translate-y-1 flex justify-center items-center gap-2">
-                        Teste Grátis por 7 Dias <i class="fas fa-arrow-right"></i>
-                    </button>
+                <div class="flex items-center h-5">
+                    <input id="termos-privacidade" type="checkbox" required
+                        class="w-4 h-4 bg-[#1c1f2b] border-gray-700 rounded focus:ring-2 focus:ring-brand-blue/50 text-brand-blue cursor-pointer appearance-none checked:bg-brand-blue checked:border-brand-blue relative after:content-['✔'] after:absolute after:text-white after:text-[10px] after:left-[3px] after:top-[1px] after:hidden checked:after:block transition-all">
+                </div>
+                <label for="termos-privacidade" class="text-[10px] sm:text-[11px] text-gray-400 leading-snug cursor-pointer">
+                    Por favor, marque a caixa para continuar. Declaro que li e aceito a 
+                    <a href="Politica_de_Privacidade_Projetista_Oficial.pdf" target="_blank" class="text-brand-blue hover:text-brand-pink underline transition-colors font-bold">Política de Privacidade</a>.
+                </label>
+            </div>
 
                     <p class="text-center text-gray-500 text-[10px] mt-1 flex items-center justify-center gap-1">
                         <i class="fas fa-lock"></i> Seus dados estão 100% seguros.
@@ -1285,7 +1271,7 @@
 
         <div class="absolute top-0 left-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
             <svg viewBox="0 0 1440 120" preserveAspectRatio="none" class="w-full h-[40px] md:h-[80px]">
-                <!-- <path d="M0,0 L1440,0 L1440,40 C960,160 480,-40 0,40 Z" fill="#151720"></path> -->
+                <path d="M0,0 L1440,0 L1440,40 C960,160 480,-40 0,40 Z" fill="#151720"></path>
             </svg>
         </div>
 
@@ -1691,10 +1677,8 @@
                 </p>
                 <!-- Links Extras (Opcional, mas dá muita credibilidade) -->
                 <div class="text-gray-500 text-xs font-medium flex gap-6">
-                    <a href="imgs/Termos_de_Uso_Projetista_Oficial.pdf"
-                        class="hover:text-white transition-colors">Termos de Uso</a>
-                    <a href="imgs/Politica_de_Privacidade_Projetista_Oficial.pdf"
-                        class="hover:text-white transition-colors">Política de Privacidade</a>
+                    <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
+                    <a href="#" class="hover:text-white transition-colors">Política de Privacidade</a>
                 </div>
 
             </div>

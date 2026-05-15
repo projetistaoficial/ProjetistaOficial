@@ -107,81 +107,76 @@
 <body class="bg-brand-dark text-white font-sans antialiased overflow-x-hidden">
 
     <!-- HEADER / MENU -->
-    <nav class="w-full bg-transparent py-4 relative z-50 sticky top-0 transition-colors duration-300" id="main-nav">
-
-        <div id="header-wave"
-            class="absolute top-0 left-0 w-full h-[150%] z-[-1] overflow-hidden pointer-events-none transition-opacity duration-300">
+    <nav class="w-full bg-transparent py-4 relative z-50 sticky top-0">
+        <div class="absolute top-0 left-0 w-full h-[150%] z-[-1] overflow-hidden pointer-events-none">
             <svg viewBox="0 0 1440 220" preserveAspectRatio="none" class="w-full h-full drop-shadow-2xl">
+                <!-- Camada 1: Onda secundária (um tom levemente mais claro para dar profundidade) -->
                 <path fill="#9e1e68" fill-opacity="0.8"
                     d="M0,0 L1440,0 L1440,150 C1100,220 800,80 400,160 C200,200 50,150 0,130 Z"></path>
+                <!-- Camada 2: Onda principal Super Escura (Contraste perfeito para o Gradiente) -->
                 <path fill="#278acd" d="M0,0 L1440,0 L1440,120 C1000,180 600,60 0,140 Z"></path>
             </svg>
         </div>
 
+        <!-- Conteúdo do Header -->
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between w-full relative z-10">
 
-            <div class="flex items-center gap-3">
-                <a href="#"><img src="imgs/logoProjetista.png" alt="Projetista Oficial"
-                        class="h-16 object-contain transform scale-[2.0] origin-left drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]">
-                </a>
-            </div>
+    <div class="flex items-center gap-3">
+        <a href="#"><img src="imgs/logoProjetista.png" alt="Projetista Oficial"
+                class="h-16 object-contain transform scale-[2.0] origin-left drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+        </a>
+    </div>
 
-            <div class="hidden md:flex items-center gap-8 font-['Nunito'] font-extrabold text-[1.15rem] tracking-wide">
-                <a href="#"
-                    class="bg-clip-text text-[#fff500] hover:opacity-70 transition transform hover:-translate-y-0.5">
-                    Início
-                </a>
+    <div class="hidden md:flex items-center gap-8 font-['Nunito'] font-extrabold text-[1.15rem] tracking-wide">
+        <a href="#"
+            class="bg-clip-text text-[#fff500] hover:opacity-70 transition transform hover:-translate-y-0.5">
+            Início
+        </a>
 
-                <a href="#funcionalidades"
-                    class="flex items-center gap-1 hover:opacity-70 transition transform hover:-translate-y-0.5">
-                    <span class="bg-clip-text text-[#fff500]">Funcionalidades</span>
-                    <i class="fas fa-chevron-down text-[11px] text-[#fff500] mb-0.5 mt-0.5"></i>
-                </a>
+        <a href="#funcionalidades"
+            class="flex items-center gap-1 hover:opacity-70 transition transform hover:-translate-y-0.5">
+            <span class="bg-clip-text text-[#fff500]">Funcionalidades</span>
+            <i class="fas fa-chevron-down text-[11px] text-[#fff500] mb-0.5 mt-0.5"></i>
+        </a>
 
-                <a href="#outros-servicos"
-                    class="bg-clip-text text-[#fff500] hover:opacity-70 transition transform hover:-translate-y-0.5">
-                    Serviços
-                </a>
+        <a href="#outros-servicos"
+            class="bg-clip-text text-[#fff500] hover:opacity-70 transition transform hover:-translate-y-0.5">
+            Serviços
+        </a>
 
-                <a href="#"
-                    class="bg-clip-text text-[#fff500] hover:opacity-70 transition transform hover:-translate-y-0.5">
-                    Sobre Nós
-                </a>
+        <a href="#"
+            class="bg-clip-text text-[#fff500] hover:opacity-70 transition transform hover:-translate-y-0.5">
+            Sobre Nós
+        </a>
 
-                <a href="https://instagram.com/projetista_oficial"
-                    class="bg-clip-text text-[#fff500] hover:opacity-70 transition transform hover:-translate-y-0.5">
-                    Instagram
-                </a>
-            </div>
+        <a href="https://instagram.com/projetista_oficial"
+            class="bg-clip-text text-[#fff500] hover:opacity-70 transition transform hover:-translate-y-0.5">
+            Instagram
+        </a>
+    </div>
 
-            <button id="mobile-menu-btn" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
-                class="md:hidden transition focus:outline-none p-2 active:scale-95 hover:opacity-70 z-50 relative">
-                <i
-                    class="fas fa-bars text-[1.7rem] bg-clip-text text-transparent bg-gradient-to-r from-brand-pink to-brand-blue"></i>
-            </button>
+    <button id="mobile-menu-btn" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+        class="md:hidden transition focus:outline-none p-2 active:scale-95 hover:opacity-70 z-50 relative">
+        <i class="fas fa-bars text-[1.7rem] bg-clip-text text-transparent bg-gradient-to-r from-brand-pink to-brand-blue"></i>
+    </button>
 
-        </div>
+</div>
 
         <!-- 📱 MENU DROPDOWN MOBILE (Design Dark Premium com cantos arredondados) -->
         <div id="mobile-menu"
             class="hidden absolute top-[100%] left-0 w-full bg-[#0B0E14] border-t border-gray-800 shadow-2xl flex-col font-['Nunito'] font-extrabold text-[1.1rem] md:hidden transition-all pb-6 rounded-b-3xl z-40">
 
-            <a href="#" onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+            <a href="#"
                 class="px-6 py-4 border-b border-gray-800/50 text-gray-300 hover:text-white hover:bg-gray-900/50 transition block">
                 Início
             </a>
 
-            <a href="#funcionalidades" onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+            <a href="#funcionalidades"
                 class="px-6 py-4 border-b border-gray-800/50 text-gray-300 hover:text-white hover:bg-gray-900/50 transition flex justify-between items-center">
                 Funcionalidades <i class="fas fa-chevron-down text-[12px] text-gray-500"></i>
             </a>
 
-            <a href="#outros-servicos" onclick="document.getElementById('mobile-menu').classList.add('hidden')"
-                class="px-6 py-4 border-b border-gray-800/50 text-gray-300 hover:text-white hover:bg-gray-900/50 transition block">
-                Serviços
-            </a>
-
-            <a href="#" onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+            <a href="#"
                 class="px-6 py-4 border-b border-gray-800/50 text-gray-300 hover:text-white hover:bg-gray-900/50 transition block">
                 Sobre Nós
             </a>
@@ -1285,7 +1280,7 @@
 
         <div class="absolute top-0 left-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
             <svg viewBox="0 0 1440 120" preserveAspectRatio="none" class="w-full h-[40px] md:h-[80px]">
-                <!-- <path d="M0,0 L1440,0 L1440,40 C960,160 480,-40 0,40 Z" fill="#151720"></path> -->
+                <path d="M0,0 L1440,0 L1440,40 C960,160 480,-40 0,40 Z" fill="#151720"></path>
             </svg>
         </div>
 

@@ -170,32 +170,3 @@ document.addEventListener('click', function (event) {
         }
     }
 }); 
-
-window.addEventListener('scroll', function() {
-        const wave = document.getElementById('header-wave');
-        const nav = document.getElementById('main-nav');
-        
-        // Posição atual do scroll
-        let scrollPosition = window.scrollY;
-
-        // Se o usuário rolou mais de 50 pixels para baixo
-        if (scrollPosition > 50) {
-            // Esconde a onda
-            wave.classList.remove('opacity-100');
-            wave.classList.add('opacity-0');
-            
-            // Muda o fundo do menu de transparente para escuro (para os textos continuarem legíveis)
-            nav.classList.remove('bg-transparent', 'py-4');
-            nav.classList.add('bg-[#0B0E14]', 'py-2', 'shadow-md');
-        } else {
-            // Se voltou para o topo (scroll < 50)
-            
-            // Mostra a onda novamente
-            wave.classList.remove('opacity-0');
-            wave.classList.add('opacity-100');
-            
-            // Volta o menu para o estado original transparente
-            nav.classList.remove('bg-[#0B0E14]', 'py-2', 'shadow-md');
-            nav.classList.add('bg-transparent', 'py-4');
-        }
-    });

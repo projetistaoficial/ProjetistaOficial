@@ -48,4 +48,3 @@
     .hide-scrollbar {
         -ms-overflow-style: none;  /* IE e Edge antigos */
         scrollbar-width: none;  /* Firefox */
-    }

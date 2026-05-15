@@ -107,25 +107,28 @@
 <body class="bg-brand-dark text-white font-sans antialiased overflow-x-hidden">
 
     <!-- HEADER / MENU -->
-    <nav class="w-full bg-transparent py-4 relative z-50 sticky top-0 transition-colors duration-300" id="main-nav">
-
-        <div id="header-wave"
-            class="absolute top-0 left-0 w-full h-[150%] z-[-1] overflow-hidden pointer-events-none transition-opacity duration-300">
+    <nav class="w-full bg-transparent py-4 relative z-50 sticky top-0">
+        <div class="absolute top-0 left-0 w-full h-[150%] z-[-1] overflow-hidden pointer-events-none">
             <svg viewBox="0 0 1440 220" preserveAspectRatio="none" class="w-full h-full drop-shadow-2xl">
+                <!-- Camada 1: Onda secundária (um tom levemente mais claro para dar profundidade) -->
                 <path fill="#9e1e68" fill-opacity="0.8"
                     d="M0,0 L1440,0 L1440,150 C1100,220 800,80 400,160 C200,200 50,150 0,130 Z"></path>
+                <!-- Camada 2: Onda principal Super Escura (Contraste perfeito para o Gradiente) -->
                 <path fill="#278acd" d="M0,0 L1440,0 L1440,120 C1000,180 600,60 0,140 Z"></path>
             </svg>
         </div>
 
+        <!-- Conteúdo do Header -->
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between w-full relative z-10">
 
             <div class="flex items-center gap-3">
+                <!-- Logo grande com um leve brilho por trás devido à onda escura -->
                 <a href="#"><img src="imgs/logoProjetista.png" alt="Projetista Oficial"
                         class="h-16 object-contain transform scale-[2.0] origin-left drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]">
                 </a>
             </div>
 
+            <!-- Tópicos de Desktop -->
             <div class="hidden md:flex items-center gap-8 font-['Nunito'] font-extrabold text-[1.15rem] tracking-wide">
                 <a href="#"
                     class="bg-clip-text text-[#fff500] hover:opacity-70 transition transform hover:-translate-y-0.5">
@@ -136,11 +139,6 @@
                     class="flex items-center gap-1 hover:opacity-70 transition transform hover:-translate-y-0.5">
                     <span class="bg-clip-text text-[#fff500]">Funcionalidades</span>
                     <i class="fas fa-chevron-down text-[11px] text-[#fff500] mb-0.5 mt-0.5"></i>
-                </a>
-
-                <a href="#outros-servicos"
-                    class="bg-clip-text text-[#fff500] hover:opacity-70 transition transform hover:-translate-y-0.5">
-                    Serviços
                 </a>
 
                 <a href="#"
@@ -154,8 +152,9 @@
                 </a>
             </div>
 
-            <button id="mobile-menu-btn" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
-                class="md:hidden transition focus:outline-none p-2 active:scale-95 hover:opacity-70 z-50 relative">
+            <!-- 📱 BOTÃO MENU MOBILE (Com onclick para abrir) -->
+            <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+                class="md:hidden transition focus:outline-none p-2 active:scale-95 hover:opacity-70">
                 <i
                     class="fas fa-bars text-[1.7rem] bg-clip-text text-transparent bg-gradient-to-r from-brand-pink to-brand-blue"></i>
             </button>
@@ -166,22 +165,17 @@
         <div id="mobile-menu"
             class="hidden absolute top-[100%] left-0 w-full bg-[#0B0E14] border-t border-gray-800 shadow-2xl flex-col font-['Nunito'] font-extrabold text-[1.1rem] md:hidden transition-all pb-6 rounded-b-3xl z-40">
 
-            <a href="#" onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+            <a href="#"
                 class="px-6 py-4 border-b border-gray-800/50 text-gray-300 hover:text-white hover:bg-gray-900/50 transition block">
                 Início
             </a>
 
-            <a href="#funcionalidades" onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+            <a href="#funcionalidades"
                 class="px-6 py-4 border-b border-gray-800/50 text-gray-300 hover:text-white hover:bg-gray-900/50 transition flex justify-between items-center">
                 Funcionalidades <i class="fas fa-chevron-down text-[12px] text-gray-500"></i>
             </a>
 
-            <a href="#outros-servicos" onclick="document.getElementById('mobile-menu').classList.add('hidden')"
-                class="px-6 py-4 border-b border-gray-800/50 text-gray-300 hover:text-white hover:bg-gray-900/50 transition block">
-                Serviços
-            </a>
-
-            <a href="#" onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+            <a href="#"
                 class="px-6 py-4 border-b border-gray-800/50 text-gray-300 hover:text-white hover:bg-gray-900/50 transition block">
                 Sobre Nós
             </a>
@@ -250,142 +244,63 @@
 
         <!-- Lado Direito: Formulário com Borda Degradê -->
         <div id="formulario"
-            class="relative p-[2px] rounded-2xl bg-gradient-to-br from-brand-pink via-brand-blue to-brand-green shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-10 group">
-
-            <div class="bg-[#151720] p-6 sm:p-8 rounded-[14px] h-full relative overflow-hidden">
-
-                <div
-                    class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/3 bg-brand-blue/5 blur-[50px] pointer-events-none">
-                </div>
-
-                <form id="lead-form" class="relative z-10 flex flex-col gap-4">
-
+            class="relative p-1 rounded-2xl bg-gradient-to-br from-brand-pink via-brand-blue to-brand-green shadow-2xl z-10">
+            <div class="bg-brand-formbg p-8 rounded-xl h-full">
+                <form id="lead-form" class="space-y-4 text-sm">
                     <div>
-                        <label
-                            class="text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-wider mb-1.5 block">Seu
-                            Nome</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <i
-                                    class="fas fa-user text-gray-500 text-sm group-focus-within:text-brand-pink transition-colors"></i>
-                            </div>
-                            <input type="text" id="lead-nome" required placeholder="Ex: João da Silva"
-                                class="w-full bg-[#1c1f2b] border border-gray-700 text-white pl-11 pr-4 py-3 rounded-xl focus:ring-2 focus:ring-brand-pink/20 focus:border-brand-pink outline-none transition-all placeholder-gray-600 text-sm shadow-inner">
-                        </div>
+                        <label class="font-bold mb-1 block">Seu Nome:</label>
+                        <input type="text" id="lead-nome" required placeholder="Ex: João da Silva"
+                            class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-blue outline-none transition placeholder-white-600">
+                    </div>
+                    <div>
+                        <label class="font-bold mb-1 block">Empresa / Loja:</label>
+                        <input type="text" id="lead-loja" required placeholder="Ex: Veste Manto"
+                            class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-pink outline-none transition placeholder-white-600">
+                    </div>
+                    <div>
+                        <label class="font-bold mb-1 block">Email:</label>
+                        <input type="email" id="lead-email" required placeholder="contato@sualoja.com.br"
+                            class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-blue outline-none transition placeholder-white-600">
+                    </div>
+                    <div>
+                        <label class="font-bold mb-1 block">WhatsApp:</label>
+                        <input type="tel" id="lead-wpp" required placeholder="(11) 99999-9999"
+                            class="w-full bg-transparent border border-gray-600 text-white p-2.5 rounded focus:border-brand-pink outline-none transition placeholder-white-600">
                     </div>
 
                     <div>
-                        <label
-                            class="text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-wider mb-1.5 block">Empresa
-                            / Loja</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <i
-                                    class="fas fa-store text-gray-500 text-sm group-focus-within:text-brand-blue transition-colors"></i>
-                            </div>
-                            <input type="text" id="lead-loja" required placeholder="Ex: Veste Manto"
-                                class="w-full bg-[#1c1f2b] border border-gray-700 text-white pl-11 pr-4 py-3 rounded-xl focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue outline-none transition-all placeholder-gray-600 text-sm shadow-inner">
-                        </div>
+                        <label class="text-brand-green font-bold mb-1 block">Faturamento Mensal:</label>
+                        <select id="lead-faturamento" required
+                            class="w-full bg-brand-dark border border-gray-600 text-white p-2.5 rounded focus:border-brand-green outline-none transition appearance-none">
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="Não sei">Não sei</option>
+                            <option value="Não tem faturamento">Não tem faturamento</option>
+                            <option value="Menos de 1000">Menos de R$ 1.000</option>
+                            <option value="1001 a 3000">De R$ 1.001 a R$ 3.000</option>
+                            <option value="3001 a 7000">De R$ 3.001 a R$ 7.000</option>
+                            <option value="7001 a 12000">De R$ 7.001 a R$ 12.000</option>
+                            <option value="12001 a 20000">De R$ 12.001 a R$ 20.000</option>
+                            <option value="Acima de 20000">Acima de R$ 20.000</option>
+                        </select>
                     </div>
-
                     <div>
-                        <label
-                            class="text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-wider mb-1.5 block">Email</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <i
-                                    class="fas fa-envelope text-gray-500 text-sm group-focus-within:text-brand-blue transition-colors"></i>
-                            </div>
-                            <input type="email" id="lead-email" required placeholder="contato@sualoja.com.br"
-                                class="w-full bg-[#1c1f2b] border border-gray-700 text-white pl-11 pr-4 py-3 rounded-xl focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue outline-none transition-all placeholder-gray-600 text-sm shadow-inner">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label
-                            class="text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-wider mb-1.5 block">WhatsApp</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <i
-                                    class="fab fa-whatsapp text-gray-500 text-sm group-focus-within:text-brand-pink transition-colors"></i>
-                            </div>
-                            <input type="tel" id="lead-wpp" required placeholder="(11) 99999-9999"
-                                class="w-full bg-[#1c1f2b] border border-gray-700 text-white pl-11 pr-4 py-3 rounded-xl focus:ring-2 focus:ring-brand-pink/20 focus:border-brand-pink outline-none transition-all placeholder-gray-600 text-sm shadow-inner">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label
-                            class="text-[10px] sm:text-xs font-bold text-brand-green uppercase tracking-wider mb-1.5 block">Faturamento
-                            Mensal</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none z-10">
-                                <i class="fas fa-chart-line text-brand-green/70 text-sm"></i>
-                            </div>
-                            <select id="lead-faturamento" required
-                                class="w-full bg-[#1c1f2b] border border-gray-700 text-white pl-11 pr-10 py-3 rounded-xl focus:ring-2 focus:ring-brand-green/20 focus:border-brand-green outline-none transition-all appearance-none text-sm shadow-inner cursor-pointer relative z-0">
-                                <option value="" disabled selected class="text-gray-500">Selecione...</option>
-                                <option value="Não sei">Não sei</option>
-                                <option value="Não tem faturamento">Não tem faturamento</option>
-                                <option value="Menos de 1000">Menos de R$ 1.000</option>
-                                <option value="1001 a 3000">De R$ 1.001 a R$ 3.000</option>
-                                <option value="3001 a 7000">De R$ 3.001 a R$ 7.000</option>
-                                <option value="7001 a 12000">De R$ 7.001 a R$ 12.000</option>
-                                <option value="12001 a 20000">De R$ 12.001 a R$ 20.000</option>
-                                <option value="Acima de 20000">Acima de R$ 20.000</option>
-                            </select>
-                            <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none z-10">
-                                <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label
-                            class="text-[10px] sm:text-xs font-bold text-brand-blue uppercase tracking-wider mb-1.5 block">Qual
-                            seu Segmento de venda?</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none z-10">
-                                <i class="fas fa-box-open text-brand-blue/70 text-sm"></i>
-                            </div>
-                            <select id="lead-segmento" required
-                                class="w-full bg-[#1c1f2b] border border-gray-700 text-white pl-11 pr-10 py-3 rounded-xl focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue outline-none transition-all appearance-none text-sm shadow-inner cursor-pointer relative z-0">
-                                <option value="" disabled selected class="text-gray-500">Selecione...</option>
-                                <option value="Roupas">Roupas</option>
-                                <option value="Uso e consumo">Uso e consumo</option>
-                                <option value="Cosmeticos">Cosméticos</option>
-                                <option value="Confeitaria">Confeitaria</option>
-                                <option value="Brinquedos">Brinquedos</option>
-                                <option value="Outro">Outro</option>
-                            </select>
-                            <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none z-10">
-                                <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start gap-3 mt-1 mb-2 px-1">
-                        <div class="flex items-center h-5">
-                            <input id="termos-privacidade" type="checkbox" required
-                                class="w-4 h-4 bg-[#1c1f2b] border-gray-700 rounded focus:ring-2 focus:ring-brand-blue/50 text-brand-blue cursor-pointer appearance-none checked:bg-brand-blue checked:border-brand-blue relative after:content-['✔'] after:absolute after:text-white after:text-[10px] after:left-[3px] after:top-[1px] after:hidden checked:after:block transition-all">
-                        </div>
-                        <label for="termos-privacidade"
-                            class="text-[10px] sm:text-[11px] text-gray-400 leading-snug cursor-pointer">
-                            Por favor, marque a caixa para continuar. Declaro que li e aceito a
-                            <a href="imgs/Politica_de_Privacidade_Projetista_Oficial.pdf" target="_blank"
-                                class="text-brand-blue hover:text-brand-pink underline transition-colors font-bold">Política
-                                de Privacidade</a>.
-                        </label>
+                        <label class="text-brand-blue font-bold mb-1 block">Qual seu Segmento de venda?</label>
+                        <select id="lead-segmento" required
+                            class="w-full bg-brand-dark border border-gray-600 text-white p-2.5 rounded focus:border-brand-blue outline-none transition appearance-none">
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="Roupas">Roupas</option>
+                            <option value="Uso e consumo">Uso e consumo</option>
+                            <option value="Cosmeticos">Cosméticos</option>
+                            <option value="Confeitaria">Confeitaria</option>
+                            <option value="Brinquedos">Brinquedos</option>
+                            <option value="Outro">Outro</option>
+                        </select>
                     </div>
 
                     <button type="submit" id="btn-submit-lead"
-                        class="w-full mt-2 bg-gradient-to-r from-brand-pink to-brand-blue text-white font-extrabold text-sm sm:text-base uppercase tracking-wider py-4 rounded-xl shadow-[0_10px_30px_rgba(219,39,119,0.3)] hover:shadow-[0_15px_40px_rgba(37,99,235,0.4)] transition-all duration-300 transform hover:-translate-y-1 flex justify-center items-center gap-2">
-                        Teste Grátis por 7 Dias <i class="fas fa-arrow-right"></i>
+                        class="w-full mt-4 bg-gradient-to-r from-brand-pink to-brand-blue text-white font-extrabold text-lg py-4 rounded-xl shadow-lg hover:opacity-90 transition transform hover:-translate-y-1">
+                        Teste Grátis por 7 Dias
                     </button>
-
-                    <p class="text-center text-gray-500 text-[10px] mt-1 flex items-center justify-center gap-1">
-                        <i class="fas fa-lock"></i> Seus dados estão 100% seguros.
-                    </p>
                 </form>
             </div>
         </div>
@@ -1285,7 +1200,7 @@
 
         <div class="absolute top-0 left-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
             <svg viewBox="0 0 1440 120" preserveAspectRatio="none" class="w-full h-[40px] md:h-[80px]">
-                <!-- <path d="M0,0 L1440,0 L1440,40 C960,160 480,-40 0,40 Z" fill="#151720"></path> -->
+                <path d="M0,0 L1440,0 L1440,40 C960,160 480,-40 0,40 Z" fill="#151720"></path>
             </svg>
         </div>
 
@@ -1440,7 +1355,7 @@
 
         <!-- 🌊 ONDA DE TRANSIÇÃO INVERTIDA (Vindo do fundo escuro anterior) -->
         <div class="absolute top-0 left-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
-            <svg viewBox="0 0 1440 120" preserveAspectRatio="none" class="w-full h-[40px] md:h-[120px] ">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none" class="w-full h-[40px] md:h-[70px] ">
                 <path d="M0,0 L1440,0 L1440,40 C960,160 480,-40 0,40 Z" fill="#0a0c13"></path>
             </svg>
         </div>
@@ -1691,120 +1606,13 @@
                 </p>
                 <!-- Links Extras (Opcional, mas dá muita credibilidade) -->
                 <div class="text-gray-500 text-xs font-medium flex gap-6">
-                    <a href="imgs/Termos_de_Uso_Projetista_Oficial.pdf"
-                        class="hover:text-white transition-colors">Termos de Uso</a>
-                    <a href="imgs/Politica_de_Privacidade_Projetista_Oficial.pdf"
-                        class="hover:text-white transition-colors">Política de Privacidade</a>
+                    <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
+                    <a href="#" class="hover:text-white transition-colors">Política de Privacidade</a>
                 </div>
 
             </div>
         </div>
     </footer>
-
-    <button onclick="toggleZapChat()"
-        class="fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-r from-brand-pink to-brand-blue text-white rounded-full shadow-[0_10px_25px_rgba(37,99,235,0.4)] flex items-center justify-center text-3xl z-[99] transition-transform hover:scale-110 animate-bounce border-2 border-[#0a0c13]">
-        <i class="fab fa-whatsapp"></i>
-    </button>
-
-    <div id="zap-chat-widget"
-        class="fixed bottom-24 right-6 w-[360px] max-w-[calc(100vw-2rem)] bg-[#151720] rounded-2xl shadow-2xl z-[100] hidden flex-col overflow-hidden transition-all duration-300 origin-bottom-right scale-0 opacity-0 border border-gray-800">
-
-        <div
-            class="bg-gradient-to-r from-[#0a0c13] to-[#151720] border-b border-gray-800 px-4 py-3 flex items-center justify-between text-white shadow-md relative z-10">
-            <div class="flex items-center gap-3">
-                <div
-                    class="w-10 h-10 bg-gradient-to-tr from-brand-pink to-brand-blue rounded-full flex items-center justify-center border border-gray-700 relative shadow-inner">
-                    <i class="fas fa-robot text-lg text-white"></i>
-                    <span
-                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-[#151720] rounded-full"></span>
-                </div>
-                <div>
-                    <h4 class="font-bold text-sm leading-tight text-white font-['Nunito']">Especialista Projetista</h4>
-                    <p class="text-[10px] text-green-400 font-bold tracking-wider uppercase mt-0.5">Online agora</p>
-                </div>
-            </div>
-            <button onclick="toggleZapChat()" class="text-gray-500 hover:text-white text-lg transition"><i
-                    class="fas fa-times"></i></button>
-        </div>
-
-        <div class="bg-[#0a0c13] p-4 flex-1 overflow-y-auto max-h-[550px] flex flex-col gap-3 relative hide-scrollbar">
-
-            <div
-                class="bg-[#1e2029] border border-gray-800 p-3 rounded-xl rounded-tl-none shadow-md max-w-[90%] self-start relative z-10">
-                <p class="text-sm text-gray-300 leading-relaxed font-medium">Olá! 👋 Que bom ter você aqui.</p>
-                <p class="text-sm text-gray-300 leading-relaxed mt-2">Para eu liberar o seu <b class="text-white">Teste
-                        Grátis por 7 Dias</b> e um especialista te chamar, preencha rapidinho os dados abaixo:</p>
-                <span class="text-[9px] text-gray-500 block text-right mt-1 font-bold">Agora mesmo</span>
-            </div>
-
-            <div id="zap-form-container" class="relative z-10 w-full mt-1">
-                <form id="form-zap-lead" onsubmit="enviarLeadZap(event)"
-                    class="bg-[#151720] rounded-xl p-4 shadow-xl border border-gray-800 flex flex-col gap-4">
-
-                    <div class="flex flex-col gap-1.5">
-                        <label class="text-xs font-bold text-white tracking-wide">Seu Nome:</label>
-                        <input type="text" id="zap-nome" required placeholder="Ex: João da Silva"
-                            class="w-full text-sm border border-gray-700 rounded bg-[#1c1f2b] text-white focus:border-brand-blue outline-none px-3 py-2.5 transition-colors placeholder-gray-500">
-                    </div>
-
-                    <div class="flex flex-col gap-1.5">
-                        <label class="text-xs font-bold text-white tracking-wide">Empresa / Loja:</label>
-                        <input type="text" id="zap-loja" required placeholder="Ex: Veste Manto"
-                            class="w-full text-sm border border-gray-700 rounded bg-[#1c1f2b] text-white focus:border-brand-blue outline-none px-3 py-2.5 transition-colors placeholder-gray-500">
-                    </div>
-
-                    <div class="flex flex-col gap-1.5">
-                        <label class="text-xs font-bold text-white tracking-wide">Email:</label>
-                        <input type="email" id="zap-email" required placeholder="contato@sualoja.com.br"
-                            class="w-full text-sm border border-gray-700 rounded bg-[#1c1f2b] text-white focus:border-brand-blue outline-none px-3 py-2.5 transition-colors placeholder-gray-500">
-                    </div>
-
-                    <div class="flex flex-col gap-1.5">
-                        <label class="text-xs font-bold text-white tracking-wide">WhatsApp:</label>
-                        <input type="tel" id="zap-wpp" required placeholder="(11) 99999-9999"
-                            class="w-full text-sm border border-gray-700 rounded bg-[#1c1f2b] text-white focus:border-brand-blue outline-none px-3 py-2.5 transition-colors placeholder-gray-500">
-                    </div>
-
-                    <div class="flex flex-col gap-1.5">
-                        <label class="text-xs font-bold text-[#a3e635] tracking-wide">Faturamento Mensal:</label>
-                        <select id="zap-faturamento" required
-                            class="w-full text-sm border border-gray-700 rounded bg-[#1c1f2b] text-white focus:border-[#a3e635] outline-none px-3 py-2.5 transition-colors cursor-pointer">
-                            <option value="" disabled selected>Selecione...</option>
-                            <option value="Não sei">Não sei</option>
-                            <option value="Não tem faturamento">Não tem faturamento</option>
-                            <option value="Menos de 1000">Menos de R$ 1.000</option>
-                            <option value="1001 a 3000">De R$ 1.001 a R$ 3.000</option>
-                            <option value="3001 a 7000">De R$ 3.001 a R$ 7.000</option>
-                            <option value="7001 a 12000">De R$ 7.001 a R$ 12.000</option>
-                            <option value="12001 a 20000">De R$ 12.001 a R$ 20.000</option>
-                            <option value="Acima de 20000">Acima de R$ 20.000</option>
-                        </select>
-                    </div>
-
-                    <div class="flex flex-col gap-1.5">
-                        <label class="text-xs font-bold text-[#38bdf8] tracking-wide">Qual seu Segmento de
-                            venda?</label>
-                        <select id="zap-segmento" required
-                            class="w-full text-sm border border-gray-700 rounded bg-[#1c1f2b] text-white focus:border-[#38bdf8] outline-none px-3 py-2.5 transition-colors cursor-pointer">
-                            <option value="" disabled selected>Selecione...</option>
-                            <option value="Roupas">Roupas</option>
-                            <option value="Uso e consumo">Uso e consumo</option>
-                            <option value="Cosméticos">Cosméticos</option>
-                            <option value="Confeitaria">Confeitaria</option>
-                            <option value="Brinquedos">Brinquedos</option>
-                            <option value="Outro">Outro</option>
-                        </select>
-                    </div>
-
-                    <button type="submit"
-                        class="mt-4 w-full bg-gradient-to-r from-brand-pink to-brand-blue hover:opacity-90 text-white font-black text-sm py-3.5 rounded-lg shadow-lg transition-opacity tracking-wide">
-                        Teste Grátis por 7 Dias
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-
 
     <script type="module" src="app-lp.js"></script>
 

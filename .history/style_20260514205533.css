@@ -9,7 +9,6 @@
     scrollbar-width: none;
 }
 
-
 @keyframes chuvaSubida {
         0% {
             top: 110%; 
@@ -41,11 +40,4 @@
         opacity: 0; 
     }
 
-    /* Esconde a barra de rolagem em todos os navegadores, mas mantém a função de rolar */
-    .hide-scrollbar::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Edge */
-    }
-    .hide-scrollbar {
-        -ms-overflow-style: none;  /* IE e Edge antigos */
-        scrollbar-width: none;  /* Firefox */
-    }
+    

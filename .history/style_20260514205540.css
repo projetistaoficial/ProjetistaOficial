@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap');
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Esconde a barra de rolagem em todos os navegadores, mas mantém a função de rolar */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Edge */
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    /* IE e Edge antigos */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+@keyframes chuvaSubida {
+    0% {
+        top: 110%;
+        transform: translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        top: -10%;
+        transform: translateX(20px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.icone-subindo {
+    position: absolute;
+    top: 110%;
+    /* GARANTE QUE ELES INICIEM FORA DA TELA NA PARTE DE BAIXO */
+    pointer-events-none;
+    z-index: 0;
+    animation-name: chuvaSubida;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    /* FORÇA ELES A RESPEITAREM O 0% DURANTE O DELAY */
+    opacity: 0;
+}
