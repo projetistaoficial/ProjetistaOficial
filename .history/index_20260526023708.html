@@ -429,8 +429,7 @@
                                 de Privacidade</a>.
                         </label>
 
-                        <input type="hidden" id="input-plano-escolhido" name="plano_desejado"
-                            value="Nenhum plano selecionado">
+                        <input type="hidden" id="input-plano-escolhido" name="plano_desejado" value="Nenhum plano selecionado">
                     </div>
 
                     <button type="submit" id="btn-submit-lead"
@@ -1702,13 +1701,13 @@
 
                     <ul class="space-y-3 mb-8 text-[13px] text-gray-300">
                         <li class="flex items-start gap-3"><i
-                                class="fas fa-check-circle text-blue-500 mt-0.5 text-base"></i> <span>Até <strong>35
+                                class="fas fa-check-circle text-blue-500 mt-0.5 text-base"></i> <span>Até <strong>30
                                     Produtos</strong></span></li>
                         <li class="flex items-start gap-3"><i
-                                class="fas fa-check-circle text-blue-500 mt-0.5 text-base"></i> <span>Até <strong>4
+                                class="fas fa-check-circle text-blue-500 mt-0.5 text-base"></i> <span>Até <strong>2
                                     Fotos</strong> por produto</span></li>
                         <li class="flex items-start gap-3"><i
-                                class="fas fa-check-circle text-blue-500 mt-0.5 text-base"></i> <span>Até <strong>20
+                                class="fas fa-check-circle text-blue-500 mt-0.5 text-base"></i> <span>Até <strong>10
                                     Categorias</strong></span></li>
 
                         <li class="flex items-start gap-3"><i
@@ -1781,10 +1780,10 @@
                                 class="fas fa-check-circle text-fuchsia-500 mt-0.5 text-base"></i> <span>Até <strong>100
                                     Produtos</strong></span></li>
                         <li class="flex items-start gap-3"><i
-                                class="fas fa-check-circle text-fuchsia-500 mt-0.5 text-base"></i> <span>Até <strong>6
+                                class="fas fa-check-circle text-fuchsia-500 mt-0.5 text-base"></i> <span>Até <strong>4
                                     Fotos</strong> por produto</span></li>
                         <li class="flex items-start gap-3"><i
-                                class="fas fa-check-circle text-fuchsia-500 mt-0.5 text-base"></i> <span>Até <strong>40
+                                class="fas fa-check-circle text-fuchsia-500 mt-0.5 text-base"></i> <span>Até <strong>30
                                     Categorias</strong></span></li>
 
                         <li class="flex items-start gap-3"><i
@@ -1847,9 +1846,9 @@
                     <ul class="space-y-3 mb-8 text-[13px] text-gray-300">
                         <li class="flex items-start gap-3"><i
                                 class="fas fa-check-circle text-lime-400 mt-0.5 text-base"></i> <span
-                                class="text-white font-bold">Até 500 Produtos</span></li>
+                                class="text-white font-bold">Produtos Ilimitados</span></li>
                         <li class="flex items-start gap-3"><i
-                                class="fas fa-check-circle text-lime-400 mt-0.5 text-base"></i> <span>Até <strong>8
+                                class="fas fa-check-circle text-lime-400 mt-0.5 text-base"></i> <span>Até <strong>6
                                     Fotos</strong> por produto</span></li>
                         <li class="flex items-start gap-3"><i
                                 class="fas fa-check-circle text-lime-400 mt-0.5 text-base"></i> <span
@@ -1912,9 +1911,6 @@
     </section>
 
     <script>
-        // 1. Variável nova para "lembrar" qual ciclo de pagamento o cliente está vendo
-        let cicloAtual = 'Mensal';
-
         const pricingData = {
             mensal: {
                 start: { main: "39,99", period: " /mês", sub: "Cobrado mensalmente" },
@@ -1934,9 +1930,6 @@
         };
 
         function changeBillingCycle(cycle) {
-            // ✨ Atualiza a memória de qual ciclo está selecionado e coloca a primeira letra maiúscula
-            cicloAtual = cycle.charAt(0).toUpperCase() + cycle.slice(1);
-
             const buttons = document.querySelectorAll('.toggle-btn');
             buttons.forEach(btn => {
                 btn.classList.remove('bg-gradient-to-r', 'from-fuchsia-500', 'to-pink-500', 'text-white', 'shadow-md');
@@ -1977,42 +1970,41 @@
                 });
             }, 200);
         }
-
+    </script>
+    <script>
         // Função acionada ao clicar em "Escolher Plano"
         function selectPlan(planName) {
-            // ✨ Junta o nome do plano com o ciclo selecionado (Ex: "Vitrine (Anual)")
-            const planoCompleto = `${planName} (${cicloAtual})`;
-
-            const inputPlano = document.getElementById('input-plano-escolhido');
+            // 1. Armazena o plano escolhido no formulário (campo oculto)
+            const inputPlano = document.getElementById(#lead-form);
             if (inputPlano) {
-                inputPlano.value = planoCompleto;
+                inputPlano.value = planName;
             }
 
-            // Mostra o aviso Toast com a informação completa
-            showToast(`Plano ${planoCompleto} selecionado! Preencha seus dados para continuar.`);
+            // 2. Mostra o aviso Toast
+            showToast(`Plano ${planName} selecionado! Preencha seus dados para continuar.`);
 
-            // Rola a página suavemente até o formulário
-            const formSection = document.getElementById('formulario');
+            // 3. Rola a página suavemente até o formulário
+            // TROQUE 'sessao-formulario' PELO ID DA DIV DO SEU FORMULÁRIO DE CADASTRO
+            const formSection = document.getElementById('sessao-formulario');
             if (formSection) {
                 formSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-                // Efeito extra: Dá um pequeno "piscar" na borda do formulário
-                formSection.classList.add('scale-[1.02]');
-                setTimeout(() => formSection.classList.remove('scale-[1.02]'), 300);
             }
         }
 
         // Função que cria e exibe o Toast animado na tela
         function showToast(message) {
+            // Cria o elemento visual
             const toast = document.createElement('div');
             toast.className = 'fixed bottom-5 right-5 md:bottom-10 md:right-10 bg-gradient-to-r from-fuchsia-600 to-blue-600 text-white px-6 py-4 rounded-xl shadow-2xl z-50 transform transition-all duration-300 translate-y-20 opacity-0 font-bold text-sm flex items-center gap-3 border border-white/20';
             toast.innerHTML = `<i class="fas fa-check-circle text-lg"></i> <span>${message}</span>`;
             document.body.appendChild(toast);
 
+            // Animação de entrada
             setTimeout(() => {
                 toast.classList.remove('translate-y-20', 'opacity-0');
             }, 50);
 
+            // Animação de saída e remoção após 4 segundos
             setTimeout(() => {
                 toast.classList.add('translate-y-20', 'opacity-0');
                 setTimeout(() => toast.remove(), 300);
