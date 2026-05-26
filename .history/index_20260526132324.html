@@ -1922,7 +1922,7 @@
                     class="w-[40vw] sm:w-[160px] md:w-auto shrink-0 snap-center self-center flex flex-col items-center justify-center cursor-pointer group pl-2 md:pl-0">
 
                     <div
-                        class="w-10 h-20 md:w-14 md:h-24 rounded-full bg-gradient-to-br from-[#161821] to-[#0a0b10] border-2 border-dashed border-gray-700 group-hover:border-lime-500 flex items-center justify-center text-gray-500 group-hover:text-lime-400 group-hover:bg-[#0f111a] transition-all duration-300 shadow-lg group-hover:shadow-[0_10px_30px_rgba(132,204,22,0.25)] group-hover:scale-105 mb-4">
+                        class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-[#161821] to-[#0a0b10] border-2 border-dashed border-gray-700 group-hover:border-lime-500 flex items-center justify-center text-gray-500 group-hover:text-lime-400 group-hover:bg-[#0f111a] transition-all duration-300 shadow-lg group-hover:shadow-[0_10px_30px_rgba(132,204,22,0.25)] group-hover:scale-105 mb-4">
                         <i
                             class="fas fa-arrow-right text-2xl md:text-3xl group-hover:translate-x-2 transition-transform duration-300"></i>
                     </div>
@@ -1932,8 +1932,8 @@
                             class="text-gray-500 text-[10px] md:text-xs font-bold uppercase tracking-widest block mb-1">Sob
                             Demanda</span>
                         <h3
-                            class="text-sm md:text-base font-black text-white group-hover:text-lime-400 transition-colors  leading-tight">
-                            Personalizado</h3>
+                            class="text-sm md:text-base font-black text-white group-hover:text-lime-400 transition-colors uppercase leading-tight">
+                            Plano<br>Personalizado</h3>
                     </div>
 
                 </div>
@@ -1945,7 +1945,7 @@
 
                 <button onclick="switchPlanView(false)"
                     class="flex items-center gap-2 bg-[#161821] border border-gray-800 hover:border-gray-600 text-gray-400 hover:text-white px-5 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-lg shrink-0 hover:-translate-x-1 cursor-pointer">
-                    <i class="fas fa-arrow-left"></i>
+                    <i class="fas fa-arrow-left"></i> Voltar aos Planos
                 </button>
 
                 <div
@@ -2169,44 +2169,50 @@
             showToast("Plano removido! Mas você ainda pode fazer seu teste gratuito.", "success");
         }
 
+        // --- LÓGICA DE TRANSIÇÃO ---
         function switchPlanView(showCustomPlan) {
             const viewPadrao = document.getElementById('view-planos-padrao');
             const viewCustom = document.getElementById('view-plano-personalizado');
-            const indicadorMobile = document.getElementById('indicador-carrossel-mobile');
+            const containerIndicadores = document.getElementById('indicador-carrossel-mobile');
 
             if (showCustomPlan) {
-                // Esconde os planos padrão com efeito fade
                 viewPadrao.style.opacity = '0';
-                if (indicadorMobile) indicadorMobile.classList.add('hidden');
-
+                if (containerIndicadores) containerIndicadores.classList.add('hidden');
                 setTimeout(() => {
                     viewPadrao.classList.add('hidden');
-                    viewPadrao.classList.remove('flex', 'md:grid');
-
-                    // Mostra o plano personalizado centralizado
                     viewCustom.classList.remove('hidden');
-                    viewCustom.classList.add('flex');
-                    setTimeout(() => { viewCustom.style.opacity = '1'; }, 50);
+                    viewCustom.style.opacity = '1';
                 }, 300);
             } else {
-                // Esconde o plano personalizado
                 viewCustom.style.opacity = '0';
-
                 setTimeout(() => {
                     viewCustom.classList.add('hidden');
-                    viewCustom.classList.remove('flex');
-
-                    // Reativa a grid/carrossel padrão
                     viewPadrao.classList.remove('hidden');
-                    viewPadrao.classList.add('flex', 'md:grid');
-                    if (indicadorMobile) indicadorMobile.classList.remove('hidden');
-                    setTimeout(() => { viewPadrao.style.opacity = '1'; }, 50);
-
-                    // Força o carrossel a voltar para o primeiro item (Start) para organizar o layout
-                    viewPadrao.scrollLeft = 0;
+                    viewPadrao.style.opacity = '1';
+                    if (containerIndicadores) containerIndicadores.classList.remove('hidden');
                 }, 300);
             }
         }
+
+        // --- LÓGICA DAS BOLINHAS (SCROLL LISTENER) ---
+        const container = document.getElementById('view-planos-padrao');
+        const dots = document.querySelectorAll('.dot-plano');
+
+        container.addEventListener('scroll', () => {
+            const scrollPos = container.scrollLeft;
+            const itemWidth = container.offsetWidth * 0.8; // Aproximação da largura do card
+            const activeIndex = Math.round(scrollPos / itemWidth);
+
+            dots.forEach((dot, index) => {
+                if (index === activeIndex) {
+                    dot.classList.remove('bg-gray-600');
+                    dot.classList.add('bg-pink-500', 'w-6');
+                } else {
+                    dot.classList.remove('bg-pink-500', 'w-6');
+                    dot.classList.add('bg-gray-600', 'w-2');
+                }
+            });
+        });
 
         // Inicializa as opacidades padrão no carregamento
         document.addEventListener('DOMContentLoaded', () => {
@@ -2232,7 +2238,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            const carousel = document.getElementById('view-planos-padrao');
+            const carousel = document.getElementById('planos-carousel');
             const dots = document.querySelectorAll('.dot-plano');
 
             if (carousel && dots.length > 0) {

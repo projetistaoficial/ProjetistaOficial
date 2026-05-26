@@ -1689,7 +1689,8 @@
                     venda. Comece pequeno e escale o seu negócio.</p>
             </div>
 
-            <div class="flex justify-center mb-12">
+            <div class="flex justify-center items-center mb-12">
+
                 <div
                     class="bg-[#161821] border border-gray-800 p-1.5 rounded-full inline-flex gap-1 shadow-inner relative overflow-x-auto max-w-full">
                     <button id="btn-mensal" onclick="changeBillingCycle('mensal')"
@@ -1701,7 +1702,20 @@
                         class="toggle-btn relative z-10 px-6 py-2.5 rounded-full text-xs font-bold uppercase text-gray-400 hover:text-white transition-all duration-300 bg-transparent whitespace-nowrap">Anual
                         <span class="ml-1 text-[9px] text-lime-400 font-black">-20%</span></button>
                 </div>
+
+                <div class="mt-6">
+                    <button onclick="switchPlanView(true)"
+                        class="group flex items-center gap-3 bg-[#161821] hover:bg-[#1f2231] border border-gray-700 hover:border-lime-500 transition-all duration-300 rounded-full px-6 py-2 shadow-lg">
+                        <div class="w-2 h-2 rounded-full bg-lime-500 animate-pulse"></div>
+                        <span
+                            class="text-white text-xs font-bold uppercase tracking-widest group-hover:text-lime-400">Ver
+                            Plano Personalizado</span>
+                        <i class="fas fa-chevron-right text-[10px] text-gray-500 group-hover:text-lime-400"></i>
+                    </button>
+                </div>
             </div>
+
+
 
             <div id="view-planos-padrao"
                 class="flex overflow-x-auto md:grid md:grid-cols-[1fr_1fr_1fr_auto] gap-6 xl:gap-8 items-stretch snap-x snap-mandatory no-scrollbar pb-6 pt-4 -mx-6 px-6 md:mx-0 md:px-0 md:pb-8 md:pt-10 transition-all duration-300">
@@ -1918,26 +1932,6 @@
                         Plano</button>
                 </div>
 
-                <div onclick="switchPlanView(true)"
-                    class="w-[40vw] sm:w-[160px] md:w-auto shrink-0 snap-center self-center flex flex-col items-center justify-center cursor-pointer group pl-2 md:pl-0">
-
-                    <div
-                        class="w-10 h-20 md:w-14 md:h-24 rounded-full bg-gradient-to-br from-[#161821] to-[#0a0b10] border-2 border-dashed border-gray-700 group-hover:border-lime-500 flex items-center justify-center text-gray-500 group-hover:text-lime-400 group-hover:bg-[#0f111a] transition-all duration-300 shadow-lg group-hover:shadow-[0_10px_30px_rgba(132,204,22,0.25)] group-hover:scale-105 mb-4">
-                        <i
-                            class="fas fa-arrow-right text-2xl md:text-3xl group-hover:translate-x-2 transition-transform duration-300"></i>
-                    </div>
-
-                    <div class="text-center">
-                        <span
-                            class="text-gray-500 text-[10px] md:text-xs font-bold uppercase tracking-widest block mb-1">Sob
-                            Demanda</span>
-                        <h3
-                            class="text-sm md:text-base font-black text-white group-hover:text-lime-400 transition-colors  leading-tight">
-                            Personalizado</h3>
-                    </div>
-
-                </div>
-
             </div>
 
             <div id="view-plano-personalizado"
@@ -2024,7 +2018,6 @@
             <div id="indicador-carrossel-mobile" class="flex md:hidden justify-center items-center gap-4 mt-6">
                 <div class="flex gap-2">
                     <div class="w-6 h-2 rounded-full bg-pink-500 transition-all duration-300 dot-plano"></div>
-                    <div class="w-2 h-2 rounded-full bg-gray-600 transition-all duration-300 dot-plano"></div>
                     <div class="w-2 h-2 rounded-full bg-gray-600 transition-all duration-300 dot-plano"></div>
                     <div class="w-2 h-2 rounded-full bg-gray-600 transition-all duration-300 dot-plano"></div>
                 </div>

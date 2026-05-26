@@ -1704,7 +1704,7 @@
             </div>
 
             <div id="view-planos-padrao"
-                class="flex overflow-x-auto md:grid md:grid-cols-[1fr_1fr_1fr_auto] gap-6 xl:gap-8 items-stretch snap-x snap-mandatory no-scrollbar pb-6 pt-4 -mx-6 px-6 md:mx-0 md:px-0 md:pb-8 md:pt-10 transition-all duration-300">
+                class="flex overflow-x-auto md:grid md:grid-cols-4 gap-6 xl:gap-8 items-stretch snap-x snap-mandatory no-scrollbar pb-6 pt-4 -mx-6 px-6 md:mx-0 md:px-0 md:pb-8 md:pt-10 transition-all duration-300">
 
                 <div
                     class="w-[85vw] sm:w-[320px] md:w-auto shrink-0 snap-center bg-[#0f111a] border border-gray-800 rounded-[2.5rem] p-6 xl:p-8 hover:border-pink-500/50 transition-all duration-300 shadow-lg group relative flex flex-col justify-between">
@@ -1825,12 +1825,10 @@
                                     de Lucro de cada pedido</span></li>
                             <li class="flex items-start gap-3"><i
                                     class="fas fa-check-circle text-fuchsia-500 mt-0.5 text-base"></i>
-                                <span>Estatísticas financeiras</span>
-                            </li>
+                                <span>Estatísticas financeiras</span></li>
                             <li class="flex items-start gap-3"><i
                                     class="fas fa-check-circle text-fuchsia-500 mt-0.5 text-base"></i>
-                                <span>Personalização de temas e cores</span>
-                            </li>
+                                <span>Personalização de temas e cores</span></li>
                             <li class="flex items-start gap-3"><i
                                     class="fas fa-check-circle text-fuchsia-500 mt-0.5 text-base"></i> <span
                                     class="text-white font-bold">Relatório de produtos</span></li>
@@ -1918,25 +1916,16 @@
                         Plano</button>
                 </div>
 
-                <div onclick="switchPlanView(true)"
-                    class="w-[40vw] sm:w-[160px] md:w-auto shrink-0 snap-center self-center flex flex-col items-center justify-center cursor-pointer group pl-2 md:pl-0">
+                <div onclick="switchPlanView(true)" class="w-[60vw] sm:w-[220px] md:w-full max-w-[220px] shrink-0 snap-center self-center justify-self-center bg-gradient-to-br from-[#0f111a] to-[#08090e] border-2 border-dashed border-gray-800 rounded-3xl p-6 hover:border-lime-500/50 transition-all duration-300 shadow-lg flex flex-col items-center justify-center text-center cursor-pointer group my-auto mx-auto md:mr-0">
+        
+        <span class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-2 block">Sob demanda</span>
+        <h3 class="text-lg font-black text-white group-hover:text-lime-400 transition-all font-rounded leading-tight mb-2">Plano<br>Personalizado</h3>
+        
+        <div class="mt-3 w-12 h-12 rounded-full bg-[#161821] border border-gray-800 flex items-center justify-center text-gray-400 group-hover:bg-lime-500 group-hover:text-black transition-all shadow-xl group-hover:translate-x-2">
+            <i class="fas fa-arrow-right text-base"></i>
+        </div>
 
-                    <div
-                        class="w-10 h-20 md:w-14 md:h-24 rounded-full bg-gradient-to-br from-[#161821] to-[#0a0b10] border-2 border-dashed border-gray-700 group-hover:border-lime-500 flex items-center justify-center text-gray-500 group-hover:text-lime-400 group-hover:bg-[#0f111a] transition-all duration-300 shadow-lg group-hover:shadow-[0_10px_30px_rgba(132,204,22,0.25)] group-hover:scale-105 mb-4">
-                        <i
-                            class="fas fa-arrow-right text-2xl md:text-3xl group-hover:translate-x-2 transition-transform duration-300"></i>
-                    </div>
-
-                    <div class="text-center">
-                        <span
-                            class="text-gray-500 text-[10px] md:text-xs font-bold uppercase tracking-widest block mb-1">Sob
-                            Demanda</span>
-                        <h3
-                            class="text-sm md:text-base font-black text-white group-hover:text-lime-400 transition-colors  leading-tight">
-                            Personalizado</h3>
-                    </div>
-
-                </div>
+    </div>
 
             </div>
 
@@ -1945,7 +1934,7 @@
 
                 <button onclick="switchPlanView(false)"
                     class="flex items-center gap-2 bg-[#161821] border border-gray-800 hover:border-gray-600 text-gray-400 hover:text-white px-5 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-lg shrink-0 hover:-translate-x-1 cursor-pointer">
-                    <i class="fas fa-arrow-left"></i>
+                    <i class="fas fa-arrow-left"></i> Voltar aos Planos
                 </button>
 
                 <div
@@ -2010,8 +1999,7 @@
                                 class="fas fa-check-circle text-lime-400 mt-0.5 text-base"></i> <span>PDF - Arte + QR
                                 Code da loja</span></li>
                         <li class="flex items-start gap-3"><i class="fas fa-star text-yellow-400 mt-0.5 text-base"></i>
-                            <span class="text-yellow-400 font-bold">Divulgação nas Nossas Redes Sociais</span>
-                        </li>
+                            <span class="text-yellow-400 font-bold">Divulgação nas Nossas Redes Sociais</span></li>
                     </ul>
 
                     <button onclick="selectPlan('Personalizado')"
@@ -2033,6 +2021,16 @@
                 </span>
             </div>
 
+            <div class="flex md:hidden justify-center items-center gap-4 mt-6">
+                <div id="planos-dots" class="flex gap-2">
+                    <div class="w-6 h-2 rounded-full bg-pink-500 transition-all duration-300 dot-plano"></div>
+                    <div class="w-2 h-2 rounded-full bg-gray-600 transition-all duration-300 dot-plano"></div>
+                    <div class="w-2 h-2 rounded-full bg-gray-600 transition-all duration-300 dot-plano"></div>
+                </div>
+                <span class="text-gray-400 text-[10px] uppercase font-bold flex items-center gap-1.5 animate-pulse">
+                    <i class="fas fa-arrow-left"></i> Confira mais planos <i class="fas fa-arrow-right"></i>
+                </span>
+            </div>
 
             <div class="mt-12 text-center flex flex-col items-center justify-center opacity-70">
                 <p class="text-gray-400 text-xs md:text-sm"><i class="fas fa-info-circle mr-1"></i> Será cobrada uma
@@ -2169,51 +2167,6 @@
             showToast("Plano removido! Mas você ainda pode fazer seu teste gratuito.", "success");
         }
 
-        function switchPlanView(showCustomPlan) {
-            const viewPadrao = document.getElementById('view-planos-padrao');
-            const viewCustom = document.getElementById('view-plano-personalizado');
-            const indicadorMobile = document.getElementById('indicador-carrossel-mobile');
-
-            if (showCustomPlan) {
-                // Esconde os planos padrão com efeito fade
-                viewPadrao.style.opacity = '0';
-                if (indicadorMobile) indicadorMobile.classList.add('hidden');
-
-                setTimeout(() => {
-                    viewPadrao.classList.add('hidden');
-                    viewPadrao.classList.remove('flex', 'md:grid');
-
-                    // Mostra o plano personalizado centralizado
-                    viewCustom.classList.remove('hidden');
-                    viewCustom.classList.add('flex');
-                    setTimeout(() => { viewCustom.style.opacity = '1'; }, 50);
-                }, 300);
-            } else {
-                // Esconde o plano personalizado
-                viewCustom.style.opacity = '0';
-
-                setTimeout(() => {
-                    viewCustom.classList.add('hidden');
-                    viewCustom.classList.remove('flex');
-
-                    // Reativa a grid/carrossel padrão
-                    viewPadrao.classList.remove('hidden');
-                    viewPadrao.classList.add('flex', 'md:grid');
-                    if (indicadorMobile) indicadorMobile.classList.remove('hidden');
-                    setTimeout(() => { viewPadrao.style.opacity = '1'; }, 50);
-
-                    // Força o carrossel a voltar para o primeiro item (Start) para organizar o layout
-                    viewPadrao.scrollLeft = 0;
-                }, 300);
-            }
-        }
-
-        // Inicializa as opacidades padrão no carregamento
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('view-planos-padrao').style.opacity = '1';
-            document.getElementById('view-plano-personalizado').style.opacity = '0';
-        });
-
         // Função que cria e exibe o Toast animado na tela
         function showToast(message) {
             const toast = document.createElement('div');
@@ -2232,7 +2185,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            const carousel = document.getElementById('view-planos-padrao');
+            const carousel = document.getElementById('planos-carousel');
             const dots = document.querySelectorAll('.dot-plano');
 
             if (carousel && dots.length > 0) {
