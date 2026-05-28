@@ -188,7 +188,7 @@
                 <a href="#funcionalidades"
                     class="flex items-center gap-1 hover:opacity-70 transition transform hover:-translate-y-0.5">
                     <span class="text-[#fff500]">Funcionalidades</span>
-                    <!-- <i class="fas fa-chevron-down text-[10px] xl:text-[11px] text-[#fff500] mb-0.5 mt-0.5"></i> -->
+                    <i class="fas fa-chevron-down text-[10px] xl:text-[11px] text-[#fff500] mb-0.5 mt-0.5"></i>
                 </a>
 
                 <a href="#outros-servicos"
@@ -1664,21 +1664,22 @@
         </div>
     </section>
 
-    <section id="planos" class="relative pt-32 pb-24 bg-[#0B0E14] font-rounded px-6 overflow-hidden">
+    <section id="planos" class=" pt-32 relative pt-32 pb-24 bg-[#0B0E14] font-rounded px-6 overflow-hidden">
 
         <div class="absolute top-0 left-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
-            <svg viewBox="0 0 1440 120" preserveAspectRatio="none" class="w-full h-[40px] md:h-[120px]">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none" class="w-full h-[40px] md:h-[120px] ">
                 <path d="M0,0 L1440,0 L1440,40 C960,160 480,-40 0,40 Z" fill="#ffffff"></path>
             </svg>
         </div>
 
         <div class="absolute inset-0 z-0 opacity-10"
             style="background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 24px 24px;"></div>
+
         <div
             class="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-br from-pink-500/10 via-fuchsia-500/5 to-blue-500/10 blur-[150px] pointer-events-none">
         </div>
 
-        <div class="w-full max-w-[1600px] mx-auto relative z-10">
+        <div class="max-w-[1400px] mx-auto relative z-10">
 
             <div class="text-center mb-10">
                 <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 tracking-wide">Escolha o <span
@@ -1688,10 +1689,9 @@
                     venda. Comece pequeno e escale o seu negócio.</p>
             </div>
 
-            <div class="flex flex-wrap justify-center items-center gap-4 mb-12">
-
+            <div class="flex justify-center mb-12">
                 <div
-                    class="bg-[#161821] border border-gray-800 p-1.5 rounded-full inline-flex gap-1 shadow-inner relative overflow-x-auto">
+                    class="bg-[#161821] border border-gray-800 p-1.5 rounded-full inline-flex gap-1 shadow-inner relative overflow-x-auto max-w-full">
                     <button id="btn-mensal" onclick="changeBillingCycle('mensal')"
                         class="toggle-btn relative z-10 px-6 py-2.5 rounded-full text-xs font-bold uppercase transition-all duration-300 bg-gradient-to-r from-fuchsia-500 to-pink-500 text-white shadow-md">Mensal</button>
                     <button id="btn-semestral" onclick="changeBillingCycle('semestral')"
@@ -1701,37 +1701,27 @@
                         class="toggle-btn relative z-10 px-6 py-2.5 rounded-full text-xs font-bold uppercase text-gray-400 hover:text-white transition-all duration-300 bg-transparent whitespace-nowrap">Anual
                         <span class="ml-1 text-[9px] text-lime-400 font-black">-20%</span></button>
                 </div>
-
-                <button onclick="switchPlanView(true)"
-                    class="group flex items-center gap-3 bg-[#161821] hover:bg-[#1f2231] border border-gray-700 hover:border-lime-500 transition-all duration-300 rounded-full px-6 py-3 shadow-lg whitespace-nowrap">
-                    <div class="w-2 h-2 rounded-full bg-lime-500 animate-pulse"></div>
-                    <span class="text-white text-xs font-bold uppercase tracking-widest group-hover:text-lime-400">Plano
-                        Personalizado</span>
-                    <i class="fas fa-chevron-right text-[10px] text-gray-500 group-hover:text-lime-400"></i>
-                </button>
             </div>
 
             <div id="view-planos-padrao"
-                class="flex overflow-x-auto md:grid md:grid-cols-3 gap-6 lg:gap-10 xl:gap-14 items-stretch snap-x snap-mandatory no-scrollbar pb-6 pt-4 -mx-6 px-6 md:mx-0 md:px-0 md:pb-12 md:pt-16 transition-all duration-300">
+                class="flex overflow-x-auto md:grid md:grid-cols-[1fr_1fr_1fr_auto] gap-6 xl:gap-8 items-stretch snap-x snap-mandatory no-scrollbar pb-6 pt-4 -mx-6 px-6 md:mx-0 md:px-0 md:pb-8 md:pt-10 transition-all duration-300">
 
                 <div
-                    class="w-[85vw] sm:w-[320px] md:w-auto shrink-0 snap-center bg-[#0f111a] border border-gray-800 rounded-[2.5rem] p-6 lg:p-10 xl:p-12 hover:border-pink-500/50 transition-all duration-300 shadow-lg group relative flex flex-col justify-between">
+                    class="w-[85vw] sm:w-[320px] md:w-auto shrink-0 snap-center bg-[#0f111a] border border-gray-800 rounded-[2.5rem] p-6 xl:p-8 hover:border-pink-500/50 transition-all duration-300 shadow-lg group relative flex flex-col justify-between">
                     <div>
-                        <h3
-                            class="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-pink-400 transition-colors">
-                            Plano Start</h3>
-                        <p class="text-xs md:text-sm text-gray-500 mb-6 h-10">Perfeito para dar os primeiros passos
-                            online.</p>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-pink-400 transition-colors">Plano
+                            Start</h3>
+                        <p class="text-xs text-gray-500 mb-6 h-8">Perfeito para dar os primeiros passos online.</p>
 
                         <div class="mb-6 border-b border-gray-800 pb-6">
-                            <span class="text-3xl lg:text-4xl font-black text-white">R$ <span
+                            <span class="text-3xl font-black text-white">R$ <span
                                     id="price-start">39,99</span></span><span id="period-start"
                                 class="text-gray-500 text-sm font-bold"> /mês</span>
                             <p id="sub-start" class="text-[11px] text-gray-400 mt-2 font-medium h-4">Cobrado mensalmente
                             </p>
                         </div>
 
-                        <ul class="space-y-4 mb-8 text-[13px] md:text-sm text-gray-300">
+                        <ul class="space-y-3 mb-8 text-[13px] text-gray-300">
                             <li class="flex items-start gap-3"><i
                                     class="fas fa-check-circle text-blue-500 mt-0.5 text-base"></i> <span>Até <strong>35
                                         Produtos</strong></span></li>
@@ -1765,7 +1755,6 @@
                             <li class="flex items-start gap-3"><i
                                     class="fas fa-check-circle text-blue-500 mt-0.5 text-base"></i> <span>Personalização
                                     de temas e cores</span></li>
-
                             <li class="flex items-start gap-3 opacity-50"><i
                                     class="fas fa-times text-red-500 mt-0.5 text-base"></i> <span
                                     class="line-through text-gray-500">Relatório de produtos</span></li>
@@ -1774,45 +1763,42 @@
                                     class="line-through text-gray-500">Relatório Financeiro</span></li>
                             <li class="flex items-start gap-3 opacity-50"><i
                                     class="fas fa-times text-red-500 mt-0.5 text-base"></i> <span
-                                    class="line-through text-gray-500">PDF: Arte + QR Code da loja</span></li>
-                            <li class="flex items-start gap-3 opacity-50"><i
-                                    class="fas fa-times text-red-500 mt-0.5 text-base"></i> <span
-                                    class="line-through text-gray-500">Impressão de pedidos</span></li>
+                                    class="line-through text-gray-500">PDF - Arte + QR Code da loja</span></li>
                             <li class="flex items-start gap-3 opacity-50"><i
                                     class="fas fa-times text-red-500 mt-0.5 text-base"></i> <span
                                     class="line-through text-gray-500">Divulgação nas Redes Sociais</span></li>
                         </ul>
                     </div>
                     <button onclick="selectPlan('Start')"
-                        class="w-full py-4 rounded-full border-2 border-gray-700 text-white font-bold hover:border-pink-500 hover:text-pink-400 transition-colors mt-auto">Escolher
+                        class="w-full py-3.5 rounded-full border-2 border-gray-700 text-white font-bold hover:border-pink-500 hover:text-pink-400 transition-colors mt-auto">Escolher
                         Plano</button>
                 </div>
 
                 <div
-                    class="w-[85vw] sm:w-[320px] md:w-auto shrink-0 snap-center bg-gradient-to-b from-[#161821] to-[#0a0b10] border-2 border-fuchsia-500 rounded-[2.5rem] p-6 lg:p-10 xl:p-12 relative transform md:-translate-y-6 shadow-[0_15px_50px_rgba(217,70,239,0.2)] z-10 flex flex-col justify-between">
+                    class="w-[85vw] sm:w-[320px] md:w-auto shrink-0 snap-center bg-gradient-to-b from-[#161821] to-[#0a0b10] border-2 border-fuchsia-500 rounded-[2.5rem] p-6 xl:p-8 relative transform md:-translate-y-4 shadow-[0_10px_40px_rgba(217,70,239,0.15)] z-10 flex flex-col justify-between">
                     <div
-                        class="absolute -top-4 md:-top-5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-500 to-fuchsia-500 text-white px-6 py-2 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest shadow-lg whitespace-nowrap">
+                        class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-500 to-fuchsia-500 text-white px-5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-md whitespace-nowrap">
                         Mais Escolhido
                     </div>
                     <div>
                         <h3
-                            class="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-blue-400 mb-2">
+                            class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-blue-400 mb-2">
                             Plano Vitrine</h3>
-                        <p class="text-xs md:text-sm text-gray-400 mb-6 h-10">O melhor custo-benefício para lojas que já
-                            têm volume.</p>
+                        <p class="text-xs text-gray-400 mb-6 h-8">O melhor custo-benefício para lojas que já têm volume.
+                        </p>
 
                         <div class="mb-6 border-b border-gray-800 pb-6">
-                            <span class="text-4xl lg:text-5xl font-black text-white">R$ <span
+                            <span class="text-4xl font-black text-white">R$ <span
                                     id="price-vitrine">59,99</span></span><span id="period-vitrine"
                                 class="text-gray-500 text-sm font-bold"> /mês</span>
                             <p id="sub-vitrine" class="text-[11px] text-fuchsia-400 mt-2 font-bold h-4">Cobrado
                                 mensalmente</p>
                         </div>
 
-                        <ul class="space-y-4 mb-8 text-[13px] md:text-sm text-gray-200">
+                        <ul class="space-y-3 mb-8 text-[13px] text-gray-200">
                             <li class="flex items-start gap-3"><i
                                     class="fas fa-check-circle text-fuchsia-500 mt-0.5 text-base"></i> <span>Até
-                                    <strong>150 Produtos</strong></span></li>
+                                    <strong>100 Produtos</strong></span></li>
                             <li class="flex items-start gap-3"><i
                                     class="fas fa-check-circle text-fuchsia-500 mt-0.5 text-base"></i> <span>Até
                                     <strong>6 Fotos</strong> por produto</span></li>
@@ -1853,38 +1839,33 @@
                                     class="text-white font-bold">Relatório Financeiro</span></li>
                             <li class="flex items-start gap-3"><i
                                     class="fas fa-check-circle text-fuchsia-500 mt-0.5 text-base"></i> <span
-                                    class="text-white font-bold">PDF: Arte + QR Code da loja</span></li>
-                            <li class="flex items-start gap-3"><i
-                                    class="fas fa-check-circle text-fuchsia-500 mt-0.5 text-base"></i>Impressão de
-                                pedidos</li>
+                                    class="text-white font-bold">PDF - Arte + QR Code da loja</span></li>
                             <li class="flex items-start gap-3 opacity-50"><i
                                     class="fas fa-times text-red-500 mt-0.5 text-base"></i> <span
                                     class="line-through text-gray-500">Divulgação nas Redes Sociais</span></li>
                         </ul>
                     </div>
                     <button onclick="selectPlan('Vitrine')"
-                        class="w-full py-4 rounded-full bg-gradient-to-r from-fuchsia-500 to-blue-600 text-white font-black hover:scale-[1.02] transition-transform shadow-xl shadow-fuchsia-500/30 mt-auto text-base">Escolher
+                        class="w-full py-4 rounded-full bg-gradient-to-r from-fuchsia-500 to-blue-600 text-white font-black hover:scale-[1.02] transition-transform shadow-lg shadow-fuchsia-500/25 mt-auto">Escolher
                         Plano</button>
                 </div>
 
                 <div
-                    class="w-[85vw] sm:w-[320px] md:w-auto shrink-0 snap-center bg-[#0f111a] border border-gray-800 rounded-[2.5rem] p-6 lg:p-10 xl:p-12 hover:border-blue-500/50 transition-all duration-300 shadow-lg group relative flex flex-col justify-between">
+                    class="w-[85vw] sm:w-[320px] md:w-auto shrink-0 snap-center bg-[#0f111a] border border-gray-800 rounded-[2.5rem] p-6 xl:p-8 hover:border-blue-500/50 transition-all duration-300 shadow-lg group relative flex flex-col justify-between">
                     <div>
-                        <h3
-                            class="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                            Plano Scale</h3>
-                        <p class="text-xs md:text-sm text-gray-500 mb-6 h-10">Crie um ecossistema completo e divulgado.
-                        </p>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Plano
+                            Scale</h3>
+                        <p class="text-xs text-gray-500 mb-6 h-8">Crie um ecossistema completo e divulgado.</p>
 
                         <div class="mb-6 border-b border-gray-800 pb-6">
-                            <span class="text-3xl lg:text-4xl font-black text-white">R$ <span
+                            <span class="text-3xl font-black text-white">R$ <span
                                     id="price-scale">89,99</span></span><span id="period-scale"
                                 class="text-gray-500 text-sm font-bold"> /mês</span>
                             <p id="sub-scale" class="text-[11px] text-gray-400 mt-2 font-medium h-4">Cobrado mensalmente
                             </p>
                         </div>
 
-                        <ul class="space-y-4 mb-8 text-[13px] md:text-sm text-gray-300">
+                        <ul class="space-y-3 mb-8 text-[13px] text-gray-300">
                             <li class="flex items-start gap-3"><i
                                     class="fas fa-check-circle text-lime-400 mt-0.5 text-base"></i> <span
                                     class="text-white font-bold">Até 500 Produtos</span></li>
@@ -1925,55 +1906,76 @@
                                     class="fas fa-check-circle text-lime-400 mt-0.5 text-base"></i> <span>Relatório
                                     Financeiro</span></li>
                             <li class="flex items-start gap-3"><i
-                                    class="fas fa-check-circle text-lime-400 mt-0.5 text-base"></i> <span>PDF: Arte +
+                                    class="fas fa-check-circle text-lime-400 mt-0.5 text-base"></i> <span>PDF - Arte +
                                     QR Code da loja</span></li>
-                            <li class="flex items-start gap-3"><i
-                                    class="fas fa-check-circle text-lime-400 mt-0.5 text-base"></i>Impressão de pedidos</li>
                             <li class="flex items-start gap-3"><i
                                     class="fas fa-star text-yellow-400 mt-0.5 text-base"></i> <span
                                     class="text-yellow-400 font-bold">Divulgação nas Nossas Redes Sociais</span></li>
                         </ul>
                     </div>
                     <button onclick="selectPlan('Scale')"
-                        class="w-full py-4 rounded-full border-2 border-gray-700 text-white font-bold hover:border-blue-500 hover:text-blue-400 transition-colors mt-auto">Escolher
+                        class="w-full py-3.5 rounded-full border-2 border-gray-700 text-white font-bold hover:border-blue-500 hover:text-blue-400 transition-colors mt-auto">Escolher
                         Plano</button>
                 </div>
+
+                <div onclick="switchPlanView(true)"
+                    class="w-[40vw] sm:w-[160px] md:w-auto shrink-0 snap-center self-center flex flex-col items-center justify-center cursor-pointer group pl-2 md:pl-0">
+
+                    <div
+                        class="w-10 h-20 md:w-14 md:h-24 rounded-full bg-gradient-to-br from-[#161821] to-[#0a0b10] border-2 border-dashed border-gray-700 group-hover:border-lime-500 flex items-center justify-center text-gray-500 group-hover:text-lime-400 group-hover:bg-[#0f111a] transition-all duration-300 shadow-lg group-hover:shadow-[0_10px_30px_rgba(132,204,22,0.25)] group-hover:scale-105 mb-4">
+                        <i
+                            class="fas fa-arrow-right text-2xl md:text-3xl group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </div>
+
+                    <div class="text-center">
+                        <span
+                            class="text-gray-500 text-[10px] md:text-xs font-bold uppercase tracking-widest block mb-1">Sob
+                            Demanda</span>
+                        <h3
+                            class="text-sm md:text-base font-black text-white group-hover:text-lime-400 transition-colors  leading-tight">
+                            Personalizado</h3>
+                    </div>
+
+                </div>
+
             </div>
 
             <div id="view-plano-personalizado"
-                class="hidden flex-col-reverse md:flex-row items-center justify-center gap-8 max-w-4xl mx-auto pt-10 pb-8 transition-all duration-300">
+                class="hidden flex-col-reverse md:flex-row items-center justify-center gap-8 max-w-3xl mx-auto pt-10 pb-8 transition-all duration-300">
 
                 <button onclick="switchPlanView(false)"
-                    class="flex items-center gap-2 bg-[#161821] border border-gray-800 hover:border-gray-600 text-gray-400 hover:text-white px-6 py-3.5 md:px-6 md:py-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-lg shrink-0 hover:-translate-x-1 cursor-pointer w-full md:w-auto justify-center">
+                    class="flex items-center gap-2 bg-[#161821] border border-gray-800 hover:border-gray-600 text-gray-400 hover:text-white px-6 py-3.5 md:px-5 md:py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-lg shrink-0 hover:-translate-x-1 cursor-pointer w-full md:w-auto justify-center">
                     <i class="fas fa-arrow-left"></i> Voltar aos Planos
                 </button>
 
                 <div
-                    class="w-full bg-[#0f111a] border-2 border-lime-500 rounded-[2.5rem] p-6 lg:p-10 xl:p-12 shadow-[0_10px_40px_rgba(132,204,22,0.12)] relative">
+                    class="w-full bg-[#0f111a] border-2 border-lime-500 rounded-[2.5rem] p-6 xl:p-8 shadow-[0_10px_40px_rgba(132,204,22,0.12)] relative">
                     <h3
-                        class="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-green-500 mb-2">
+                        class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-green-500 mb-2">
                         Plano Personalizado</h3>
-                    <p class="text-xs md:text-sm text-gray-400 mb-6">Feito sob medida para grandes marcas e redes
-                        corporativas com altas demandas.</p>
+                    <p class="text-xs text-gray-400 mb-6">Feito sob medida para grandes marcas e redes corporativas com
+                        altas demandas.</p>
 
                     <div class="mb-6 border-b border-gray-800 pb-6">
                         <span
-                            class="text-3xl md:text-5xl font-black text-white uppercase tracking-wide bg-gradient-to-r from-lime-400 to-green-500 text-transparent bg-clip-text">A
-                            Definir</span>
-                        <p class="text-[11px] md:text-sm text-gray-500 mt-2 font-medium">De acordo com a sua
-                            infraestrutura</p>
+                            class="text-3xl font-black text-white uppercase tracking-wide bg-gradient-to-r from-lime-400 to-green-500 text-transparent bg-clip-text">A
+                            Combinar</span>
+                        <p class="text-[11px] text-gray-500 mt-2 font-medium">De acordo com a sua infraestrutura</p>
                     </div>
 
-                    <ul class="space-y-4 mb-8 text-[13px] md:text-sm text-gray-300">
+                    <ul class="space-y-3 mb-8 text-[13px] text-gray-300">
                         <li class="flex items-start gap-3"><i
                                 class="fas fa-sliders-h text-lime-400 mt-0.5 text-base"></i> <span
-                                class="text-white font-bold">Produtos: <span class="text-lime-400">Personalizado</span></span></li>
+                                class="text-white font-bold">Produtos: <span class="text-lime-400">A
+                                    Combinar</span></span></li>
                         <li class="flex items-start gap-3"><i
                                 class="fas fa-sliders-h text-lime-400 mt-0.5 text-base"></i> <span
-                                class="text-white font-bold">Fotos por Produto: <span class="text-lime-400">Personalizado</span></span></li>
+                                class="text-white font-bold">Fotos por Produto: <span class="text-lime-400">A
+                                    Combinar</span></span></li>
                         <li class="flex items-start gap-3"><i
                                 class="fas fa-sliders-h text-lime-400 mt-0.5 text-base"></i> <span
-                                class="text-white font-bold">Categorias: <span class="text-lime-400">Personalizado</span></span></li>
+                                class="text-white font-bold">Categorias: <span class="text-lime-400">A
+                                    Combinar</span></span></li>
                         <li class="flex items-start gap-3"><i
                                 class="fas fa-check-circle text-lime-400 mt-0.5 text-base"></i> <span>24 horas
                                 online</span></li>
@@ -2005,27 +2007,32 @@
                                 class="fas fa-check-circle text-lime-400 mt-0.5 text-base"></i> <span>Relatório
                                 Financeiro</span></li>
                         <li class="flex items-start gap-3"><i
-                                class="fas fa-check-circle text-lime-400 mt-0.5 text-base"></i> <span>PDF: Arte + QR
+                                class="fas fa-check-circle text-lime-400 mt-0.5 text-base"></i> <span>PDF - Arte + QR
                                 Code da loja</span></li>
-                        <li class="flex items-start gap-3"><i
-                                class="fas fa-check-circle text-lime-400 mt-0.5 text-base"></i> <span>Impressão de pedidos</span></li>
                         <li class="flex items-start gap-3"><i class="fas fa-star text-yellow-400 mt-0.5 text-base"></i>
                             <span class="text-yellow-400 font-bold">Divulgação nas Nossas Redes Sociais</span>
                         </li>
                     </ul>
 
                     <button onclick="selectPlan('Personalizado')"
-                        class="w-full py-4 md:py-5 text-base rounded-full bg-gradient-to-r from-lime-500 to-green-600 text-white font-black hover:scale-[1.02] transition-all shadow-lg shadow-lime-500/25">Escolher
+                        class="w-full py-4 rounded-full bg-gradient-to-r from-lime-500 to-green-600 text-white font-black hover:scale-[1.02] transition-all shadow-lg shadow-lime-500/25">Escolher
                         Plano</button>
                 </div>
 
             </div>
 
-            <div id="indicador-carrossel-mobile" class="flex md:hidden justify-center items-center gap-2 mt-4">
-                <div class="w-6 h-2 rounded-full bg-pink-500 transition-all duration-300 dot-plano"></div>
-                <div class="w-2 h-2 rounded-full bg-gray-600 transition-all duration-300 dot-plano"></div>
-                <div class="w-2 h-2 rounded-full bg-gray-600 transition-all duration-300 dot-plano"></div>
+            <div id="indicador-carrossel-mobile" class="flex md:hidden justify-center items-center gap-4 mt-6">
+                <div class="flex gap-2">
+                    <div class="w-6 h-2 rounded-full bg-pink-500 transition-all duration-300 dot-plano"></div>
+                    <div class="w-2 h-2 rounded-full bg-gray-600 transition-all duration-300 dot-plano"></div>
+                    <div class="w-2 h-2 rounded-full bg-gray-600 transition-all duration-300 dot-plano"></div>
+                    <div class="w-2 h-2 rounded-full bg-gray-600 transition-all duration-300 dot-plano"></div>
+                </div>
+                <span class="text-gray-400 text-[10px] uppercase font-bold flex items-center gap-1.5 animate-pulse">
+                    Confira mais planos <i class="fas fa-arrow-right"></i>
+                </span>
             </div>
+
 
             <div class="mt-12 text-center flex flex-col items-center justify-center opacity-70">
                 <p class="text-gray-400 text-xs md:text-sm"><i class="fas fa-info-circle mr-1"></i> Será cobrada uma
