@@ -658,10 +658,8 @@
                     </div>
 
                     <div id="dots-vendas" class="flex justify-center gap-3">
-                        <button
-                            class="w-8 h-3 rounded-full bg-brand-pink transition-all duration-300 shadow-md"></button>
-                        <button
-                            class="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300"></button>
+                        <button class="w-8 h-3 rounded-full bg-brand-pink transition-all duration-300 shadow-md"></button>
+                        <button class="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300"></button>
                     </div>
 
                 </div>
@@ -784,8 +782,7 @@
                                             class="bg-white text-brand-darkblue rounded-full w-5 h-5 md:w-4 md:h-4 lg:w-7 lg:h-7 flex items-center justify-center shrink-0 text-[10px] md:text-[8px] lg:text-sm font-black shadow-inner mt-0.5">1</span>
                                         <div>
                                             Acompanhamento de Fluxo de Caixa <br>
-                                            <span class="text-white/80 font-normal">- Capital de Giro | - Pedidos
-                                                feitos</span> <br>
+                                            <span class="text-white/80 font-normal">- Capital de Giro | - Pedidos feitos</span> <br>
                                             <span class="text-white/80 font-normal">- Pedidos Finalizados</span> <br>
                                             <span class="text-white/80 font-normal">- Custo total | - Lucro total</span>
                                         </div>
@@ -796,8 +793,7 @@
                                             class="bg-white text-brand-darkblue rounded-full w-5 h-5 md:w-4 md:h-4 lg:w-7 lg:h-7 flex items-center justify-center shrink-0 text-[10px] md:text-[8px] lg:text-sm font-black shadow-inner mt-0.5">2</span>
                                         <div>
                                             Acompanhamento de Vendas <br>
-                                            <span class="text-white/80 font-normal">- Vendas
-                                                aprovadas/canceladas/reembolsadas</span>
+                                            <span class="text-white/80 font-normal">- Vendas aprovadas/canceladas/reembolsadas</span>
                                         </div>
                                     </li>
                                     <li
@@ -806,10 +802,8 @@
                                             class="bg-white text-brand-darkblue rounded-full w-5 h-5 md:w-4 md:h-4 lg:w-7 lg:h-7 flex items-center justify-center shrink-0 text-[10px] md:text-[8px] lg:text-sm font-black shadow-inner mt-0.5">3</span>
                                         <div>
                                             Relatórios de: <br>
-                                            <span class="text-white/80 font-normal">- Produtos mais vendidos | - Cupos
-                                                mais usados</span> <br>
-                                            <span class="text-white/80 font-normal">- Formas de pagamento mais
-                                                usadas</span>
+                                            <span class="text-white/80 font-normal">- Produtos mais vendidos | - Cupos mais usados</span> <br>
+                                            <span class="text-white/80 font-normal">- Formas de pagamento mais usadas</span>
                                         </div>
                                     </li>
                                     <li
@@ -854,8 +848,7 @@
                                             class="bg-white text-brand-darkblue rounded-full w-5 h-5 md:w-4 md:h-4 lg:w-7 lg:h-7 flex items-center justify-center shrink-0 text-[10px] md:text-[8px] lg:text-sm font-black shadow-inner mt-0.5">3</span>
                                         <div>
                                             Define entrega própria e KM máximo! <br>
-                                            <span class="text-white/80 font-normal">- Solicite código de segurança | -
-                                                Defina fretes</span>
+                                            <span class="text-white/80 font-normal">- Solicite código de segurança | - Defina fretes</span>
                                         </div>
                                     </li>
                                     <li
@@ -877,14 +870,10 @@
                     </div>
 
                     <div id="dots-gestao" class="flex justify-center gap-3">
-                        <button
-                            class="w-8 h-3 rounded-full bg-brand-darkblue transition-all duration-300 shadow-md"></button>
-                        <button
-                            class="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300"></button>
-                        <button
-                            class="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300"></button>
-                        <button
-                            class="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300"></button>
+                        <button class="w-8 h-3 rounded-full bg-brand-darkblue transition-all duration-300 shadow-md"></button>
+                        <button class="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300"></button>
+                        <button class="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300"></button>
+                        <button class="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300"></button>
                     </div>
 
                 </div>
@@ -2731,31 +2720,30 @@
     </script>
 
     <script>
-        //MONITORAMENTO DE ACESSOAS A LANDIG PAGE, EXIBIDO NO PAINEL MASTER
-        document.addEventListener("DOMContentLoaded", async () => {
-            // Verifica se o usuário já contou como visita nesta sessão
-            if (!sessionStorage.getItem('visitou_projetista_lp')) {
-                try {
-                    const db = firebase.firestore();
-                    // Cria ou atualiza um documento chamado 'acessos_gerais' na coleção 'estatisticas'
-                    const statsRef = db.collection('estatisticas').doc('acessos_gerais');
+    document.addEventListener("DOMContentLoaded", async () => {
+        // Verifica se o usuário já contou como visita nesta sessão
+        if (!sessionStorage.getItem('visitou_projetista_lp')) {
+            try {
+                const db = firebase.firestore();
+                // Cria ou atualiza um documento chamado 'acessos_gerais' na coleção 'estatisticas'
+                const statsRef = db.collection('estatisticas').doc('acessos_gerais');
 
-                    // O .increment(1) é mágico: ele soma 1 no banco de dados de forma 100% segura, 
-                    // mesmo se 100 pessoas entrarem no site no mesmo exato milissegundo.
-                    await statsRef.set({
-                        total_visitas_lp: firebase.firestore.FieldValue.increment(1)
-                    }, { merge: true });
+                // O .increment(1) é mágico: ele soma 1 no banco de dados de forma 100% segura, 
+                // mesmo se 100 pessoas entrarem no site no mesmo exato milissegundo.
+                await statsRef.set({
+                    total_visitas_lp: firebase.firestore.FieldValue.increment(1)
+                }, { merge: true });
 
-                    // Marca que já visitou para não contar de novo se der F5
-                    sessionStorage.setItem('visitou_projetista_lp', 'true');
-                    console.log("📊 Nova visita registrada com sucesso!");
-
-                } catch (error) {
-                    console.error("Erro ao registrar visita:", error);
-                }
+                // Marca que já visitou para não contar de novo se der F5
+                sessionStorage.setItem('visitou_projetista_lp', 'true');
+                console.log("📊 Nova visita registrada com sucesso!");
+                
+            } catch (error) {
+                console.error("Erro ao registrar visita:", error);
             }
-        });
-    </script>
+        }
+    });
+</script>
 </body>
 
 </html>
