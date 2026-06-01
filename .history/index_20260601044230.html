@@ -2729,6 +2729,33 @@
         iniciarCarrossel('slider-vendas', 'dots-vendas', 'card-vendas', 'bg-brand-pink', 4000);
         iniciarCarrossel('slider-gestao', 'dots-gestao', 'card-gestao', 'bg-brand-darkblue', 5000);
     </script>
+
+    <script>
+        //MONITORAMENTO DE ACESSOAS A LANDIG PAGE, EXIBIDO NO PAINEL 
+        document.addEventListener("DOMContentLoaded", async () => {
+            // Verifica se o usuário já contou como visita nesta sessão
+            if (!sessionStorage.getItem('visitou_projetista_lp')) {
+                try {
+                    const db = firebase.firestore();
+                    // Cria ou atualiza um documento chamado 'acessos_gerais' na coleção 'estatisticas'
+                    const statsRef = db.collection('estatisticas').doc('acessos_gerais');
+
+                    // O .increment(1) é mágico: ele soma 1 no banco de dados de forma 100% segura, 
+                    // mesmo se 100 pessoas entrarem no site no mesmo exato milissegundo.
+                    await statsRef.set({
+                        total_visitas_lp: firebase.firestore.FieldValue.increment(1)
+                    }, { merge: true });
+
+                    // Marca que já visitou para não contar de novo se der F5
+                    sessionStorage.setItem('visitou_projetista_lp', 'true');
+                    console.log("📊 Nova visita registrada com sucesso!");
+
+                } catch (error) {
+                    console.error("Erro ao registrar visita:", error);
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>

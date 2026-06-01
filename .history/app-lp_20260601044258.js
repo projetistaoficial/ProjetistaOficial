@@ -1,6 +1,6 @@
-// Importações do Firebase (Adicionado doc, setDoc e increment para o contador)
+// Importações do Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, query, orderBy, limit, doc, setDoc, increment } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 // COLOQUE SUAS CHAVES DO FIREBASE AQUI
 const firebaseConfig = {
@@ -15,128 +15,119 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// =================================================================
-// 📊 LÓGICA DO CONTADOR DE VISITAS DA LANDING PAGE
-// =================================================================
+//MONITORAMENTO DE ACESSOAS A LANDIG PAGE, EXIBIDO NO PAINEL MASTER
 document.addEventListener("DOMContentLoaded", async () => {
-    // Verifica se já não contou visita nesta sessão
+    // Verifica se o usuário já contou como visita nesta sessão
     if (!sessionStorage.getItem('visitou_projetista_lp')) {
         try {
-            // Aponta direto para o documento 'acessos_gerais'
-            const statsRef = doc(db, 'estatisticas', 'acessos_gerais');
+            const db = firebase.firestore();
+            // Cria ou atualiza um documento chamado 'acessos_gerais' na coleção 'estatisticas'
+            const statsRef = db.collection('estatisticas').doc('acessos_gerais');
 
-            // Soma 1 visita de forma segura com o increment() do Firebase v9
-            await setDoc(statsRef, {
-                total_visitas_lp: increment(1)
+            // O .increment(1) é mágico: ele soma 1 no banco de dados de forma 100% segura, 
+            // mesmo se 100 pessoas entrarem no site no mesmo exato milissegundo.
+            await statsRef.set({
+                total_visitas_lp: firebase.firestore.FieldValue.increment(1)
             }, { merge: true });
 
-            // Marca na sessão para não contar F5
+            // Marca que já visitou para não contar de novo se der F5
             sessionStorage.setItem('visitou_projetista_lp', 'true');
             console.log("📊 Nova visita registrada com sucesso!");
-            
+
         } catch (error) {
-            console.error("Erro ao registrar visita no banco:", error);
+            console.error("Erro ao registrar visita:", error);
         }
     }
 });
 
-// =================================================================
-// 📝 LÓGICA DO FORMULÁRIO PRINCIPAL DE LEADS
-// =================================================================
+// Escuta o envio do formulário PRINCIPAL
+document.getElementById('lead-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-// Correção do erro Cannot read properties of null (reading 'addEventListener')
-const formLead = document.getElementById('lead-form');
+    const btn = document.getElementById('btn-submit-lead');
+    const originalText = btn.innerText;
 
-if (formLead) {
-    formLead.addEventListener('submit', async (e) => {
-        e.preventDefault();
+    btn.innerText = "Enviando Dados...";
+    btn.disabled = true;
 
-        const btn = document.getElementById('btn-submit-lead');
-        const originalText = btn.innerText;
+    try {
+        const leadsRef = collection(db, "leads");
+        const q = query(leadsRef, orderBy('code', 'desc'), limit(1));
+        const snap = await getDocs(q);
 
-        btn.innerText = "Enviando Dados...";
-        btn.disabled = true;
-
-        try {
-            const leadsRef = collection(db, "leads");
-            const q = query(leadsRef, orderBy('code', 'desc'), limit(1));
-            const snap = await getDocs(q);
-
-            let proximoCodigo = 1;
-            if (!snap.empty) {
-                const ultimoLead = snap.docs[0].data();
-                if (ultimoLead.code) {
-                    proximoCodigo = ultimoLead.code + 1;
-                }
+        let proximoCodigo = 1;
+        if (!snap.empty) {
+            const ultimoLead = snap.docs[0].data();
+            if (ultimoLead.code) {
+                proximoCodigo = ultimoLead.code + 1;
             }
-
-            // CAPTURA O PLANO ESCOLHIDO DO INPUT INVISÍVEL
-            const inputPlano = document.getElementById('input-plano-escolhido');
-            const planoEscolhido = inputPlano ? inputPlano.value : "Nenhum plano selecionado";
-
-            // Empacota todos os dados do HTML
-            const data = {
-                code: proximoCodigo, 
-                nome: document.getElementById('lead-nome').value.trim(),
-                nomeLoja: document.getElementById('lead-loja').value.trim(),
-                email: document.getElementById('lead-email').value.trim(),
-                whatsapp: document.getElementById('lead-wpp').value.trim(),
-                faturamento: document.getElementById('lead-faturamento').value,
-                segmento: document.getElementById('lead-segmento').value,
-                planoInteresse: planoEscolhido, 
-                dataCadastro: new Date().toISOString(),
-                status: 'Novo' 
-            };
-
-            // Envia para a coleção "leads"
-            await addDoc(leadsRef, data);
-
-            // Sucesso! Mostra a notificação
-            mostrarToastSucesso();
-
-            // Limpa os campos do formulário
-            formLead.reset();
-            
-            // Limpa também o plano selecionado após enviar
-            if(inputPlano) inputPlano.value = "Nenhum plano selecionado";
-
-            // ESCONDE A CAIXINHA VISUAL DO PLANO
-            const badgeContainer = document.getElementById('badge-plano-container');
-            if (badgeContainer) {
-                badgeContainer.classList.add('hidden');
-            }
-
-        } catch (error) {
-            console.error("Erro ao enviar lead:", error);
-            alert("Ocorreu um erro ao enviar. Tente novamente mais tarde.");
-        } finally {
-            // Volta o botão ao normal
-            btn.innerText = originalText;
-            btn.disabled = false;
         }
-    });
-}
+
+        // ✨ CAPTURA O PLANO ESCOLHIDO DO INPUT INVISÍVEL
+        const inputPlano = document.getElementById('input-plano-escolhido');
+        const planoEscolhido = inputPlano ? inputPlano.value : "Nenhum plano selecionado";
+
+        // Empacota todos os dados do HTML (Agora com o código e o PLANO)
+        const data = {
+            code: proximoCodigo,
+            nome: document.getElementById('lead-nome').value.trim(),
+            nomeLoja: document.getElementById('lead-loja').value.trim(),
+            email: document.getElementById('lead-email').value.trim(),
+            whatsapp: document.getElementById('lead-wpp').value.trim(),
+            faturamento: document.getElementById('lead-faturamento').value,
+            segmento: document.getElementById('lead-segmento').value,
+            planoInteresse: planoEscolhido, // ✨ O PLANO É ENVIADO AQUI
+            dataCadastro: new Date().toISOString(),
+            status: 'Novo'
+        };
+
+        // Envia para a coleção "leads"
+        await addDoc(leadsRef, data);
+
+        // Sucesso! Aqui entra a nossa notificação verde premium no lugar do alert()
+        mostrarToastSucesso();
+
+        // Limpa os campos do formulário
+        document.getElementById('lead-form').reset();
+
+        // ✨ Limpa também o plano selecionado após enviar
+        if (inputPlano) inputPlano.value = "Nenhum plano selecionado";
+
+        // ✨ ESCONDE A CAIXINHA VISUAL DO PLANO
+        const badgeContainer = document.getElementById('badge-plano-container');
+        if (badgeContainer) {
+            badgeContainer.classList.add('hidden');
+        }
+
+    } catch (error) {
+        console.error("Erro ao enviar lead:", error);
+        alert("Ocorreu um erro ao enviar. Tente novamente mais tarde.");
+    } finally {
+        // Volta o botão ao normal
+        btn.innerText = originalText;
+        btn.disabled = false;
+    }
+});
 
 // Função para mostrar a notificação verde
 function mostrarToastSucesso() {
     const toast = document.getElementById('toast-sucesso');
-    if(toast) {
-        toast.classList.remove('translate-x-[150%]', 'opacity-0');
-        toast.classList.add('translate-x-0', 'opacity-100');
 
-        setTimeout(() => {
-            fecharToast();
-        }, 4000);
-    }
+    // Remove as classes que escondem (joga pra fora da tela) e adiciona as que mostram
+    toast.classList.remove('translate-x-[150%]', 'opacity-0');
+    toast.classList.add('translate-x-0', 'opacity-100');
+
+    // Programa para fechar automaticamente após 4 segundos (4000 milissegundos)
+    setTimeout(() => {
+        fecharToast();
+    }, 4000);
 }
 
 // Função para fechar a notificação
 function fecharToast() {
     const toast = document.getElementById('toast-sucesso');
-    if(toast) {
-        toast.classList.remove('translate-x-0', 'opacity-100');
-        toast.classList.add('translate-x-[150%]', 'opacity-0');
-    }
+    toast.classList.remove('translate-x-0', 'opacity-100');
+    toast.classList.add('translate-x-[150%]', 'opacity-0');
 }
 
 // =================================================================
@@ -164,7 +155,7 @@ window.toggleZapChat = () => {
 window.enviarLeadZap = async (e) => {
     e.preventDefault();
 
-    // Captura os dados
+    // Captura os dados (incluindo os novos campos do formulário)
     const nome = document.getElementById('zap-nome').value.trim();
     const loja = document.getElementById('zap-loja').value.trim();
     const email = document.getElementById('zap-email').value.trim();
@@ -191,25 +182,26 @@ window.enviarLeadZap = async (e) => {
             }
         }
 
+        // ✨ CAPTURA O PLANO ESCOLHIDO (Caso ele tenha clicado antes de abrir o Zap)
         const inputPlano = document.getElementById('input-plano-escolhido');
         const planoEscolhido = inputPlano ? inputPlano.value : "Nenhum plano selecionado";
 
-        // Envia para o banco
+        // Envia para o banco de dados
         await addDoc(leadsRef, {
-            code: proximoCodigo, 
+            code: proximoCodigo,
             nome: nome,
             nomeLoja: loja,
             email: email,
             whatsapp: wpp,
             faturamento: fat,
             segmento: segmento,
-            planoInteresse: planoEscolhido,
+            planoInteresse: planoEscolhido, // ✨ O PLANO É ENVIADO AQUI TAMBÉM
             dataCadastro: new Date().toISOString(),
             status: 'Novo',
             origem: 'Widget Flutuante Premium'
         });
 
-        // Efeito Mágico confirmando a ação
+        // Efeito Mágico: Transforma o form em balões de chat confirmando a ação!
         const formContainer = document.getElementById('zap-form-container');
         formContainer.innerHTML = `
             <div class="bg-brand-blue/20 border border-brand-blue/30 p-3 rounded-xl rounded-tr-none shadow-sm max-w-[85%] self-end relative ml-auto mb-3 animate-fade-in text-white">
@@ -227,7 +219,7 @@ window.enviarLeadZap = async (e) => {
             </div>
         `;
 
-        if(inputPlano) inputPlano.value = "Nenhum plano selecionado";
+        if (inputPlano) inputPlano.value = "Nenhum plano selecionado";
 
     } catch (err) {
         console.error(err);
@@ -243,34 +235,28 @@ document.addEventListener('click', function (event) {
 
     if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
         if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
-            mobileMenu.classList.add('hidden'); 
+            mobileMenu.classList.add('hidden');
         }
     }
-}); 
+});
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const wave = document.getElementById('header-wave');
     const nav = document.getElementById('main-nav');
-    
+
     let scrollPosition = window.scrollY;
 
     if (scrollPosition > 50) {
-        if(wave) {
-            wave.classList.remove('opacity-100');
-            wave.classList.add('opacity-0');
-        }
-        if(nav) {
-            nav.classList.remove('bg-transparent', 'py-4');
-            nav.classList.add('bg-[#0B0E14]', 'py-2', 'shadow-md');
-        }
+        wave.classList.remove('opacity-100');
+        wave.classList.add('opacity-0');
+
+        nav.classList.remove('bg-transparent', 'py-4');
+        nav.classList.add('bg-[#0B0E14]', 'py-2', 'shadow-md');
     } else {
-        if(wave) {
-            wave.classList.remove('opacity-0');
-            wave.classList.add('opacity-100');
-        }
-        if(nav) {
-            nav.classList.remove('bg-[#0B0E14]', 'py-2', 'shadow-md');
-            nav.classList.add('bg-transparent', 'py-4');
-        }
+        wave.classList.remove('opacity-0');
+        wave.classList.add('opacity-100');
+
+        nav.classList.remove('bg-[#0B0E14]', 'py-2', 'shadow-md');
+        nav.classList.add('bg-transparent', 'py-4');
     }
 });
