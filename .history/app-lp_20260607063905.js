@@ -19,16 +19,16 @@ const db = getFirestore(app);
 // 📊 LÓGICA DO CONTADOR DE VISITAS ÚNICAS (LANDING PAGE)
 // =================================================================
 document.addEventListener("DOMContentLoaded", async () => {
-
+    
     // Pega o tempo exato de agora
     const tempoAtual = new Date().getTime();
-
+    
     // Procura no navegador (localStorage) quando foi a última visita
     const ultimaVisita = localStorage.getItem('ultima_visita_projetista');
-
+    
     // Define o tempo de "férias" do contador (24 horas em milissegundos)
     // Se quiser que conte a cada 1 hora, mude o 24 para 1
-    const tempoExpiracao = 1000 * 60 * 60 * 24;
+    const tempoExpiracao = 1000 * 60 * 60 * 24; 
 
     // Se a pessoa NUNCA visitou OU se já passou de 24h desde a última visita...
     if (!ultimaVisita || (tempoAtual - parseInt(ultimaVisita)) > tempoExpiracao) {
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             // Salva o momento exato dessa nova visita na memória do navegador do cliente
             localStorage.setItem('ultima_visita_projetista', tempoAtual.toString());
             console.log("📊 Nova visita ÚNICA registrada com sucesso!");
-
+            
         } catch (error) {
             console.error("Erro ao registrar visita no banco:", error);
         }
@@ -57,10 +57,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 window.toggleDemoMenu = () => {
     const menu = document.getElementById('demo-menu');
     const arrow = document.getElementById('demo-arrow');
-
+    
     // Verifica se está oculto
     const isClosed = menu.classList.contains('opacity-0');
-
+    
     if (isClosed) {
         menu.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
         arrow.style.transform = 'rotate(180deg)';
@@ -76,7 +76,7 @@ document.addEventListener('click', (e) => {
     if (container && !container.contains(e.target)) {
         const menu = document.getElementById('demo-menu');
         const arrow = document.getElementById('demo-arrow');
-
+        
         if (menu && !menu.classList.contains('opacity-0')) {
             menu.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
             arrow.style.transform = 'rotate(0deg)';
@@ -120,16 +120,16 @@ if (formLead) {
 
             // Empacota todos os dados do HTML
             const data = {
-                code: proximoCodigo,
+                code: proximoCodigo, 
                 nome: document.getElementById('lead-nome').value.trim(),
                 nomeLoja: document.getElementById('lead-loja').value.trim(),
                 email: document.getElementById('lead-email').value.trim(),
                 whatsapp: document.getElementById('lead-wpp').value.trim(),
                 faturamento: document.getElementById('lead-faturamento').value,
                 segmento: document.getElementById('lead-segmento').value,
-                planoInteresse: planoEscolhido,
+                planoInteresse: planoEscolhido, 
                 dataCadastro: new Date().toISOString(),
-                status: 'Novo'
+                status: 'Novo' 
             };
 
             // Envia para a coleção "leads"
@@ -140,9 +140,9 @@ if (formLead) {
 
             // Limpa os campos do formulário
             formLead.reset();
-
+            
             // Limpa também o plano selecionado após enviar
-            if (inputPlano) inputPlano.value = "Nenhum plano selecionado";
+            if(inputPlano) inputPlano.value = "Nenhum plano selecionado";
 
             // ESCONDE A CAIXINHA VISUAL DO PLANO
             const badgeContainer = document.getElementById('badge-plano-container');
@@ -164,7 +164,7 @@ if (formLead) {
 // Função para mostrar a notificação verde
 function mostrarToastSucesso() {
     const toast = document.getElementById('toast-sucesso');
-    if (toast) {
+    if(toast) {
         toast.classList.remove('translate-x-[150%]', 'opacity-0');
         toast.classList.add('translate-x-0', 'opacity-100');
 
@@ -177,7 +177,7 @@ function mostrarToastSucesso() {
 // Função para fechar a notificação
 function fecharToast() {
     const toast = document.getElementById('toast-sucesso');
-    if (toast) {
+    if(toast) {
         toast.classList.remove('translate-x-0', 'opacity-100');
         toast.classList.add('translate-x-[150%]', 'opacity-0');
     }
@@ -240,7 +240,7 @@ window.enviarLeadZap = async (e) => {
 
         // Envia para o banco
         await addDoc(leadsRef, {
-            code: proximoCodigo,
+            code: proximoCodigo, 
             nome: nome,
             nomeLoja: loja,
             email: email,
@@ -271,7 +271,7 @@ window.enviarLeadZap = async (e) => {
             </div>
         `;
 
-        if (inputPlano) inputPlano.value = "Nenhum plano selecionado";
+        if(inputPlano) inputPlano.value = "Nenhum plano selecionado";
 
     } catch (err) {
         console.error(err);
@@ -287,32 +287,32 @@ document.addEventListener('click', function (event) {
 
     if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
         if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
-            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.add('hidden'); 
         }
     }
-});
+}); 
 
-window.addEventListener('scroll', function () {
+window.addEventListener('scroll', function() {
     const wave = document.getElementById('header-wave');
     const nav = document.getElementById('main-nav');
-
+    
     let scrollPosition = window.scrollY;
 
     if (scrollPosition > 50) {
-        if (wave) {
+        if(wave) {
             wave.classList.remove('opacity-100');
             wave.classList.add('opacity-0');
         }
-        if (nav) {
+        if(nav) {
             nav.classList.remove('bg-transparent', 'py-4');
             nav.classList.add('bg-[#0B0E14]', 'py-2', 'shadow-md');
         }
     } else {
-        if (wave) {
+        if(wave) {
             wave.classList.remove('opacity-0');
             wave.classList.add('opacity-100');
         }
-        if (nav) {
+        if(nav) {
             nav.classList.remove('bg-[#0B0E14]', 'py-2', 'shadow-md');
             nav.classList.add('bg-transparent', 'py-4');
         }
