@@ -109,6 +109,7 @@ function renderizarCardsPlanos() {
     ];
 
     let htmlCards = '';
+    // ... O resto da função continua idêntico aqui para baixo ...
 
     planosCarregados.forEach((plano, index) => {
         let borderColor = 'border-gray-800 hover:border-brand-pink/50';

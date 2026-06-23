@@ -1,6 +1,6 @@
-// Importações do Firebase (Adicionado onSnapshot para leitura em tempo real)
+// Importações do Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, getDoc, query, orderBy, limit, doc, setDoc, increment, onSnapshot } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, query, orderBy, limit, doc, setDoc, increment } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 // COLOQUE SUAS CHAVES DO FIREBASE AQUI
 const firebaseConfig = {
@@ -16,7 +16,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 let cicloAtual = 'mensal'; 
-let planosCarregados = [];
+let planosCarregados = []; 
 
 // =================================================================
 // 📊 LÓGICA DO CONTADOR DE VISITAS ÚNICAS
@@ -43,54 +43,35 @@ document.addEventListener("DOMContentLoaded", async () => {
 // 👑 INTEGRAÇÃO DE PLANOS DINÂMICOS (SAAS)
 // =================================================================
 
-// 1. Ouve os planos diretamente do banco de dados Mestre AO VIVO
-function carregarPlanosDoBanco() {
+async function carregarPlanosDoBanco() {
     const container = document.getElementById('view-planos-padrao');
     try {
-        // ✨ MÁGICA DO TEMPO REAL: onSnapshot escuta as mudanças 24h por dia
-        onSnapshot(collection(db, "plans"), (snap) => {
-            planosCarregados = []; // ✨ CORRIGIDO: Sem o 'window.'
-            let topicosOficiais = [];
-            
-            snap.forEach(documento => {
-                if(documento.id === "TOPICS_LIST") {
-                    topicosOficiais = documento.data().items || [];
-                } else {
-                    planosCarregados.push({ id: documento.id, ...documento.data() });
-                }
-            });
-
-            // Atualiza a variável global de tópicos
-            window.globalTopics = topicosOficiais;
-
-            // Ordena com base no campo "ordem"
-            planosCarregados.sort((a, b) => (parseInt(a.ordem) || 0) - (parseInt(b.ordem) || 0));
-
-            // Refaz o desenho dos cards imediatamente
-            renderizarCardsPlanos();
+        const snap = await getDocs(collection(db, "plans"));
+        planosCarregados = [];
+        
+        snap.forEach(doc => {
+            planosCarregados.push({ id: doc.id, ...doc.data() });
         });
+
+        // Ordena com base no campo "ordem" cadastrado no Master
+        planosCarregados.sort((a, b) => (parseInt(a.ordem) || 0) - (parseInt(b.ordem) || 0));
+
+        renderizarCardsPlanos();
     } catch (error) {
         console.error("Erro ao carregar planos:", error);
         if (container) {
-            container.innerHTML = '<div class="w-full col-span-3 text-center py-10 text-red-500 font-bold">Erro de conexão em tempo real.</div>';
+            container.innerHTML = '<div class="w-full col-span-3 text-center py-10 text-red-500 font-bold">Erro ao carregar os planos.</div>';
             container.style.opacity = '1';
         }
     }
 }
 
-// 2. Constrói a interface visual injetando os textos cortados e a legenda
 function renderizarCardsPlanos() {
     const container = document.getElementById('view-planos-padrao');
     if (!container) return;
 
-    // ✨ CORRIGIDO: Remove a tela de carregamento se não houver planos
-    if (planosCarregados.length === 0) {
-        container.innerHTML = '<div class="w-full col-span-3 text-center py-10 text-gray-500 font-bold">Nenhum plano cadastrado no momento.</div>';
-        container.style.opacity = '1';
-        return;
-    }
+    if (planosCarregados.length === 0) return;
 
-    // Lista oficial de Features para varrer e desenhar
     const baseFeatures = [
         { id: 'f_24h', label: '24 horas online' },
         { id: 'f_zap', label: 'Pedidos direto no WhatsApp' },
@@ -111,10 +92,10 @@ function renderizarCardsPlanos() {
     let htmlCards = '';
 
     planosCarregados.forEach((plano, index) => {
-        let borderColor = 'border-gray-800 hover:border-brand-pink/50';
-        let btnColor = 'border-gray-700 hover:border-brand-pink hover:text-brand-pink';
-        let iconColor = 'text-brand-pink';
-        let titleColor = 'group-hover:text-brand-pink text-white';
+        let borderColor = 'border-gray-800 hover:border-pink-500/50';
+        let btnColor = 'border-gray-700 hover:border-pink-500 hover:text-pink-400';
+        let iconColor = 'text-pink-500';
+        let titleColor = 'group-hover:text-pink-400 text-white';
         let bgStyle = 'bg-[#0f111a]';
         
         const isDestaque = index === 1; 
@@ -126,19 +107,19 @@ function renderizarCardsPlanos() {
             titleColor = 'text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-blue-400';
             iconColor = 'text-fuchsia-500';
         } else if (index > 1) {
-            borderColor = 'border-gray-800 hover:border-brand-blue/50';
-            btnColor = 'border-gray-700 hover:border-brand-blue hover:text-brand-blue';
-            iconColor = 'text-brand-blue';
-            titleColor = 'group-hover:text-brand-blue text-white';
+            borderColor = 'border-gray-800 hover:border-blue-500/50';
+            btnColor = 'border-gray-700 hover:border-blue-500 hover:text-blue-400';
+            iconColor = 'text-lime-400';
+            titleColor = 'group-hover:text-blue-400 text-white';
         }
 
-        const badgeDestaque = isDestaque ? `
+        const destaqueHtml = isDestaque ? `
             <div class="absolute -top-4 md:-top-5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-500 to-fuchsia-500 text-white px-6 py-2 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest shadow-lg whitespace-nowrap">
                 Mais Escolhido
             </div>
         ` : '';
 
-        // Limites (Base)
+        // Limites Topo
         const limProd = plano.limits?.prod ? `Até <strong>${plano.limits.prod} Produtos</strong>` : `Produtos <strong>Ilimitados</strong>`;
         const limFotos = plano.limits?.fotos ? `Até <strong>${plano.limits.fotos} Fotos</strong> por produto` : `Fotos <strong>Ilimitadas</strong>`;
         const limCat = plano.limits?.cat ? `Até <strong>${plano.limits.cat} Categorias</strong>` : `Categorias <strong>Ilimitadas</strong>`;
@@ -149,35 +130,30 @@ function renderizarCardsPlanos() {
             <li class="flex items-start gap-3"><i class="fas fa-check-circle ${iconColor} mt-0.5 text-base"></i> <span class="text-white">${limCat}</span></li>
         `;
 
-        // ✨ MAGIA AQUI: Cruzamento Dinâmico. Roda sobre todos os tópicos existentes no Master.
+        // Checkboxes Funcionalidades
         const pFeat = plano.features || {};
-        if(window.globalTopics) {
-            window.globalTopics.forEach(t => {
-                const hasAccess = pFeat[t.id] === true;
 
-                if (hasAccess) {
-                    listHtml += `<li class="flex items-start gap-3"><i class="fas fa-check-circle ${iconColor} mt-0.5 text-base"></i> <span class="text-gray-300 font-bold">${t.name}</span></li>`;
-                } else {
-                    // Item Riscado
-                    listHtml += `<li class="flex items-start gap-3 opacity-50"><i class="fas fa-times text-red-500 mt-0.5 text-base"></i> <span class="line-through text-gray-500 font-bold">${t.name}</span></li>`;
-                }
-            });
-        }
+        baseFeatures.forEach(f => {
+            const hasAccess = pFeat[f.id] === true;
 
-        const iconeVal = plano.icone || 'fa-box';
-        const iconHtml = `<i class="fas ${iconeVal} text-lg"></i>`;
-        const legendaTexto = plano.legenda || 'O melhor plano para o seu negócio.';
+            if (hasAccess) {
+                const ic = f.star ? 'fa-star text-yellow-400' : `fa-check-circle ${iconColor}`;
+                const style = f.star ? 'text-yellow-400 font-bold' : 'text-gray-300';
+                listHtml += `<li class="flex items-start gap-3"><i class="fas ${ic} mt-0.5 text-base"></i> <span class="${style}">${f.label}</span></li>`;
+            } else {
+                // Item sem acesso = Transparente e Riscado
+                listHtml += `<li class="flex items-start gap-3 opacity-50"><i class="fas fa-times text-red-500 mt-0.5 text-base"></i> <span class="line-through text-gray-500">${f.label}</span></li>`;
+            }
+        });
 
         htmlCards += `
         <div class="w-[85vw] sm:w-[320px] md:w-auto shrink-0 snap-center ${bgStyle} border-2 ${borderColor} rounded-[2.5rem] p-6 lg:p-10 xl:p-12 transition-all duration-300 shadow-lg group relative flex flex-col justify-between">
-            ${badgeDestaque}
+            ${destaqueHtml}
             <div>
                 <h3 class="text-xl md:text-2xl font-bold mb-2 ${titleColor} transition-colors flex items-center gap-2 font-['Nunito']">
-                    ${iconHtml} Plano ${plano.nome}
+                    ${plano.icone ? `<i class="fas ${plano.icone} text-lg"></i>` : ''} 
+                    Plano ${plano.nome}
                 </h3>
-                
-                <!-- ✨ Renderiza a legenda -->
-                <p class="text-xs md:text-sm text-gray-500 mb-6 h-10 font-bold">${legendaTexto}</p>
                 
                 <div class="mb-6 border-b border-gray-800 pb-6 mt-6">
                     <span class="text-3xl lg:text-4xl font-black text-white font-['Nunito']">R$ <span class="plano-price" data-id="${plano.id}">...</span></span>
@@ -185,7 +161,7 @@ function renderizarCardsPlanos() {
                     <p class="plano-sub-text text-[11px] ${isDestaque ? 'text-fuchsia-400' : 'text-gray-400'} mt-2 font-bold h-4">Carregando...</p>
                 </div>
 
-                <ul class="space-y-4 mb-8 text-[13px] md:text-sm font-['Nunito']">
+                <ul class="space-y-4 mb-8 text-[13px] md:text-sm font-['Nunito'] font-medium">
                     <div class="flex flex-col gap-3">
                         ${listHtml}
                     </div>

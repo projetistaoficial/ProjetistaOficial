@@ -1,6 +1,6 @@
-// Importações do Firebase (Adicionado onSnapshot para leitura em tempo real)
+// Importações do Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, getDoc, query, orderBy, limit, doc, setDoc, increment, onSnapshot } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, query, orderBy, limit, doc, setDoc, increment } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 // COLOQUE SUAS CHAVES DO FIREBASE AQUI
 const firebaseConfig = {
@@ -16,7 +16,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 let cicloAtual = 'mensal'; 
-let planosCarregados = [];
+let planosCarregados = []; 
 
 // =================================================================
 // 📊 LÓGICA DO CONTADOR DE VISITAS ÚNICAS
@@ -43,70 +43,44 @@ document.addEventListener("DOMContentLoaded", async () => {
 // 👑 INTEGRAÇÃO DE PLANOS DINÂMICOS (SAAS)
 // =================================================================
 
-// 1. Ouve os planos diretamente do banco de dados Mestre AO VIVO
-function carregarPlanosDoBanco() {
+async function carregarPlanosDoBanco() {
     const container = document.getElementById('view-planos-padrao');
     try {
-        // ✨ MÁGICA DO TEMPO REAL: onSnapshot escuta as mudanças 24h por dia
-        onSnapshot(collection(db, "plans"), (snap) => {
-            planosCarregados = []; // ✨ CORRIGIDO: Sem o 'window.'
-            let topicosOficiais = [];
-            
-            snap.forEach(documento => {
-                if(documento.id === "TOPICS_LIST") {
-                    topicosOficiais = documento.data().items || [];
-                } else {
-                    planosCarregados.push({ id: documento.id, ...documento.data() });
-                }
-            });
+        // ✨ NOVO: Puxa a lista oficial de Tópicos/Funcionalidades primeiro
+        const topicsDoc = await getDoc(doc(db, "plans", "TOPICS_LIST"));
+        if(topicsDoc.exists()) {
+            window.globalTopics = topicsDoc.data().items || [];
+        } else {
+            window.globalTopics = [];
+        }
 
-            // Atualiza a variável global de tópicos
-            window.globalTopics = topicosOficiais;
-
-            // Ordena com base no campo "ordem"
-            planosCarregados.sort((a, b) => (parseInt(a.ordem) || 0) - (parseInt(b.ordem) || 0));
-
-            // Refaz o desenho dos cards imediatamente
-            renderizarCardsPlanos();
+        const snap = await getDocs(collection(db, "plans"));
+        planosCarregados = [];
+        
+        snap.forEach(documento => {
+            // Ignora o documento de Tópicos
+            if(documento.id !== "TOPICS_LIST") {
+                planosCarregados.push({ id: documento.id, ...documento.data() });
+            }
         });
+
+        planosCarregados.sort((a, b) => (parseInt(a.ordem) || 0) - (parseInt(b.ordem) || 0));
+
+        renderizarCardsPlanos();
     } catch (error) {
         console.error("Erro ao carregar planos:", error);
         if (container) {
-            container.innerHTML = '<div class="w-full col-span-3 text-center py-10 text-red-500 font-bold">Erro de conexão em tempo real.</div>';
+            container.innerHTML = '<div class="w-full col-span-3 text-center py-10 text-red-500 font-bold">Erro ao carregar os planos.</div>';
             container.style.opacity = '1';
         }
     }
 }
 
-// 2. Constrói a interface visual injetando os textos cortados e a legenda
 function renderizarCardsPlanos() {
     const container = document.getElementById('view-planos-padrao');
     if (!container) return;
 
-    // ✨ CORRIGIDO: Remove a tela de carregamento se não houver planos
-    if (planosCarregados.length === 0) {
-        container.innerHTML = '<div class="w-full col-span-3 text-center py-10 text-gray-500 font-bold">Nenhum plano cadastrado no momento.</div>';
-        container.style.opacity = '1';
-        return;
-    }
-
-    // Lista oficial de Features para varrer e desenhar
-    const baseFeatures = [
-        { id: 'f_24h', label: '24 horas online' },
-        { id: 'f_zap', label: 'Pedidos direto no WhatsApp' },
-        { id: 'f_painel', label: 'Painel administrativo' },
-        { id: 'f_gestaop', label: 'Gestão em tempo real de pedidos' },
-        { id: 'f_gestaoc', label: 'Gestão de categorias e cupons' },
-        { id: 'f_rellucro', label: 'Relatório de Lucro de cada pedido' },
-        { id: 'f_estatisticas', label: 'Estatísticas financeiras' },
-        { id: 'f_personalizacao', label: 'Personalização de temas e cores' },
-        { id: 'f_frete', label: 'Frete Integrado' },
-        { id: 'f_relprodutos', label: 'Relatório de produtos' },
-        { id: 'f_relfinanceiro', label: 'Relatório Financeiro' },
-        { id: 'f_pdf', label: 'PDF: Arte + QR Code da loja' },
-        { id: 'f_impressao', label: 'Impressão de pedidos' },
-        { id: 'f_divulgacao', label: 'Divulgação nas Nossas Redes Sociais', star: true }
-    ];
+    if (planosCarregados.length === 0) return;
 
     let htmlCards = '';
 
