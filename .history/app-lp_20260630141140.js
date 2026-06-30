@@ -140,30 +140,18 @@ function renderizarCardsPlanos() {
             </div>
         ` : '';
 
-        let listHtml = '';
-        
-        if (window.globalLimits && window.globalLimits.length > 0) {
-            window.globalLimits.forEach(limite => {
-                // Puxa o valor digitado no Painel Admin. Se estiver vazio, exibe Ilimitado.
-                const valorNoPlano = plano.limits ? plano.limits[limite.id] : '';
-                const textoExibicao = valorNoPlano ? `<strong>${valorNoPlano}</strong> ${limite.name}` : `${limite.name} <strong>Ilimitado(a)</strong>`;
-                
-                listHtml += `<li class="flex items-start gap-3"><i class="fas fa-check-circle ${iconColor} mt-0.5 text-base"></i> <span class="text-white">${textoExibicao}</span></li>`;
-            });
-        } else {
-            // Backup de segurança (Padrão) caso dê erro de internet
-            const limProd = plano.limits?.prod ? `Até <strong>${plano.limits.prod} Produtos</strong>` : `Produtos <strong>Ilimitados</strong>`;
-            const limFotos = plano.limits?.fotos ? `Até <strong>${plano.limits.fotos} Fotos</strong> por produto` : `Fotos <strong>Ilimitadas</strong>`;
-            const limCat = plano.limits?.cat ? `Até <strong>${plano.limits.cat} Categorias</strong>` : `Categorias <strong>Ilimitadas</strong>`;
+        // Limites (Base)
+        const limProd = plano.limits?.prod ? `Até <strong>${plano.limits.prod} Produtos</strong>` : `Produtos <strong>Ilimitados</strong>`;
+        const limFotos = plano.limits?.fotos ? `Até <strong>${plano.limits.fotos} Fotos</strong> por produto` : `Fotos <strong>Ilimitadas</strong>`;
+        const limCat = plano.limits?.cat ? `Até <strong>${plano.limits.cat} Categorias</strong>` : `Categorias <strong>Ilimitadas</strong>`;
 
-            listHtml += `
-                <li class="flex items-start gap-3"><i class="fas fa-check-circle ${iconColor} mt-0.5 text-base"></i> <span class="text-white">${limProd}</span></li>
-                <li class="flex items-start gap-3"><i class="fas fa-check-circle ${iconColor} mt-0.5 text-base"></i> <span class="text-white">${limFotos}</span></li>
-                <li class="flex items-start gap-3"><i class="fas fa-check-circle ${iconColor} mt-0.5 text-base"></i> <span class="text-white">${limCat}</span></li>
-            `;
-        }
+        let listHtml = `
+            <li class="flex items-start gap-3"><i class="fas fa-check-circle ${iconColor} mt-0.5 text-base"></i> <span class="text-white">${limProd}</span></li>
+            <li class="flex items-start gap-3"><i class="fas fa-check-circle ${iconColor} mt-0.5 text-base"></i> <span class="text-white">${limFotos}</span></li>
+            <li class="flex items-start gap-3"><i class="fas fa-check-circle ${iconColor} mt-0.5 text-base"></i> <span class="text-white">${limCat}</span></li>
+        `;
 
-        // Continua com a Mágica dos Tópicos...
+        // ✨ MAGIA AQUI: Cruzamento Dinâmico. Roda sobre todos os tópicos existentes no Master.
         const pFeat = plano.features || {};
         if(window.globalTopics) {
             window.globalTopics.forEach(t => {
