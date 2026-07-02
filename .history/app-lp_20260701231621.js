@@ -205,7 +205,7 @@ function renderizarCardsPlanos() {
                     </div>
                 </ul>
             </div>
-            <button type="button" onclick="selectPlan('${plano.nome}')" class="w-full py-4 rounded-full border-2 ${btnColor} font-bold transition-all mt-auto text-base uppercase font-['Nunito'] tracking-wider">Testar 7 Dias Grátis</button>
+            <button type="button" onclick="selectPlan('${plano.nome}')" class="w-full py-4 rounded-full border-2 ${btnColor} font-bold transition-all mt-auto text-base uppercase font-['Nunito'] tracking-wider"></button>
         </div>
         `;
     });
